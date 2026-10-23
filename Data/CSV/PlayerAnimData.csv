@@ -1,0 +1,24 @@
+﻿Type,AnimId,Path,speed,animNo,sTime,eTime
+Set,Idle,Data/Model/Player2/BattleIdle.mv1,30,0,0,-1
+Blend,Idle,TRUE/TRUE,10,-1,-1,-1
+Set,Run,Data/Model/Player2/FastRun.mv1,30,0,0,-1
+Blend,Run,TRUE/TRUE,10,-1,-1,-1
+Set,Fall,Data/Model/Player2/Running Jump.mv1,5,-1,9,10
+Add,Fall,Data/Model/Player2/Running Jump.mv1,5,-1,10,9
+Blend,Fall,TRUE/TRUE,5,-1,-1,-1
+Set,Jump,Data/Model/Player2/Running Jump.mv1,30,-1,0,9
+Blend,Jump,TRUE/TRUE,5,-1,-1,-1
+Set,Step,Data/Model/Player2/BackStep.mv1,50,0,15,-1
+Blend,Step,TRUE/TRUE,5,-1,-1,-1
+Set,Dead,Data/Model/Player2/Dying.mv1,30,0,0,-1
+Blend,Dead,TRUE/TRUE,5,-1,-1,-1
+Set,Attack1,Data/Model/Player2/CA1.mv1,50,0,0,-1
+Blend,Attack1,TRUE/TRUE,5,-1,-1,-1
+Set,Attack2,Data/Model/Player2/CA2.mv1,50,0,25,-1
+Blend,Attack2,TRUE/TRUE,5,-1,-1,-1
+Set,Attack3,Data/Model/Player2/CA3.mv1,50,0,20,-1
+Blend,Attack3,TRUE/TRUE,5,-1,-1,-1
+Set,Skill,Data/Model/Player2/Counterattack.mv1,30,0,30,-1
+Blend,Skill,TRUE/TRUE,5,-1,-1,-1
+Set,Damage,Data/Model/Player2/Damage.mv1,30,0,0,-1
+Blend,Damage,TRUE/TRUE,10,-1,-1,-1

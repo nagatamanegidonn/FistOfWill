@@ -1,0 +1,5 @@
+﻿名前,アクタータイプ,座標X,座標Y,座標Z,回転X,回転Y,回転Z,大きさX,大きさY,大きさZ,モデルのパス
+Player,Character,0,0,0,0,0,0,1,1,1,Player/Player
+Enemy,Character,0,5,130,0,180,0,4,4,4,Enemy/Boss/Boss3
+Enemy,Character,0,2.73,31.81,0,180,0,0.3,0.3,0.3,Enemy/Normal/Robot1
+Enemy,Character,0,2.22,55,0,180,0,0.3,0.3,0.3,Enemy/Normal/Robot1

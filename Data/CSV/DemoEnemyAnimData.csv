@@ -1,0 +1,15 @@
+﻿Type,AnimId,Path,speed,animNo,sTime,eTime
+Set,Idle,Data/Model/Player2/LookIdle.mv1,30,0,0,-1
+Blend,Idle,TRUE/TRUE,10,-1,-1,-1
+Set,Damage,Data/Model/Player2/Damage.mv1,30,0,0,-1
+Blend,Damage,TRUE/TRUE,10,-1,-1,-1
+Set,Run,Data/Model/Player2/FastRun.mv1,30,0,0,-1
+Blend,Run,TRUE/TRUE,10,-1,-1,-1
+Set,Dead,Data/Model/Player2/Dying.mv1,30,0,0,-1
+Blend,Dead,TRUE/TRUE,5,-1,-1,-1
+Set,BattleIdle,Data/Model/Player2/BattleIdle.mv1,30,0,0,-1
+Blend,BattleIdle,TRUE/TRUE,5,-1,-1,-1
+Set,HiDamage,Data/Model/Player2/HiDamage.mv1,30,0,0,-1
+Blend,HiDamage,TRUE/TRUE,5,-1,-1,-1
+Set,Attack,Data/Model/Player2/CA2.mv1,20,0,25,55
+Blend,Attack,TRUE/TRUE,5,-1,-1,-1

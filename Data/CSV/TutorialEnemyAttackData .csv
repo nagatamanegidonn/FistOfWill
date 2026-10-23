@@ -1,0 +1,2 @@
+﻿Index,AnimId,Power,AttackWait,StartTime,CancelTime,FrameName,Radius,ForwardSpeed,NextAttackIndex,AttackType,isAbsoluteReaction_,ColliderTag
+0,Attack,0,1,40,45,mixamorig:RightHand,100,1,0,Fowrad,FALSE,HOSTILITY
