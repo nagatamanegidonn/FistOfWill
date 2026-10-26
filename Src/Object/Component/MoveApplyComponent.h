@@ -23,6 +23,7 @@ public:
 protected:
 
     void SetGoalRotate(double rotRad);
+
 };
 
 

@@ -13,7 +13,9 @@ public:
 
 	// ‰Šú‰»ˆ—
 	void Init() override;
+
 	// XVˆ—
 	void Update() override;
+
 };
 

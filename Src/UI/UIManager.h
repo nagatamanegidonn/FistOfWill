@@ -6,6 +6,7 @@ class UIBase;
 class UIManager final
 {
 private:
+
 	//シングルトンの準備
 	UIManager() = default;
 	~UIManager() = default;
@@ -15,15 +16,19 @@ private:
 	//ムーブ禁止
 	UIManager(UIManager&&) = delete;
 	UIManager& operator = (UIManager&&) = delete;
+
 public:
+
 	//インスタンスを取得
 	static UIManager& GetInstance()
 	{
 		static UIManager instance;
 		return instance;
 	}
+
 	//登録
 	void Entry(std::shared_ptr<UIBase> ui);
+
 	//解除
 	void Exit(std::shared_ptr<UIBase> ui);
 
@@ -38,15 +43,18 @@ public:
 
 	//描画するか
 	void SetIsDraw(bool isDraw) { m_isDraw = isDraw; };
+
 private:
+
 	std::list<std::shared_ptr<UIBase>> m_uis;
+
 private:
+
 	//削除チェック
 	void CheckDelete();
 
 	//描画するか
 	bool m_isDraw = true;
-
 
 };
 

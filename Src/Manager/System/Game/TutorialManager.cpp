@@ -59,7 +59,7 @@ void TutorialManager::Update(void)
 
 void TutorialManager::Destroy(void)
 {
-	//自身のインスタンス削除
+	// 自身のインスタンス削除
 	delete instance_;
 	instance_ = nullptr;
 }

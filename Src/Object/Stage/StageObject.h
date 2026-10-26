@@ -27,7 +27,6 @@ public:
 
 private:
 
-
 	// シェーダ
 	std::unique_ptr<ModelMaterial> material_;
 	std::unique_ptr<ModelRenderer> renderer_;

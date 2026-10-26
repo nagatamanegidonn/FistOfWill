@@ -57,11 +57,11 @@ void StageManager::Restart()
 
 void StageManager::LoadStageJson(const std::wstring& jsonText)
 {
-	// 1. JSONデータのロード
+	// JSONデータのロード
 	auto jsonData = JsonUtility::LoadJson(Application::PATH_JSON + jsonText);
 	if (jsonData.is_null()) return;
 
-	// 2. 解析処理
+	// 解析処理
 	for (const auto& stageData : jsonData)
 	{
 		std::string type = stageData.value("type", "");
@@ -81,7 +81,7 @@ void StageManager::LoadStageJson(const std::wstring& jsonText)
 		scl.y = stageData["scl"].value("y", 1.0f);
 		scl.z = stageData["scl"].value("z", 1.0f);
 
-		// 3. タイプに応じて生成処理を分岐
+		// タイプに応じて生成処理を分岐
 		if (type == "plane") {
 			CreatePlane(pos, rot, scl);
 		}

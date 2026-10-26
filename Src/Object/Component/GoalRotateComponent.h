@@ -28,5 +28,6 @@ protected:
     VECTOR rotateDir_ = Utility::VECTOR_ZERO;	//‰ñ“]•ûŒü
 
     void SetGoalRotate(double rotRad);
+
 };
 

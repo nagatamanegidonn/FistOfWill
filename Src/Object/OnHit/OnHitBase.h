@@ -36,5 +36,6 @@ protected:
 
 	//Õ“ËŒã‚Ìˆ—‚ğŠÇ—‚·‚éƒ}ƒbƒv
 	std::unordered_map<Collider::TAG, std::function<void(const std::weak_ptr<Collider>&)>> onHitMap_;
+
 };
 

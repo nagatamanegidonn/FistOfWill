@@ -29,10 +29,8 @@ public:
     void SetSentence(const std::wstring text);
     void AddSentence(const std::wstring text);
 
-
 protected:
 
-   
     // ï∂èÕ
 	std::wstring sentence_;
     

@@ -36,4 +36,5 @@ protected:
 	std::unique_ptr<SwordTrailData> swordTrail_;
 	std::unique_ptr<SwordTrailMaterial> trailMaterial_;
 	std::unique_ptr<SwordTrailRenderer> trailRenderer_;
+
 };

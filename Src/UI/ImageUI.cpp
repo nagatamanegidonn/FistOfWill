@@ -19,18 +19,18 @@ ImageUI::ImageUI()
 }
 
 ImageUI::ImageUI(Vector2 pos, const std::wstring& resourceKey)
-    : UIBase()
-    , pos_(pos)
-    , posLocal_(Vector2(0.0f, 0.0f))
-    , resourceKey_(resourceKey)
-    , handle_(-1)
-    , handleIds_(nullptr)
-    , maxFrames_(0)
-    , frameIndex_(0)
-    , scale_(1.0f)
-    , angle_(0.0f)
-    , transFlag_(true)
-    , turnFlag_(false)
+    : UIBase(),
+    pos_(pos),
+    posLocal_(Vector2(0.0f, 0.0f)),
+    resourceKey_(resourceKey),
+    handle_(-1),
+    handleIds_(nullptr),
+    maxFrames_(0),
+    frameIndex_(0),
+    scale_(1.0f),
+    angle_(0.0f),
+    transFlag_(true),
+    turnFlag_(false)
 {
 }
 

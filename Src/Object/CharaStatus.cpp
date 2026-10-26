@@ -3,15 +3,15 @@
 CharaStatus::CharaStatus(void)
 {
 	// ステータス
-	m_maxHp = 10;			// 最大体力
-	m_nowHp = 10;			// 現在体力
-	m_at = 10;				// 攻撃力
-	m_df = 10;				// 防御力
-	m_ms = 10;				// 移動速度
-	m_jp = 10;				// ジャンプ力
-	m_ar = Armor::Light;	// アーマー
-	m_searchRange = 1000.0f;// 索敵半径
-	m_searchAngle = 10;		// 索敵アングル
+	m_maxHp = 10;				// 最大体力
+	m_nowHp = 10;				// 現在体力
+	m_at = 10;					// 攻撃力
+	m_df = 10;					// 防御力
+	m_ms = 10;					// 移動速度
+	m_jp = 10;					// ジャンプ力
+	m_ar = Armor::Light;		// アーマー
+	m_searchRange = 1000.0f;	// 索敵半径
+	m_searchAngle = 10;			// 索敵アングル
 	m_meleeAttackRange = 10;	// 近接攻撃距離
 
 	// 状態

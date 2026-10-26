@@ -33,4 +33,5 @@ private:
 	// Šù‘¶‚Ì OnHitStage ‚ğ®—‚·‚é‚½‚ß‚ÌŠÖ”
 	void ProcessLineHit(Line& line, Geometry& opponentGeo);
 	void ProcessCapsuleHit(Capsule& capsule, Geometry& opponentGeo);
+
 };

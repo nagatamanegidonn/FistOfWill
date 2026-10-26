@@ -28,9 +28,6 @@ public:
 		R_RIGHT,
 		R_LEFT,
 		// ƒAƒNƒVƒ‡ƒ“
-		DRAW,
-		CLOSE,
-		
 		ATTACK,
 		SKILL,
 		STEP,

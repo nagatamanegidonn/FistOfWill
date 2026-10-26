@@ -36,7 +36,6 @@ Grid::~Grid(void)
 void Grid::Init(void)
 {
 	// ※モデルのテクスチャの参照先がおかしいの白く描画されます
-
 	transform_ = Transform();
 	transform_.pos.y = -100.0f;
 	transform_.Update();
@@ -100,7 +99,6 @@ void Grid::Draw(void)
 }
 void Grid::DrawDebug(void)
 {
-
 	// 【練習】最初の１本
 	//VECTOR sPos = { 0.0f, 0.0f, 0.0f };
 	//VECTOR ePos = { HLEN, 0.0f, 0.0f };

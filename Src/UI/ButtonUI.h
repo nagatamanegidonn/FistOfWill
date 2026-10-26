@@ -56,5 +56,6 @@ private:
 
 	// クリック時に実行する関数
     std::function<void()> function_;
+
 };
 

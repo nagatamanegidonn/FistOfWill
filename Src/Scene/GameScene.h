@@ -44,8 +44,6 @@ private:
 	// タイマー
 	std::unique_ptr<Timer> timer_;
 
-	std::string textId_;
-
 	// アクター管理
 	std::shared_ptr<ActorManager> actorManager_;
 	std::shared_ptr<StageManager> stageManager_;

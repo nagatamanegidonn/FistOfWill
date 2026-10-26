@@ -38,5 +38,6 @@ public:
 
     // 攻撃コライダーに付与するタグ（デフォルトは中立や敵対など）
     Collider::TAG colliderTag;
+
 };
 

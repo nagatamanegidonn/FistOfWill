@@ -40,21 +40,21 @@ void AttackManager::Update(float deltaTime)
 
     attackTimer_ += deltaTime;
 
-    // 1. 攻撃判定の発生タイミング判定
+    // 攻撃判定の発生タイミング判定
     if (!isHitActive_ && attackTimer_ >= currentAttack_->startHitTime && attackTimer_ <= currentAttack_->endHitTime)
     {
         isHitActive_ = true;
         CreateAttackCollider();
     }
 
-    // 2. 攻撃判定の終了タイミング判定
+    // 攻撃判定の終了タイミング判定
     if (isHitActive_ && attackTimer_ > currentAttack_->endHitTime)
     {
         isHitActive_ = false;
         DestroyAttackCollider();
     }
 
-    // 3. 攻撃全体の終了判定
+    // 攻撃全体の終了判定
     // アニメーションが終わるか、攻撃時間が終わったらリセット
     if (attackTimer_ >= currentAttack_->endHitTime /* もしくはアニメ終了時間 */)
     {

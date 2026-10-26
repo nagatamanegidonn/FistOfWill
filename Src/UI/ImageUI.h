@@ -7,9 +7,11 @@ class ImageUI :
     public UIBase
 {
 public:
-    // コンストラクタ / デストラクタ
+
+    // コンストラクタ
     ImageUI();
     ImageUI(Vector2 pos, const std::wstring& resourceKey = L"");
+    // デストラクタ
     virtual ~ImageUI();
 
     // UIBaseのオーバーライド
@@ -51,10 +53,12 @@ public:
     void SetIsFrontDraw(bool isFront) { m_isFrontDraw = isFront; }
 
 private:
+
     // リソースの再読み込み・キャッシュ更新
     void CheckResource();
 
 private:
+
     Vector2 pos_;             // ワールド座標
     Vector2 posLocal_;        // ローカルオフセット座標
     std::wstring resourceKey_;// ResourceManager用の登録キー

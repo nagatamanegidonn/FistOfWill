@@ -16,7 +16,7 @@ public :
 		//-----------------------------------------------------------------
 		// 追加後は必ずマネージャーにて当たり判定範囲を設定してください
 		//-----------------------------------------------------------------
-		NONE = -1,		//なし
+		NONE = -1,		// なし
 
 		PLAYER1 = 0,	//プレイヤー1
 		PLAYER2 = 1,	//プレイヤー2
@@ -65,25 +65,25 @@ public :
 	// デストラクタ
 	~Collider(void);
 
-	//衝突用タグの取得
+	// 衝突用タグの取得
 	inline const TAG GetTag(void)const { return myTag_; }
 
-	//当たり判定の形状を取得
+	// 当たり判定の形状を取得
 	inline Geometry& GetGeometry(void)const { return *geometry_; }
 
-	//衝突させないタグの取得
+	// 衝突させないタグの取得
 	inline const std::set<TAG>& GetNotHitTags(void)const { return notHitTags_; }
 
-	//所持者を取得
+	// 所持者を取得
 	inline const ActorBase& GetOwner(void)const { return owner_; }
 
-	//当たったかの判定の取得
+	// 当たったかの判定の取得
 	inline const bool IsHit(void)const { return isHit_; }
 
-	//終了判定の取得
+	// 終了判定の取得
 	inline const bool IsDead(void)const { return isDead_; }
 
-	//終了処理(所持者の解放時に置く)
+	// 終了処理(所持者の解放時に置く)
 	void Kill(void);
 
 	/// @brief 当たった時の処理
@@ -104,7 +104,7 @@ public :
 
 private:
 
-	//所持者
+	// 所持者
 	ActorBase& owner_;
 
 	// 自身の衝突用タグ
@@ -113,15 +113,15 @@ private:
 	// 衝突しないタグ
 	std::set<TAG> notHitTags_;
 
-	//当たり判定の形状
+	// 当たり判定の形状
 	std::unique_ptr<Geometry> geometry_;
 
-	//当たったかの判定
+	// 当たったかの判定
 	bool isHit_;
 
-	//当たった相手のコライダ
+	// 当たった相手のコライダ
 	std::weak_ptr<Collider> hitCollider_;
 
-	//終了判定
+	// 終了判定
 	bool isDead_;
 };

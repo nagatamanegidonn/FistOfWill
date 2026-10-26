@@ -17,8 +17,10 @@ public:
 
 	// 初期化
 	void Init(void);
+
 	// 解放(シーン切替時に一旦解放)
 	void Release(void);
+
 	// リソースの完全破棄
 	void Destroy(void);
 
@@ -35,9 +37,8 @@ public:
 	void Stop(int src);	// 音源を停止する
 	void AllStop(void);	// 音源を停止する
 
-	bool CheckMove(int src);
-
-	void ChengeVolume(int src, float per);	//per 0.0～1.0でパーセントを設定する
+	bool CheckMove(int src);				// 音の再生チェック
+	void ChengeVolume(int src, float per);	// per 0.0～1.0でパーセントを設定する
 
 private:
 	

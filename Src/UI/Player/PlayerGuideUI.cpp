@@ -6,7 +6,6 @@
 
 namespace
 {
-
 }
 
 PlayerGuideUI::PlayerGuideUI(std::shared_ptr<InputController> input)
@@ -66,9 +65,6 @@ PlayerGuideUI::~PlayerGuideUI(void)
 void PlayerGuideUI::Update(void)
 {
 	if (!m_isDraw)return;
-
-
-
 }
 
 void PlayerGuideUI::Draw(void) const
@@ -86,7 +82,6 @@ void PlayerGuideUI::Draw(void) const
 			{
 				ui.lock()->Draw();
 			}
-
 		}
 		else if (input->IsPeripheralTriggered(InputController::PeripheralType::GAME_PAD))
 		{
@@ -94,7 +89,6 @@ void PlayerGuideUI::Draw(void) const
 			for (auto& ui : guideUIs_)
 			{
 					ui.lock()->Draw();
-				
 			}
 		}
 	}

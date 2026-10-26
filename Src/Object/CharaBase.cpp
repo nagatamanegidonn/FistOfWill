@@ -45,7 +45,6 @@ CharaBase::CharaBase(void)
 	charaStatus_ = std::make_shared<CharaStatus>();
 
 	prePos_ = VECTOR();
-
 }
 
 std::shared_ptr<CharaStatus> CharaBase::GetCharaStatus() const
@@ -100,7 +99,6 @@ void CharaBase::UpdateTarget(void)
 				target_ = closestTarget_;
 			}
 		}
-
 		return;
 	}
 

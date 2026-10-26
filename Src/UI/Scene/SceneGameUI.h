@@ -12,8 +12,5 @@ public:
     // デストラクタ
     ~SceneGameUI(void);
 
-protected:
-
-
 };
 

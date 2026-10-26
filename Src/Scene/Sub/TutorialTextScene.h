@@ -11,7 +11,9 @@ class TutorialTextScene :
 
 public:
 
+	// コンストラクタ
 	TutorialTextScene(const std::wstring text = L"");
+	// デストラクタ
 	~TutorialTextScene(void);
 
 	void Update(void) override;
@@ -25,6 +27,7 @@ private:
 
 	// UI
 	std::shared_ptr<SentenceUI> SentenceUI_;
+
 };
 
 

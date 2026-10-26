@@ -12,10 +12,10 @@ class EnemyGaugeUI :
 public:
     // 引数に敵のステータスと、追従する3D座標へのポインタ（または取得元）を取る
     EnemyGaugeUI(std::shared_ptr<CharaStatus> status, const VECTOR& targetWorldPos);
-    ~EnemyGaugeUI();
+    ~EnemyGaugeUI(void);
 
-    void Update() override;
-    void Draw() const override;
+    void Update(void) override;
+    void Draw(void) const override;
 
     // 頭上オフセットの調整
     void SetOffset(float offsetY) { m_offsetY = offsetY; }

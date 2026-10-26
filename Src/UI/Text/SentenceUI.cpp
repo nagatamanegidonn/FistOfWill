@@ -58,7 +58,6 @@ void SentenceUI::Update(void)
 		}
 	}
 
-
 	// マウスの前フレームの位置を更新
 	agoMousePos_ = moPos;
 }

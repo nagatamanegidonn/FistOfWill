@@ -9,7 +9,6 @@ using json = nlohmann::json;
 
 class TutorialManager
 {
-
 public:
 
 	// ゲーム結果
@@ -82,4 +81,5 @@ private:
 	bool isNextTutorial_;
 
 	float waitTime_; // 次のチュートリアルに進むまでの待機時間
+
 };

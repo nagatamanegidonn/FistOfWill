@@ -24,7 +24,6 @@ SelectUI::SelectUI(void)
 
 SelectUI::~SelectUI(void)
 {
-
 }
 
 void SelectUI::Update(void)
@@ -41,7 +40,7 @@ void SelectUI::Update(void)
 	auto& input = InputManager::GetInstance();
 	Vector2 moPos = input.GetMousePos();
 
-	// ★マウスカーソルがUIの上にあるか判定
+	// マウスカーソルがUIの上にあるか判定
 	if (agoMousePos_.x != moPos.x
 		|| agoMousePos_.y != moPos.y)
 	{
@@ -145,13 +144,7 @@ void SelectUI::Draw(void) const
 
 	if (auto activeUI = selectUI_.lock())
 	{
-		// ButtonUIから現在の中心座標を取得するメソッド（GetCenterPos() 等）があると仮定
-		// もし無ければ、各UIの生成位置の定数(B1_C_POSなど)を元にするか、ButtonUI側に座標ゲッターを追加してください。
-		//Vector2 targetPos = activeUI->GetPos();
-		
 		int dis = WIDTH / 2 + 50;
-
-
 		// カーソルの描画
 		DrawTriangle(cursorPos_.x - dis, cursorPos_.y - 10,
 			cursorPos_.x - dis, cursorPos_.y + 10,
@@ -161,8 +154,6 @@ void SelectUI::Draw(void) const
 			cursorPos_.x - dis, cursorPos_.y + 10,
 			cursorPos_.x - dis + 20, cursorPos_.y,
 			0x00000, false);
-
-		//cursorRenderer_->Draw(targetPos.x - WIDTH, targetPos.y);
 	}
 }
 
@@ -214,9 +205,7 @@ void SelectUI::ChangeMenuState(int menuId)
 				otherButton->EnableDraw();
 			}
 		}
-
 	}
-
 }
 
 void SelectUI::UpdateManu(void)

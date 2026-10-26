@@ -49,4 +49,5 @@ protected:
 	std::vector<std::unique_ptr<ModelRenderer>> renderers_;
 
 	std::unique_ptr<ModelMaterial> material_;
+
 };

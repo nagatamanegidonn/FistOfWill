@@ -17,7 +17,6 @@ SkyDome::~SkyDome(void)
 
 void SkyDome::Init(void)
 {
-
 	// モデル制御の基本情報
 	transform_.SetModel(
 		ResourceManager::GetInstance().LoadModelDuplicate(L"SkyDorm"));
@@ -45,12 +44,10 @@ void SkyDome::Init(void)
 	{
 		ChangeState(STATE::FOLLOW);
 	}
-
 }
 
 void SkyDome::Update(void)
 {
-
 	// 更新ステップ
 	switch (state_)
 	{
@@ -64,7 +61,6 @@ void SkyDome::Update(void)
 		UpdateFollow();
 		break;
 	}
-
 }
 
 void SkyDome::Draw(void)
@@ -74,7 +70,6 @@ void SkyDome::Draw(void)
 
 void SkyDome::ChangeState(STATE state)
 {
-
 	// 状態変更
 	state_ = state;
 
@@ -91,7 +86,6 @@ void SkyDome::ChangeState(STATE state)
 		ChangeStateFollow();
 		break;
 	}
-
 }
 
 void SkyDome::ChangeStateNone(void)

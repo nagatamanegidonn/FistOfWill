@@ -160,10 +160,6 @@ void SceneUI::Draw(void) const
 
 	if (auto activeUI = selectUI_.lock())
 	{
-		// ButtonUIから現在の中心座標を取得するメソッド（GetCenterPos() 等）があると仮定
-		// もし無ければ、各UIの生成位置の定数(B1_C_POSなど)を元にするか、ButtonUI側に座標ゲッターを追加してください。
-		//Vector2 targetPos = activeUI->GetPos();
-
 		int dis = WIDTH / 2 + 50;
 
 		// カーソルの描画

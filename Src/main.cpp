@@ -24,6 +24,7 @@ static void TestShared(std::shared_ptr<int> a)
 	// シェアードポインタの参照カウント
 	int cnt3 = testSha_.use_count();
 }
+
 // 高性能GPU（NVIDIA / AMD）を優先的に使用させるためのエクスポート設定
 extern "C" {
 	_declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001;
@@ -35,7 +36,6 @@ extern "C" {
 int WINAPI WinMain(_In_ HINSTANCE hInstance, 
 	_In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow)
 {
-	
 	// メモリリーク検出
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 

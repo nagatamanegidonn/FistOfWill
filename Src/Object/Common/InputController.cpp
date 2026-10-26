@@ -85,21 +85,6 @@ InputController::InputController(int padType)
             }
         },
         // アクション
-        {KEY::DRAW,// 抜刀コマンド
-            {
-                {PeripheralType::KEYBOARD,KEY_INPUT_RETURN},
-                {PeripheralType::KEYBOARD,KEY_INPUT_F},
-                {PeripheralType::GAME_PAD_INS,(int)InputManager::JOYPAD_BTN::TOP},
-                {PeripheralType::MOUSE,MOUSE_INPUT_LEFT},
-            }
-        },
-        {KEY::CLOSE,// 納刀コマンド
-            {
-                {PeripheralType::KEYBOARD,KEY_INPUT_F},
-                {PeripheralType::GAME_PAD_INS,(int)InputManager::JOYPAD_BTN::LEFT}, 
-                {PeripheralType::MOUSE,MOUSE_INPUT_RIGHT},
-            }
-        },
         {KEY::ATTACK,// 攻撃コマンド
             {
                 {PeripheralType::MOUSE,MOUSE_INPUT_LEFT},

@@ -82,8 +82,6 @@ void GameScene::Init(void)
 	// ‰Šú‰»
 	SceneManager::GetInstance().SetGameResult(SceneManager::GAME_RESULT::NONE);
 
-	textId_ = "";
-
 	actorManager_ = std::make_shared<ActorManager>();
 	actorManager_->Init();
 

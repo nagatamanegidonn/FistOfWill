@@ -17,8 +17,10 @@ public:
 
 	// 初期化処理
 	virtual void Init(void) override;
+
 	// 更新処理
 	virtual void Update(void) override;
+
 	// 描画処理
 	virtual void Draw(void) override;
 
@@ -42,5 +44,6 @@ protected:
 	std::shared_ptr<AttackData> attackData_;// CSVから読み込んだこの攻撃のパラメータ
 
 	float lifeTimer_;                       // 遠隔弾などの持続時間管理用
+
 };
 

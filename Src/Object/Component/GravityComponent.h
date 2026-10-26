@@ -22,5 +22,6 @@ public:
 protected:
 
 	VECTOR gravityPow_; // d—Í‚Ì‹­‚³
+
 };
 

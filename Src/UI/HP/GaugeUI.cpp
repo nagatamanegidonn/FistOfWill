@@ -63,15 +63,15 @@ void GaugeUI::Draw() const
 	// ゲージの中身（中身の右端X座標を割合に応じて計算）
 	int gaugeRight = left + static_cast<int>(m_size.x * rate);
 
-	// 1. 下地（背景・ダメージ領域など：黒や暗い赤）
+	// 下地（背景・ダメージ領域など：黒や暗い赤）
 	DrawBox(left, top, right, bottom, 0x333333, true);
 
-	// 2. ゲージ本体（現在の値分を塗る）
+	// ゲージ本体（現在の値分を塗る）
 	if (gaugeRight > left)
 	{
 		DrawBox(left, top, gaugeRight, bottom, m_barColor, true);
 	}
 
-	// 3. 枠線（白枠）
+	// 枠線（白枠）
 	DrawBox(left, top, right, bottom, 0xffffff, false);
 }

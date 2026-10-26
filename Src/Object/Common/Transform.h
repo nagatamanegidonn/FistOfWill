@@ -42,9 +42,6 @@ public:
 	// ローカル回転
 	Quaternion quaRotLocal;
 
-	// コライダ
-	//std::shared_ptr<Collider> collider;
-
 	/// <summary>
 	/// モデル制御の基本情報更新
 	/// </summary>

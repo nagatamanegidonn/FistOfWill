@@ -35,4 +35,5 @@ private:
 	void ProcessCapsuleHit(Capsule& capsule, Geometry& opponentGeo);
 
 	bool isAgoReaction_ = false; // ”½‰Ï‚İ‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒO
+
 };

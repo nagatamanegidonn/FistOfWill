@@ -23,7 +23,6 @@ public:
     virtual void PostUpdate(void) override;
 	virtual void Draw(void) override;
 
-
 protected:
 
     //コンポーネントで操作するアクターベース
@@ -32,5 +31,6 @@ protected:
     void Move(void);
     void Lerp(void);
     void HitMove(void);
+
 };
 

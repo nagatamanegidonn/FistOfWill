@@ -37,7 +37,6 @@ public:
 	//“–‚½‚è”»’è
 	void OnHit(const std::weak_ptr<Collider> _hitCol) override;
 
-
 private:
 
 	VECTOR hipsPos_;	//ƒqƒbƒv‚ÌˆÊ’u

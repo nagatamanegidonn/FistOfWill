@@ -39,21 +39,6 @@ void StageObject::Init(void)
 	const float mTime = SceneManager::GetInstance().GetTotalGameTime();
 
 	renderer_ = std::make_unique<ModelRenderer>(transform_.modelId, *material_);
-
-	return;
-	// ポストエフェクト用(モノトーン)
-	material_ = std::make_unique<ModelMaterial>(
-		L"StdModelVS.cso", 0,
-		L"StdModelPS.cso", 2);
-	material_->AddConstBufPS({ 200.0f,200.0f,1.0f,1.0f });
-	material_->AddConstBufPS({ light.x,light.y,light.z,1.0f });
-	material_->AddConstBufPS({ 0.2f,0.2f,0.2f,1.0f });//環境光を追加
-
-	material_->SetTextureBuf(0, ResourceManager::GetInstance().Load(L"PlaneTex").handleId_);
-	material_->SetTextureAddress(ModelMaterial::TEXADDRESS::WRAP);
-
-	renderer_ = std::make_unique<ModelRenderer>(transform_.modelId, *material_);
-
 }
 
 void StageObject::Update(void)

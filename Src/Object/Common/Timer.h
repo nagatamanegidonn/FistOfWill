@@ -10,8 +10,9 @@ public:
     static constexpr int SIZE_X = 100;
     static constexpr int SIZE_Y = 100;
 
-
+    // コンストラクタ
     Timer(float limitSeconds); // 制限時間（秒）を指定して初期化
+    // デストラクタ
     ~Timer(void);
 
     void Start();              // タイマー開始
@@ -37,4 +38,5 @@ private:
     int freamHandle_ = -1;
     int needleHandle_ = -1;
     int endHandle_ = -1;
+
 };

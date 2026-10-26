@@ -6,8 +6,12 @@ class UIBase abstract :
 	public std::enable_shared_from_this<UIBase>
 {
 public:
+
+	// コンストラクタ
 	UIBase();
+	// デストラクタ
 	~UIBase();
+
 	//初期化
 	virtual void Init();
 	//終了
@@ -28,7 +32,9 @@ public:
 	virtual void EnableDraw() { m_isDraw = true; };
 	// 描画を無効にする
 	virtual void DisableDraw() { m_isDraw = false; };
+
 protected:
+
 	//描画順
 	bool m_isFrontDraw;
 	//削除

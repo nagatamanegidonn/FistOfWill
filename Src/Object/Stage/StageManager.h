@@ -20,12 +20,16 @@ public:
 	void Entry(std::shared_ptr<ActorBase> _actor);
 	// ‰ğœ
 	void Exit(std::shared_ptr<ActorBase> _actor);
+
 	// ‰Šú‰»
 	void Init();
+
 	// XV
 	void Update();
+
 	// •`‰æ
 	void Draw();
+
 	// I—¹ˆ—
 	void End();
 

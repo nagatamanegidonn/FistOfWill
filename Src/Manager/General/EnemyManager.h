@@ -22,12 +22,16 @@ public:
 
 	// “o˜^
 	void Entry(std::shared_ptr<EnemyBase> _enemy);
+
 	//‰ğœ
 	void Exit(std::shared_ptr<EnemyBase> _enemy);
+
 	// ‰Šú‰»
 	void Init();
+
 	// XV
 	void Update();
+
 	// I—¹ˆ—
 	void End();
 

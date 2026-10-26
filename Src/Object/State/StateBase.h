@@ -40,7 +40,9 @@ private:
 	std::shared_ptr<StateBase> m_nextState;
 protected:
 
+	// ó‘Ô
 	STATE m_State;
 
+	// ‚¿å
 	std::weak_ptr<ActorBase> owner_;
 };

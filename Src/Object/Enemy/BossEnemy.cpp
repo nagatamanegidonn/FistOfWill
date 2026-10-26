@@ -94,7 +94,7 @@ void BossEnemy::Init(void)
 
 	// カプセルコライダの作成
 	geo = std::make_unique<Capsule>(transform_.pos, transform_.pos, transform_.quaRot
-		, VECTOR(0.0f, 60.0f + 100.0f, 0.0f), VECTOR(0.0f, 60.0f + 10.0f, 0.0f), 60.0f);
+		, CUPSULE_UP, CUPSULE_DOWN, CUPSULE_RAD);
 	this->MakeCollider(Collider::TAG::MACHINE, std::move(geo), { Collider::TAG::FOOT });
 
 	// 当たり判定後処理

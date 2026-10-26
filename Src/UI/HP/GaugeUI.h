@@ -13,10 +13,10 @@ public:
 
     GaugeUI(std::shared_ptr<CharaStatus> status);
     GaugeUI(std::shared_ptr<CharaStatus> status,Vector2 pos, Vector2 size);
-    ~GaugeUI();
+    ~GaugeUI(void);
 
-    void Update() override;
-    void Draw() const override;
+    void Update(void) override;
+    void Draw(void) const override;
 
     // バーの色を指定する
     void SetColor(unsigned int color) { m_barColor = color; }
