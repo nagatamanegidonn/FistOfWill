@@ -1,10 +1,10 @@
 
-#include "GaugeUI.h"
+#include "HpGaugeUI.h"
 #include "../Object/CharaStatus.h"
 #include <DxLib.h>
 #include <algorithm>
 
-GaugeUI::GaugeUI(std::shared_ptr<CharaStatus> status)
+HpGaugeUI::HpGaugeUI(std::shared_ptr<CharaStatus> status)
 	: UIBase()
 	, m_charaStatus(status)
 	, m_pos(Vector2(100, 100))
@@ -15,7 +15,7 @@ GaugeUI::GaugeUI(std::shared_ptr<CharaStatus> status)
 {
 }
 
-GaugeUI::GaugeUI(std::shared_ptr<CharaStatus> status,Vector2 pos, Vector2 size)
+HpGaugeUI::HpGaugeUI(std::shared_ptr<CharaStatus> status,Vector2 pos, Vector2 size)
 	: UIBase()
 	, m_charaStatus(status)
 	, m_pos(pos)
@@ -26,11 +26,11 @@ GaugeUI::GaugeUI(std::shared_ptr<CharaStatus> status,Vector2 pos, Vector2 size)
 {
 }
 
-GaugeUI::~GaugeUI()
+HpGaugeUI::~HpGaugeUI()
 {
 }
 
-void GaugeUI::Update()
+void HpGaugeUI::Update()
 {
 	if (m_charaStatus.expired()) return;
 	// アニメーション（徐々にゲージが減る効果など）を追加したい場合はここに記述します
@@ -41,7 +41,7 @@ void GaugeUI::Update()
 
 }
 
-void GaugeUI::Draw() const
+void HpGaugeUI::Draw() const
 {
 	if (!m_isDraw) return;
 

@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "UIBase.h"
+#include "../UIBase.h"
 #include "../Common/Vector2.h"
 
 class ImageUI : 
@@ -52,12 +52,10 @@ public:
     // UIBase::m_isFrontDraw のセッター
     void SetIsFrontDraw(bool isFront) { m_isFrontDraw = isFront; }
 
-private:
+protected:
 
     // リソースの再読み込み・キャッシュ更新
     void CheckResource();
-
-private:
 
     Vector2 pos_;             // ワールド座標
     Vector2 posLocal_;        // ローカルオフセット座標

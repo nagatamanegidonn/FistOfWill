@@ -47,7 +47,6 @@ void ResourceManager::Init(void)
 	RegisterResource(L"PlayerNight", Resource::TYPE::MODEL, PATH_MDL + L"Player2/Player2.mv1");
 	// 敵
 	RegisterResource(L"Enemy", Resource::TYPE::MODEL, PATH_MDL + L"Enemy/Zombie Run.mv1");
-	RegisterResource(L"Boss", Resource::TYPE::MODEL, PATH_MDL + L"Boss/Boss.mv1");
 
 	// スカイドーム
 	RegisterResource(L"SkyDorm", Resource::TYPE::MODEL, PATH_MDL + L"SkyDome/SkyDome.mv1");

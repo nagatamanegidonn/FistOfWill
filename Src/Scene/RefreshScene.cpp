@@ -7,7 +7,7 @@
 #include "../Manager/System/Game/GameManager.h"
 #include "../Manager/General/SceneManager.h"
 
-#include "../UI/ImageUI.h"
+#include "../UI/Image/ImageUI.h"
 #include "../UI/ButtonUI.h"
 #include "../UI/Scene/SceneUI.h"
 

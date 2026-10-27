@@ -62,6 +62,11 @@ public:
 	// ダメージ
 	bool OnDamage(int damage, CharaStatus::AttackWeight weight);
 
+	// スキル時間
+	int GetSkillTime(void) const { return m_skillTime_; };
+	void SetSkillTime(const float time) { m_skillTime_ = time; };
+
+
 private:
 
 	// ステータス
@@ -75,6 +80,8 @@ private:
 	float 			m_searchRange;	// 索敵半径
 	float 			m_searchAngle;	// 索敵アングル
 	float 			m_meleeAttackRange; // 近接攻撃距離
+
+	float m_skillTime_;			// スキルの制限
 
 	// 状態
 	// 無敵

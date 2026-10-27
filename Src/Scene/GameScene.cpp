@@ -12,7 +12,7 @@
 
 #include "../UI/UIBase.h"
 #include "../UI/ButtonUI.h"
-#include "../UI/HP/GaugeUI.h"
+#include "../UI/HP/HpGaugeUI.h"
 #include "../UI/Scene/SceneUI.h"
 
 #include "../Object/Common/Timer.h"

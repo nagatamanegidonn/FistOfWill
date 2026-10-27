@@ -7,6 +7,7 @@
 
 class InputController;
 class ButtonUI;
+class CharaStatus;
 
 class PlayerGuideUI :
     public UIBase
@@ -14,7 +15,7 @@ class PlayerGuideUI :
 public:
 
     // コンストラクタ
-    PlayerGuideUI(std::shared_ptr<InputController> input);
+    PlayerGuideUI(std::shared_ptr<CharaStatus> status,std::shared_ptr<InputController> input);
 
     // デストラクタ
     ~PlayerGuideUI(void);
@@ -38,6 +39,9 @@ public:
     virtual void DisableDraw(void) override;
 
 protected:
+
+    // プレイヤーのステータス
+    std::weak_ptr<CharaStatus> m_charaStatus;
 
     // カーソルの位置
     Vector2 cursorPos_;

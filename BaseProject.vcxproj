@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\UI\Image\SkillImageUI.cpp" />
+    <ClCompile Include="Src\UI\Image\RoundRateImageUI.cpp" />
     <ClCompile Include="Src\Manager\System\Game\TutorialManager.cpp" />
     <ClCompile Include="Src\Object\Player\PlayerState\PlayerStateDamage.cpp" />
     <ClCompile Include="Src\UI\HP\EnemyGaugeUI.cpp" />
@@ -35,7 +37,7 @@
     <ClCompile Include="Src\Renderer\Trail\SwordTrailData.cpp" />
     <ClCompile Include="Src\Renderer\Trail\SwordTrailMaterial.cpp" />
     <ClCompile Include="Src\Renderer\Trail\SwordTrailRenderer.cpp" />
-    <ClCompile Include="Src\UI\HP\GaugeUI.cpp" />
+    <ClCompile Include="Src\UI\HP\HpGaugeUI.cpp" />
     <ClCompile Include="Src\UI\Scene\SceneGameUI.cpp" />
     <ClCompile Include="Src\UI\Scene\SceneUI.cpp" />
     <ClCompile Include="Src\Object\Attack\ForwardAttack.cpp" />
@@ -43,7 +45,7 @@
     <ClCompile Include="Src\Object\Player\SelectPlayer.cpp" />
     <ClCompile Include="Src\UI\Scene\SelectUI.cpp" />
     <ClCompile Include="Src\Scene\SelectScene.cpp" />
-    <ClCompile Include="Src\UI\ImageUI.cpp" />
+    <ClCompile Include="Src\UI\Image\ImageUI.cpp" />
     <ClCompile Include="Src\Manager\System\Camera\ParryCamera.cpp" />
     <ClCompile Include="Src\Object\Attack\BulletAttack.cpp" />
     <ClCompile Include="Src\Object\Attack\MeleeAttack.cpp" />
@@ -153,6 +155,8 @@
     <ClCompile Include="Src\Object\Stage\Destination.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\UI\Image\SkillImageUI.h" />
+    <ClInclude Include="Src\UI\Image\RoundRateImageUI.h" />
     <ClInclude Include="Src\Manager\System\Game\TutorialManager.h" />
     <ClInclude Include="Src\Object\Player\PlayerState\PlayerStateDamage.h" />
     <ClInclude Include="Src\UI\HP\EnemyGaugeUI.h" />
@@ -169,7 +173,7 @@
     <ClInclude Include="Src\Renderer\Trail\SwordTrailData.h" />
     <ClInclude Include="Src\Renderer\Trail\SwordTrailMaterial.h" />
     <ClInclude Include="Src\Renderer\Trail\SwordTrailRenderer.h" />
-    <ClInclude Include="Src\UI\HP\GaugeUI.h" />
+    <ClInclude Include="Src\UI\HP\HpGaugeUI.h" />
     <ClInclude Include="Src\UI\Scene\SceneGameUI.h" />
     <ClInclude Include="Src\UI\Scene\SceneUI.h" />
     <ClInclude Include="Src\Object\Attack\ForwardAttack.h" />
@@ -177,7 +181,7 @@
     <ClInclude Include="Src\Object\Player\SelectPlayer.h" />
     <ClInclude Include="Src\UI\Scene\SelectUI.h" />
     <ClInclude Include="Src\Scene\SelectScene.h" />
-    <ClInclude Include="Src\UI\ImageUI.h" />
+    <ClInclude Include="Src\UI\Image\ImageUI.h" />
     <ClInclude Include="Src\Manager\System\Camera\ParryCamera.h" />
     <ClInclude Include="Src\Object\Attack\BulletAttack.h" />
     <ClInclude Include="Src\Object\Attack\MeleeAttack.h" />

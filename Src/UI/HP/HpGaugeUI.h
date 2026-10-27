@@ -6,14 +6,14 @@
 
 class CharaStatus;
 
-class GaugeUI :
+class HpGaugeUI :
     public UIBase
 {
 public:
 
-    GaugeUI(std::shared_ptr<CharaStatus> status);
-    GaugeUI(std::shared_ptr<CharaStatus> status,Vector2 pos, Vector2 size);
-    ~GaugeUI(void);
+    HpGaugeUI(std::shared_ptr<CharaStatus> status);
+    HpGaugeUI(std::shared_ptr<CharaStatus> status,Vector2 pos, Vector2 size);
+    ~HpGaugeUI(void);
 
     void Update(void) override;
     void Draw(void) const override;

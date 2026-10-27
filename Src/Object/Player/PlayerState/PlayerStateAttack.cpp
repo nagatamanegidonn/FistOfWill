@@ -202,7 +202,7 @@ void PlayerStateAttack::Update()
 	else if (player.lock()->GetInputController().lock()->IsNew(InputController::KEY::ATTACK)
 		&& isNextAttack_)
 	{
-		// 4. ここで次の段数のステートを新しく生成して遷移！
+		// ここで次の段数のステートを新しく生成して遷移！
 		int nextIndex = currentData_->nextAttackId;
 
 		// 次の攻撃がないいならアイドルに戻る

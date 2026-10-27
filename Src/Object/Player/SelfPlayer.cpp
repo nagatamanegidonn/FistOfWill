@@ -16,8 +16,8 @@
 #include "../../Utility/CSVDataLoader.h"
 
 #include "../UI/UIBase.h"
-#include "../UI/ImageUI.h"
-#include "../UI/HP/GaugeUI.h"
+#include "../UI/Image/ImageUI.h"
+#include "../UI/HP/HpGaugeUI.h"
 #include "../UI/Player/PlayerGuideUI.h"
 
 #include "../Attack/AttackData.h"
@@ -39,12 +39,6 @@
 
 namespace
 {
-	// UIサイズ
-	const int WIDTH = 400;
-	const int HEIGHT = 30;
-
-	// UI位置
-	const Vector2 START_C_POS = Vector2(WIDTH / 2 + 10, HEIGHT / 2 + 10);
 }
 
 SelfPlayer::SelfPlayer(int _key)
@@ -52,12 +46,7 @@ SelfPlayer::SelfPlayer(int _key)
 	PlayerBase(_key),
 	hipsPos_(VGet(0.0f, 0.0f, 0.0f))
 {
-	// 外部データ（CSVやJSONから読み込んでもOK、一旦コード内定義の例）
-	//attackDataList_ = {
-	//std::make_shared<AttackData>(AttackData{ 11, 2, 20.0f, L"mixamorig:LeftHand",  20.0f, 1.0f }), // 1段目
-	//std::make_shared<AttackData>(AttackData{ 12, 2, 45.0f, L"mixamorig:RightHand", 20.0f, 1.0f }), // 2段目
-	//std::make_shared<AttackData>(AttackData{ 13, 5, 30.0f, L"mixamorig:LeftHand",  20.0f, 2.0f })  // 3段目 (フィニッシュ)
-	//};
+	// 外部データ
 	LoadCsvAttackData(L"Data/CSV/PlayerAttackData.csv");
 }
 
@@ -129,13 +118,8 @@ void SelfPlayer::Init(void)
 	onHit_ = std::make_shared<PlayerOnHit>(*this);
 
 	// UI
-	// HPゲージUI
-	auto HP_UI = std::make_shared<GaugeUI>(charaStatus_, Vector2(WIDTH, HEIGHT), Vector2(WIDTH, HEIGHT));
-	HP_UI->Init();
-	HP_UI->EnableDraw();
-	SceneManager::GetInstance().AddOtherUI(HP_UI);
 	// プレイヤーガイドUI
-	auto GuideUI = std::make_shared<PlayerGuideUI>(inputController_);
+	auto GuideUI = std::make_shared<PlayerGuideUI>(charaStatus_,inputController_);
 	GuideUI->Init();
 	GuideUI->EnableDraw();
 	SceneManager::GetInstance().AddOtherUI(GuideUI);

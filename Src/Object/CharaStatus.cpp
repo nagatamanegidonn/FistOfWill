@@ -14,6 +14,8 @@ CharaStatus::CharaStatus(void)
 	m_searchAngle = 10;			// 索敵アングル
 	m_meleeAttackRange = 10;	// 近接攻撃距離
 
+	m_skillTime_ = 1.0f;		// スキル時間
+
 	// 状態
 	// 無敵
 	m_isNoDamage = false;
