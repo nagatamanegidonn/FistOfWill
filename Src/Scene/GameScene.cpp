@@ -1,7 +1,6 @@
 #include <DxLib.h>
 #include "../Application.h"
 #include "../Utility/Utility.h"
-#include "../Utility/Measure.h"
 
 #include "../Manager/General/SceneManager.h"
 #include "../Manager/General/ActorManager.h"
@@ -139,11 +138,6 @@ void GameScene::Update(void)
 		DrawFormatString(100, 100, 0xffffff, L"%f", limit);
 		//return;
 	}
-
-#ifdef _DEBUG
-	Measure::GetInstance().Start();
-	Measure::GetInstance().Watch(L"01 Application START");
-#endif
 
 	if (InputManager::GetInstance().IsTrgDown(KEY_INPUT_Q))
 	{

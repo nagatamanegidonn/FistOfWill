@@ -1,6 +1,9 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <memory>
+
+class FpsControl;
 
 class Application
 {
@@ -10,6 +13,9 @@ public:
 	// スクリーンサイズ
 	static constexpr int SCREEN_SIZE_X = 1050;
 	static constexpr int SCREEN_SIZE_Y = 640;
+
+	// FPSレート
+	static constexpr int FPS_RATE = 60;
 
 	// データパス関連
 	//-------------------------------------------
@@ -58,6 +64,9 @@ private:
 	// 静的インスタンス
 	static Application* instance_;
 
+	// FPS
+	std::unique_ptr<FpsControl> fps_;
+
 	// コンストラクタ
 	Application(void);
 
@@ -65,7 +74,7 @@ private:
 	Application(const Application& ins);
 
 	// デストラクタ
-	~Application(void) = default;
+	~Application(void);
 
 	// エラー判定
 	bool isError_;

@@ -13,7 +13,7 @@
 #include "Manager/Resource/SoundManager.h"
 #include "../UI/UIManager.h"
 
-#include "Utility/Measure.h"
+#include "FpsControl/FpsControl.h"
 #include "Application.h"
 
 Application* Application::instance_ = nullptr;
@@ -40,6 +40,13 @@ Application::Application(const Application& ins)
 {
 	isError_ = false;
 	isEnd_ = false;
+}
+
+Application::~Application(void)
+{
+	isError_ = false;
+	isEnd_ = false; 
+	fps_ = nullptr;
 }
 
 void Application::CreateInstance(void)
@@ -82,6 +89,9 @@ void Application::Init(void)
 	// Effekseerのネットワーク機能を初期化する。
 	SetChangeScreenModeGraphicsSystemResetFlag(FALSE);
 
+	// FPS初期化
+	fps_ = std::make_unique<FpsControl>(FPS_RATE);
+
 	if (DxLib_Init() == -1)
 	{
 		isError_ = true;
@@ -104,10 +114,6 @@ void Application::Init(void)
 
 	// シーン管理初期化
 	SceneManager::CreateInstance();
-
-	// 計測
-	Measure::CreateInstance();
-	Measure::GetInstance().Start();
 
 	// ImGui初期化
 	ImGuiWrapper::CreateInstance();
@@ -139,8 +145,6 @@ void Application::Run(void)
 
 		SceneManager::GetInstance().Draw();
 
-		Measure::GetInstance().Draw();
-
 		// 頂点バッファに溜まった頂点データを描画する
 		// DxLibは特定条件のもと、まとめて描画する機能がある
 		// そのため、ScreenFlip関数で溜まっていたDxLib分の描画が実行され、
@@ -150,7 +154,15 @@ void Application::Run(void)
 		RenderVertex();
 		imGuiWrapper.Draw();
 
+
+#ifdef _DEBUG
+		// デバッグフレーム描画
+		fps_->Draw();
+#endif
 		ScreenFlip();
+
+		// フレームレートの計算
+		fps_->Wait();
 	}
 }
 

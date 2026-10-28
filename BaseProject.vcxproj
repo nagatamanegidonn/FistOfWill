@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\FpsControl\FpsControl.cpp" />
     <ClCompile Include="Src\UI\Image\SkillImageUI.cpp" />
     <ClCompile Include="Src\UI\Image\RoundRateImageUI.cpp" />
     <ClCompile Include="Src\Manager\System\Game\TutorialManager.cpp" />
@@ -138,7 +139,6 @@
     <ClCompile Include="Src\Scene\TitleScene.cpp" />
     <ClCompile Include="Src\Utility\ModelFrameUtility.cpp" />
     <ClCompile Include="Src\Utility\Utility.cpp" />
-    <ClCompile Include="Src\Utility\Measure.cpp" />
     <ClCompile Include="Src\Object\Stage\Grid.cpp" />
     <ClCompile Include="Src\Object\Common\Timer.cpp" />
     <ClCompile Include="Src\Object\State\StateBase.cpp" />
@@ -155,6 +155,7 @@
     <ClCompile Include="Src\Object\Stage\Destination.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\FpsControl\FpsControl.h" />
     <ClInclude Include="Src\UI\Image\SkillImageUI.h" />
     <ClInclude Include="Src\UI\Image\RoundRateImageUI.h" />
     <ClInclude Include="Src\Manager\System\Game\TutorialManager.h" />
@@ -320,7 +321,6 @@
     <ClInclude Include="Src\Scene\TitleScene.h" />
     <ClInclude Include="Src\Utility\ModelFrameUtility.h" />
     <ClInclude Include="Src\Utility\Utility.h" />
-    <ClInclude Include="Src\Utility\Measure.h" />
     <ClInclude Include="Src\Object\Stage\Grid.h" />
     <ClInclude Include="Src\Object\Common\Timer.h" />
     <ClInclude Include="Src\Object\State\StateBase.h" />
