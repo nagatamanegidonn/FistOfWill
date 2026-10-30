@@ -139,6 +139,14 @@ void SelfPlayer::Update(void)
 	// 基底クラスの更新
 	PlayerBase::Update();
 
+	// スキルの待機時間計測
+  	/*float time = charaStatus_->GetSkillTime();
+	if (time > 0.0f)
+	{
+		time -= 0.001f;
+		charaStatus_->SetSkillTime(time);
+	}*/
+
 	isGround_ = false;
 	isJust_ = false;
 }

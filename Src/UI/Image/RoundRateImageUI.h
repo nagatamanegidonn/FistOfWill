@@ -26,6 +26,6 @@ public:
 protected:
 
     // •\¦Š„‡i0.0f ` 1.0fj
-    float rate_ = 0.75f;
+    float rate_;
 
 };

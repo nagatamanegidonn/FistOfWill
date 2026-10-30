@@ -63,7 +63,7 @@ public:
 	bool OnDamage(int damage, CharaStatus::AttackWeight weight);
 
 	// ƒXƒLƒ‹ŽžŠÔ
-	int GetSkillTime(void) const { return m_skillTime_; };
+	float GetSkillTime(void) const { return m_skillTime_; };
 	void SetSkillTime(const float time) { m_skillTime_ = time; };
 
 
