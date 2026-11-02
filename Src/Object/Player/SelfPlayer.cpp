@@ -8,6 +8,7 @@
 #include "../Component/GravityComponent.h"
 #include "../Component/GoalRotateComponent.h"
 #include "../Component/MoveApplyComponent.h"
+#include "../Component/DrawOutlineComponent.h"		// アウトライン
 #include "../Component/DrawAfterimageComponent.h"	// 残像
 #include "../Component/DrawTrailComponent.h"		// 
 
@@ -70,6 +71,8 @@ void SelfPlayer::Init(void)
 	component_.emplace_back(std::make_shared<MoveApplyComponent>(shared_from_this()));
 	// 目標回転用のコンポーネントを追加
 	component_.emplace_back(std::make_shared<GoalRotateComponent>(shared_from_this()));
+	// アウトライン描画用のコンポーネントを追加
+	component_.emplace_back(std::make_shared<DrawOutlineComponent>(shared_from_this()));
 	// 残像描画用のコンポーネントを追加
 	auto con = std::make_shared<DrawAfterimageComponent>(shared_from_this());
 	con->SetActive(false);

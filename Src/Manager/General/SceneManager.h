@@ -86,7 +86,7 @@ public:
 	//スクリーンの取得
 	const int& GetMainScreen(void) const;
 
-	const int GetControllId(void)const { return ControllerId_; }
+	const int GetControllId(void) const { return ControllerId_; }
 
 	/// <summary>
 	/// シーンを新しく「積む」

@@ -8,14 +8,17 @@ class ParryCamera :
     public std::enable_shared_from_this<ParryCamera>
 {
 public:
+
     // 自プレイヤー、ターゲット（攻撃を弾いた敵）、演出終了後に戻るカメラ（PlayerCamera）を渡す
+    // コンストラクタ
     ParryCamera(std::shared_ptr<ActorBase> player, std::shared_ptr<ActorBase> enemy, std::shared_ptr<CameraBase> returnCamera);
+    // デストラクタ
     ~ParryCamera(void) override = default;
 
-    void Init() override;
-    void Update() override;
-    void Draw() override {}
-    void Exit() override {}
+    void Init(void) override;
+    void Update(void) override;
+    void Draw(void) override {}
+    void Exit(void) override {}
 
 private:
     std::weak_ptr<ActorBase> player_;       // プレイヤーの参照

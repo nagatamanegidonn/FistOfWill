@@ -38,8 +38,8 @@ public:
 	// ゲーム結果の設定
 	void SetGameResult(GAME_RESULT result);
 
-	const int GetControllId(void)const { return ControllerId_; }
-	const int GetWeponId(void)const { return weponId_; }
+	const int GetControllId(void) const { return ControllerId_; }
+	const int GetWeponId(void) const { return weponId_; }
 	const void SetWeponId(int weponId) { weponId_ = weponId; }
 
 	// シーンを画像保存
@@ -47,15 +47,15 @@ public:
 	const void DrawCapturedScreen(int _x, int _y) const;
 
 	// 接続モードについて
-	const bool IsHost(void)const { return IsHost_; }
+	const bool IsHost(void) const { return IsHost_; }
 	void SetHost(bool value);
 
 	// ステージパスの取得
-	const std::wstring& GetStagePath(void)const { return stagePath_; }
+	const std::wstring& GetStagePath(void) const { return stagePath_; }
 	void SetStagePath(const std::wstring& path) { stagePath_ = path; }
 
 	// エネミーパスの取得
-	const std::wstring& GetEnemyPath(void)const { return enemyPath_; }
+	const std::wstring& GetEnemyPath(void) const { return enemyPath_; }
 	void SetEnemyPath(const std::wstring& path) { enemyPath_ = path; }
 
 private:

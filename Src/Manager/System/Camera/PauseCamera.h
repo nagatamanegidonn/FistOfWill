@@ -8,16 +8,18 @@ class PauseCamera :
 public:
 
     // 元のカメラと、操作対象（プレイヤーなど）の参照を受け取る
+    // コンストラクタ
     PauseCamera(std::shared_ptr<CameraBase> returnCamera);
-    ~PauseCamera() override = default;
+    // デストラクタ
+    ~PauseCamera(void) override = default;
 
-    void Init() override;
-    void Update() override;
-    void Draw() override;
-    void Exit() override;
+    void Init(void) override;
+    void Update(void) override;
+    void Draw(void) override;
+    void Exit(void) override;
 
     // 外部から明示的にポーズ解除を指示したい場合の関数
-    void Resume();
+    void Resume(void);
 
 private:
 

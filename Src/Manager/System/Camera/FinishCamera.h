@@ -8,17 +8,20 @@ class FinishCamera :
     public std::enable_shared_from_this<FinishCamera>
 {
 public:
+
     // ターゲット（倒した敵）と、演出終了後に戻るカメラ（PlayerCameraなど）を渡す
+    // コンストラクタ
     FinishCamera(std::shared_ptr<ActorBase> target, std::shared_ptr<CameraBase> returnCamera);
+    // デストラクタ
     ~FinishCamera(void) override = default;
 
-    void Init() override;
-    void Update() override;
-    void Draw() override {}
-    //void SetBeforeDraw() override {}
-    void Exit() override {}
+    void Init(void) override;
+    void Update(void) override;
+    void Draw(void) override {}
+    void Exit(void) override {}
 
 private:
+
     std::weak_ptr<ActorBase> target_;       // 演出の対象（敵）
     std::shared_ptr<CameraBase> returnCam_; // 終わった後に戻すカメラ
     

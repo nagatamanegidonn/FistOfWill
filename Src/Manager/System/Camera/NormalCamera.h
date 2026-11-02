@@ -12,10 +12,10 @@ public:
 	// デストラクタ
 	~NormalCamera(void) override = default;
 
-	void Init() override;
-	void Update() override;
-	void Draw() override;
-	void Exit() override;
+	void Init(void) override;
+	void Update(void) override;
+	void Draw(void) override;
+	void Exit(void) override;
 
 private:
 

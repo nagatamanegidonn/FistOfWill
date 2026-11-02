@@ -14,14 +14,12 @@ public:
 	// デストラクタ
 	virtual ~CameraBase(void) = default;
 
-
 	virtual void SetBeforeDraw();
 	virtual void Exit() = 0;
 
 	// カメラ位置
 	VECTOR GetPos(void) const { return pos_; }
-	// カメラの操作角度
-	//VECTOR GetAngles(void) const { return pos_ }
+
 	// カメラの注視点
 	VECTOR GetTargetPos(void) const { return targetPos_; }
 
@@ -49,7 +47,7 @@ public:
 
 	// Initが必要かどうかのフラグ制御
 	void SetNeedInit(bool need) { m_needInit = need; }
-	bool IsNeedInit() const { return m_needInit; }
+	bool IsNeedInit(void) const { return m_needInit; }
 
 private:
 	// 次の状態
@@ -59,34 +57,17 @@ protected:
 
 	// GUI表示
 	virtual void UpdateDebugImGui(void);
-
-	////カメラ距離
-	//float m_distance;
-	////上下制限
-	//float m_vertexAngle;
-	////向き
-	//VECTOR m_front;	 //前方向
-	//VECTOR m_right;	 //右方向
-	//VECTOR m_look;	 //注視方向
-	////回転
-	//Quaternion m_rotH;
-	////位置
-	//VECTOR m_viewPos; //注視点
-	//VECTOR m_cameraPos; //カメラ位置
-
 	// カメラシェイク用の変数
 	int shakeFrame_ = 0;       // シェイクの総時間
 	int shakeCountFrame_ = 0;  // シェイクの残り時間カウント
 	float shakePower_ = 0.0f;  // シェイクの強さ
-
 	// カメラの位置
 	VECTOR pos_;
 	// 注視点
 	VECTOR targetPos_;
-
+	// 画角
 	float cameraNear_ = 10.0f;
 	float cameraFar_ = 30000.0f;
-
 	// カメラ角度(rad)
 	VECTOR angles_;
 	// X軸回転が無い角度
@@ -95,7 +76,5 @@ protected:
 	Quaternion rot_;
 	// カメラの上方向
 	VECTOR cameraUp_;
-
-	//std::weak_ptr<CameraBase> owner_;
 };
 

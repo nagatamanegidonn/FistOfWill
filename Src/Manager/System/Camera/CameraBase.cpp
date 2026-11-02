@@ -45,7 +45,7 @@ void CameraBase::SetBeforeDraw()
 		// 揺れの強さ
 		float power = shakePower_ * attenuation * wave;
 
-		// ★ カメラの「真右（横軸）方向」のベクトルを計算して画面酔いを防止する
+		// カメラの「真右（横軸）方向」のベクトルを計算して画面酔いを防止する
 		VECTOR camFront = VNorm(VSub(targetPos_, pos_));       // 正面
 		VECTOR camRight = VCross(camFront, Utility::DIR_U);     // 横（外積）
 

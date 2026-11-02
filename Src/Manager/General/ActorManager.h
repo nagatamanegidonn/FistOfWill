@@ -12,12 +12,12 @@ class ActorManager :
 public:
 
 	// ※UIManager::GetInstance() と同じように、どこからでも呼べる窓口
-	static ActorManager& Get() { return *s_activeInstance; }
+	static ActorManager& Get(void) { return *s_activeInstance; }
 
 	// コンストラクタ
-	ActorManager();
+	ActorManager(void);
 	// デストラクタ
-	~ActorManager();
+	~ActorManager(void);
 
 	// 登録
 	void Entry(std::shared_ptr<ActorBase> _actor);
@@ -25,31 +25,31 @@ public:
 	void Exit(std::shared_ptr<ActorBase> _actor);
 
 	// 初期化
-	void Init();
+	void Init(void);
 
 	// スタート処理
-	void Start();
+	void Start(void);
 
 	// 更新
-	void Update();
+	void Update(void);
 
 	// 描画
-	void Draw();
+	void Draw(void);
 
 	// 終了処理
-	void End();
+	void End(void);
 
 	// コンテニュー用
-	void Restart();
+	void Restart(void);
 
 	// アクターの生存確認
-	void CheckAlive();
+	void CheckAlive(void);
 
 	// アクターの中からプレイヤーをまとめて獲得
 	std::vector<std::shared_ptr<PlayerBase>> GetPlayers(void);
 
 	// ゲームオーバー判定
-	bool IsGameover()const { return isGameover_; };
+	bool IsGameover(void) const { return isGameover_; };
 
 	// 敵の全滅判定
 	bool IsAllDeadEnemys();

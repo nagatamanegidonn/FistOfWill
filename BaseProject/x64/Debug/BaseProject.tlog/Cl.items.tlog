@@ -1,3 +1,4 @@
+C:\Users\2316013\Desktop\FistOfWill\Src\Object\Component\DrawOutlineComponent.cpp;C:\Users\2316013\Desktop\FistOfWill\BaseProject\x64\Debug\DrawOutlineComponent.obj
 C:\Users\2316013\Desktop\FistOfWill\Src\FpsControl\FpsControl.cpp;C:\Users\2316013\Desktop\FistOfWill\BaseProject\x64\Debug\FpsControl.obj
 C:\Users\2316013\Desktop\FistOfWill\Src\UI\Image\SkillImageUI.cpp;C:\Users\2316013\Desktop\FistOfWill\BaseProject\x64\Debug\SkillImageUI.obj
 C:\Users\2316013\Desktop\FistOfWill\Src\UI\Image\RoundRateImageUI.cpp;C:\Users\2316013\Desktop\FistOfWill\BaseProject\x64\Debug\RoundRateImageUI.obj
@@ -23,7 +24,6 @@ C:\Users\2316013\Desktop\FistOfWill\Src\UI\Scene\SceneUI.cpp;C:\Users\2316013\De
 C:\Users\2316013\Desktop\FistOfWill\Src\Object\Attack\ForwardAttack.cpp;C:\Users\2316013\Desktop\FistOfWill\BaseProject\x64\Debug\ForwardAttack.obj
 C:\Users\2316013\Desktop\FistOfWill\Src\Object\State\CharacterStateNone.cpp;C:\Users\2316013\Desktop\FistOfWill\BaseProject\x64\Debug\CharacterStateNone.obj
 C:\Users\2316013\Desktop\FistOfWill\Src\Object\Player\SelectPlayer.cpp;C:\Users\2316013\Desktop\FistOfWill\BaseProject\x64\Debug\SelectPlayer.obj
-C:\Users\2316013\Desktop\FistOfWill\Src\UI\Scene\SelectUI.cpp;C:\Users\2316013\Desktop\FistOfWill\BaseProject\x64\Debug\SelectUI.obj
 C:\Users\2316013\Desktop\FistOfWill\Src\Scene\SelectScene.cpp;C:\Users\2316013\Desktop\FistOfWill\BaseProject\x64\Debug\SelectScene.obj
 C:\Users\2316013\Desktop\FistOfWill\Src\UI\Image\ImageUI.cpp;C:\Users\2316013\Desktop\FistOfWill\BaseProject\x64\Debug\ImageUI.obj
 C:\Users\2316013\Desktop\FistOfWill\Src\Manager\System\Camera\ParryCamera.cpp;C:\Users\2316013\Desktop\FistOfWill\BaseProject\x64\Debug\ParryCamera.obj

@@ -38,7 +38,6 @@ void PlayerCamera::Init()
 		return;
 	}
 
-
 	// 次の状態を自分の状態を入れる
 	ChangeCamera(nullptr);
 
@@ -96,7 +95,7 @@ void PlayerCamera::Update()
 	float deltaX = 0.0f;
 	float deltaY = 0.0f;
 
-	// --- 1. スティック入力によるカメラ回転処理（デッドゾーン追加） ---
+	// --- スティック入力によるカメラ回転処理（デッドゾーン追加） ---
 	if (!player_.lock()->GetInputController().expired())
 	{
 		const float ROT_SPEED_X = 0.03f;
@@ -117,7 +116,7 @@ void PlayerCamera::Update()
 		}
 	}
 
-	// --- 2. マウス入力によるカメラ回転処理（画面中心固定方式の修正版） ---
+	// --- マウス入力によるカメラ回転処理（画面中心固定方式の修正版） ---
 	const float MOUSE_SENSITIVITY_X = 0.002f;
 	const float MOUSE_SENSITIVITY_Y = 0.002f;
 
@@ -141,7 +140,7 @@ void PlayerCamera::Update()
 		DxLib::SetMousePoint(centerX, centerY);
 	}
 
-	// --- 3. 角度の更新とクランプ ---
+	// --- 角度の更新とクランプ ---
 	angles_.y += deltaX; // 左右回転
 	angles_.x += deltaY; // 上下回転
 
@@ -176,12 +175,10 @@ void PlayerCamera::Update()
 }
 void PlayerCamera::Draw()
 {
-	
 }
 
 void PlayerCamera::Exit()
 {
-
 }
 
 void PlayerCamera::UpdateFollow()
@@ -254,18 +251,18 @@ void PlayerCamera::OnHit(const std::weak_ptr<Collider> _hitCol)
 		}
 		else
 		{
-			// 1. 衝突相手のコライダーから、交点（壁の表面の座標）を取得
+			// 衝突相手のコライダーから、交点（壁の表面の座標）を取得
 			VECTOR hitPoint = hitColLock->GetGeometry().GetHitResult().point;
 
-			// 2. 注視点（プレイヤーの頭）から衝突点までの距離を計算
+			// 注視点（プレイヤーの頭）から衝突点までの距離を計算
 			VECTOR toHitVec = VSub(hitPoint, targetPos_);
 			float hitDistance = VSize(toHitVec);
 
-			// 3. カメラが壁を突き抜けないよう、少しだけ手前（20.0f）に引き戻す
+			// カメラが壁を突き抜けないよう、少しだけ手前（20.0f）に引き戻す
 			float newRadius = hitDistance - 20.0f;
 			if (newRadius < 10.0f) newRadius = 10.0f; // 限界の最小距離
 
-			// 4. 現在の距離よりも短くなる場合のみ更新
+			// 現在の距離よりも短くなる場合のみ更新
 			if (newRadius < cameraRadius_)
 			{
 				cameraRadius_ = newRadius;

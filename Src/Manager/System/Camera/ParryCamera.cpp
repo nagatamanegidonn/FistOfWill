@@ -13,8 +13,7 @@ namespace ParryConfig
     const float PISTON_POWER = 60.0f;  // 前後に近づく・離れる最大幅
     const float SIDE_SHAKE_POWER = 20.0f;  // 左右のガタガタした揺れの最大幅
     const int   LOOP_COUNT = 5;      // 近づいて離れる往復回数（5回）
-
-    // ★追加：揺れ終了時に開始地点よりどれだけ近づくか（好みに合わせて数値を調整してください）
+    // 揺れ終了時に開始地点よりどれだけ近づくか（好みに合わせて数値を調整してください）
     const float FINAL_CLOSE_DIST = 140.0f;
 }
 
@@ -98,13 +97,13 @@ void ParryCamera::Update()
         float currentPistonPower = ParryConfig::PISTON_POWER * (1.0f - t);
         float currentSidePower = ParryConfig::SIDE_SHAKE_POWER * (1.0f - t);
 
-        // 1. 前後ピストン移動（視線方向に沿って伸縮）
+        // 前後ピストン移動（視線方向に沿って伸縮）
         VECTOR forwardOffset = VScale(viewForward_, pulseForward * currentPistonPower);
 
-        // 2. 左右の激しい横揺れ（カメラの真横の軸に沿ってブレる）
+        // 左右の激しい横揺れ（カメラの真横の軸に沿ってブレる）
         VECTOR sideOffset = VScale(viewRight_, pulseSide * currentSidePower);
 
-        // 3. ★追加：終了時に少し近い位置へじんわり移動させるオフセット
+        // 終了時に少し近い位置へじんわり移動させるオフセット
         // 進行率 t (0.0 から 1.0) に応じて、徐々に正面方向へ近づいていきます
         VECTOR closeOffset = VScale(viewForward_, t * ParryConfig::FINAL_CLOSE_DIST);
 

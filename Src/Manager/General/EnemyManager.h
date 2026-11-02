@@ -18,7 +18,7 @@ public:
 	// コンストラクタ
 	EnemyManager(std::shared_ptr<ActorManager> actorM);
 	// デストラクタ
-	~EnemyManager();
+	~EnemyManager(void);
 
 	// 登録
 	void Entry(std::shared_ptr<EnemyBase> _enemy);
@@ -27,28 +27,28 @@ public:
 	void Exit(std::shared_ptr<EnemyBase> _enemy);
 
 	// 初期化
-	void Init();
+	void Init(void);
 
 	// 更新
-	void Update();
+	void Update(void);
 
 	// 終了処理
-	void End();
+	void End(void);
 
-	//敵のリスト取得
-	const std::list<std::weak_ptr<EnemyBase>>& GetEnemys() const { return m_enemys; }
+	// 敵のリスト取得
+	const std::list<std::weak_ptr<EnemyBase>>& GetEnemys(void) const { return m_enemys; }
 
-	//エリア内で戦闘が起きたときの処理
+	// エリア内で戦闘が起きたときの処理
 	void InAreaBattle(std::list<std::shared_ptr<EnemyBase>> activeEnemy);
 
-	//エリア内での戦闘終了
-	void FinishInAreaBattle();
+	// エリア内での戦闘終了
+	void FinishInAreaBattle(void);
 
-	//すべての敵が倒された
-	bool IsAllDeadEnemys()const;
+	// すべての敵が倒された
+	bool IsAllDeadEnemys(void) const;
 
-	//デバッグ描画
-	void DebugDraw()const;
+	// デバッグ描画
+	void DebugDraw(void) const;
 
 private:;
 

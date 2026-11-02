@@ -55,7 +55,7 @@ public:
 	void StartNextTutorial(bool flag, float dleay = 0.1f);
 
 	// tutorialIndex_がtutorialTexts_の範囲内かどうかをチェックする関数
-	bool IsTutorialIndexValid() const
+	bool IsTutorialIndexValid(void) const
 	{
 		return tutorialIndex_ >= 0 && tutorialIndex_ < static_cast<int>(tutorialTexts_.size());
 	}
