@@ -54,7 +54,7 @@ void StageObject::Draw(void)
 	int shadowTexHandle = SceneManager::GetInstance().GetShadowMap()->GetSyadowHandle();
 	material_->SetTextureBuf(1, shadowTexHandle); // スロット1番にセット
 
-	// ───【ここから追加】DXライブラリから自動生成された正確なシャドウマップ行列を取得 ───
+	// ─── DXライブラリから自動生成された正確なシャドウマップ行列を取得 ──────
 	MATRIX lightVP;
 	GetShadowMapViewProjectionMatrix(shadowTexHandle, &lightVP);
 
@@ -70,7 +70,7 @@ void StageObject::Draw(void)
 	material_->SetConstBufVS(1, row1);
 	material_->SetConstBufVS(2, row2);
 	material_->SetConstBufVS(3, row3);
-	// ────────────────────────────────────────────────────────────────────────
+	// ────────────────────────────────────────
 
 	renderer_->Draw();
 }

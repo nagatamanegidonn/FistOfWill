@@ -7,7 +7,7 @@
 class ModelMaterial;
 class ModelRenderer;
 
-// 残像描画コンポーネント
+// アウトライン描画コンポーネント
 class DrawOutlineComponent :
 	public ComponentBase
 {
@@ -21,7 +21,7 @@ public:
 	virtual void Init(void) override;
 	virtual void Update(void) override;
 	virtual void PostUpdate(void) override;
-	virtual void Draw(void) override;
+	virtual void DrawBefore(void) override;
 
 protected:
 

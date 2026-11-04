@@ -9,6 +9,7 @@
 #include "../Component/GravityComponent.h"
 #include "../Component/GoalRotateComponent.h"
 #include "../Component/MoveApplyComponent.h"
+#include "../Component/DrawRimLightComponent.h"
 
 #include "../../Utility/Utility.h"
 #include "../../Utility/ModelFrameUtility.h"
@@ -50,12 +51,8 @@ void BossEnemy::Init(void)
 	component_.emplace_back(std::make_shared<MoveApplyComponent>(shared_from_this()));
 	// 目標回転用のコンポーネントを追加
 	component_.emplace_back(std::make_shared<GoalRotateComponent>(shared_from_this()));
-
-	// コンポーネントの初期化
-	for (const auto& component : component_)
-	{
-		component->Init();
-	}
+	// リムライト描画用のコンポーネントを追加
+	component_.emplace_back(std::make_shared<DrawRimLightComponent>(shared_from_this()));
 
 	// 攻撃データの読み込み
 	LoadCsvAttackData(L"Data/CSV/BossEnemyAttackData.csv");
@@ -73,6 +70,12 @@ void BossEnemy::Init(void)
 
 	// アニメーションの初期化
 	InitAnimation(L"Data/CSV/BossEnemyAnimData.csv");
+
+	// コンポーネントの初期化
+	for (const auto& component : component_)
+	{
+		component->Init();
+	}
 
 	hipsPos_ = Utility::MV1GetFreamPos(transform_.modelId, L"mixamorig:Hips");
 	attackRange_ = ATTRCK_RANGE;

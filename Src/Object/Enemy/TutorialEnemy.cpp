@@ -11,7 +11,7 @@
 #include "../Component/ControlMoveComponent.h"
 #include "../Component/GravityComponent.h"
 #include "../Component/GoalRotateComponent.h"
-#include "../Component/MoveApplyComponent.h"
+#include "../Component/DrawRimLightComponent.h"
 
 #include "../../Utility/Utility.h"
 #include "../../Utility/ModelFrameUtility.h"
@@ -46,12 +46,8 @@ void TutorialEnemy::Init(void)
 	component_.emplace_back(std::make_shared<GravityComponent>(shared_from_this()));
 	// 目標回転用のコンポーネントを追加
 	component_.emplace_back(std::make_shared<GoalRotateComponent>(shared_from_this()));
-
-	// コンポーネントの初期化
-	for (const auto& component : component_)
-	{
-		component->Init();
-	}
+	// リムライト描画用のコンポーネントを追加
+	component_.emplace_back(std::make_shared<DrawRimLightComponent>(shared_from_this()));
 
 	// 攻撃データの読み込み
 	LoadCsvAttackData(L"Data/CSV/TutorialEnemyAttackData .csv");
@@ -71,6 +67,12 @@ void TutorialEnemy::Init(void)
 
 	// アニメーションの初期化
 	InitAnimation(L"Data/CSV/BossEnemyAnimData.csv");
+
+	// コンポーネントの初期化
+	for (const auto& component : component_)
+	{
+		component->Init();
+	}
 
 	// プレイヤー状態の初期化
 	auto self = std::dynamic_pointer_cast<EnemyBase>(shared_from_this());

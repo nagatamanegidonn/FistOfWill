@@ -2,6 +2,8 @@
 
 #include "../Utility/Utility.h"
 #include "../Utility/CSVDataLoader.h"
+// コンポーネント
+#include "../Object/Component/ComponentBase.h"
 
 #include "Common/AnimationController.h"
 #include "Common/SoundController.h"
@@ -35,7 +37,6 @@ CharaBase::CharaBase(void)
 	isJust_(false)
 {
 	animationController_ = nullptr;
-	//inputController_ = nullptr;
 	soundController_.reset();
 	soundController_ = nullptr;
 
@@ -45,6 +46,19 @@ CharaBase::CharaBase(void)
 	charaStatus_ = std::make_shared<CharaStatus>();
 
 	prePos_ = VECTOR();
+}
+
+void CharaBase::Draw(void)
+{
+	for (const auto& component : component_)
+	{
+		component->DrawBefore();
+	}
+	MV1DrawModel(transform_.modelId);
+	for (const auto& component : component_)
+	{
+		component->DrawAfter();
+	}
 }
 
 std::shared_ptr<CharaStatus> CharaBase::GetCharaStatus() const

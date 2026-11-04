@@ -87,7 +87,7 @@ void DrawTrailComponent::PostUpdate(void)
 {
 }
 
-void DrawTrailComponent::Draw()
+void DrawTrailComponent::DrawAfter()
 {
 	if (!IsActive()) return;
 

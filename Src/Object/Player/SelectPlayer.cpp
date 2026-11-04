@@ -7,6 +7,8 @@
 #include "../../Manager/General/SceneManager.h"
 
 #include "../Component/ComponentBase.h"
+#include "../Component/DrawOutlineComponent.h"
+#include "../Component/DrawRimLightComponent.h"
 
 #include "../State/CharacterStateNone.h"
 
@@ -33,6 +35,8 @@ void SelectPlayer::Init(void)
 {
 	// コントローラーの登録
 	inputController_ = std::make_shared<InputController>(SceneManager::GetInstance().GetControllId());
+	// アウトライン描画用のコンポーネントを追加
+	component_.emplace_back(std::make_shared<DrawOutlineComponent>(shared_from_this()));
 
 	// 基底クラスの初期化
 	PlayerBase::Init();

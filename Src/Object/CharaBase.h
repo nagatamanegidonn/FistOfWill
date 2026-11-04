@@ -42,7 +42,7 @@ public:
 
 	virtual void Init(void) override = 0;
 	virtual void Update(void) override = 0;
-	virtual void Draw(void) override = 0;
+	virtual void Draw(void) override;
 
 	// アニメーションの取得
 	std::weak_ptr<AnimationController> GetAnimController(void) const { return animationController_; }

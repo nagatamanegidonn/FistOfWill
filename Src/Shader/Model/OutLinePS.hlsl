@@ -24,9 +24,7 @@ float4 main(PS_INPUT PSInput) : SV_TARGET
     {
         discard;
     }
-    diffuse = float4(0.0f, 0.0f, 0.0f, 1.0f);
-
-	//return diffuse;
+    diffuse = float4(0.0f, 0.0f, 0.0f, 1.0f); 
 
     float3 cameraDir = normalize(PSInput.worldPos - g_camera_pos);
     float cDot = dot(PSInput.normal, cameraDir);
@@ -39,33 +37,34 @@ float4 main(PS_INPUT PSInput) : SV_TARGET
     float hue = frac(g_time * 0.2f); // 少し速めに回転
 
     // HSV to RGB (S=1, V=1)
-    float h = hue * 6.0f;
     float3 rgb;
-    float c = 1.0f;
-    float x = c * (1.0f - abs(fmod(h, 2.0f) - 1.0f));
+    //float h = hue * 6.0f;
+    //float c = 1.0f;
+    //float x = c * (1.0f - abs(fmod(h, 2.0f) - 1.0f));
 
-    if (h < 1.0f)
-        rgb = float3(c, x, 0);
-    else if (h < 2.0f)
-        rgb = float3(x, c, 0);
-    else if (h < 3.0f)
-        rgb = float3(0, c, x);
-    else if (h < 4.0f)
-        rgb = float3(0, x, c);
-    else if (h < 5.0f)
-        rgb = float3(x, 0, c);
-    else
-        rgb = float3(c, 0, x);
+    //if (h < 1.0f)
+    //    rgb = float3(c, x, 0);
+    //else if (h < 2.0f)
+    //    rgb = float3(x, c, 0);
+    //else if (h < 3.0f)
+    //    rgb = float3(0, c, x);
+    //else if (h < 4.0f)
+    //    rgb = float3(0, x, c);
+    //else if (h < 5.0f)
+    //    rgb = float3(x, 0, c);
+    //else
+    //    rgb = float3(c, 0, x);
 
+    // 白色に設定    
+    rgb = float3(0.0f, 0.0f, 0.0f);
+    
 	// 明度を調整（少し控えめにすると発色が良く見える）
     rgb = lerp(float3(0.2f, 0.2f, 0.2f), rgb, 0.8f);
 
     float4 rimColor = float4(rgb, 1.0f);
-	//float4 rimColor = float4(1.0f, 0.0f, 0.0f, 1.0f);
     diffuse = diffuse + rimColor * rimDot;
 
     return diffuse;
-
 
     return float4(cDot, cDot, cDot, 1.0f);
 }

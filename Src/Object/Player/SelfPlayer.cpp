@@ -37,6 +37,7 @@
 #include "SelfPlayer.h"
 
 #include "../Lib/ImGui/imgui.h"
+#include "../Component/DrawRimLightComponent.h"
 
 namespace
 {

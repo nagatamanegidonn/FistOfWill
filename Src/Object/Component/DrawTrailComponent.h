@@ -24,7 +24,7 @@ public:
 	virtual void Init(void) override;
 	virtual void Update(void) override;
 	virtual void PostUpdate(void) override;
-	virtual void Draw(void) override;
+	virtual void DrawAfter(void) override;
 
 	void SetAttackData(std::shared_ptr<AttackData> attackData) { attackData_ = attackData; }
 

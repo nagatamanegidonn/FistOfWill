@@ -100,7 +100,7 @@ void DrawAfterimageComponent::PostUpdate(void)
 	}
 }
 
-void DrawAfterimageComponent::Draw()
+void DrawAfterimageComponent::DrawAfter()
 {
 	if (!IsActive()) return;
 

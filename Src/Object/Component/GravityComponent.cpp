@@ -51,8 +51,3 @@ void GravityComponent::Update()
 void GravityComponent::PostUpdate(void)
 {
 }
-
-void GravityComponent::Draw()
-{
-}
-

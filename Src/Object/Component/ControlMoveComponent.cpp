@@ -79,10 +79,6 @@ void ControlMoveComponent::PostUpdate(void)
 {
 }
 
-void ControlMoveComponent::Draw()
-{
-}
-
 void ControlMoveComponent::Move()
 {
 }

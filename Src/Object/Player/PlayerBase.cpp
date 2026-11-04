@@ -90,8 +90,11 @@ void PlayerBase::Draw(void)
 {
 	for (const auto& component : component_)
 	{
-		component->Draw();
+		component->DrawBefore();
 	}
-
 	MV1DrawModel(transform_.modelId);
+	for (const auto& component : component_)
+	{
+		component->DrawAfter();
+	}
 }

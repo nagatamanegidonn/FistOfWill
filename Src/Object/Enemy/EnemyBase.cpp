@@ -89,7 +89,8 @@ void EnemyBase::Update(void)
 void EnemyBase::Draw(void)
 {
 	// ƒ‚ƒfƒ‹‚Ì•`‰æ
-	MV1DrawModel(transform_.modelId);
+	CharaBase::Draw();
+
 #ifdef _DEBUG
 	// Ž‹–ì•`‰æ
 	DrawFOV(FOV_DEG, charaStatus_->GetSearchRange(), 10, 0xff0000);

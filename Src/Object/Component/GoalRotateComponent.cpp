@@ -62,10 +62,6 @@ void GoalRotateComponent::PostUpdate(void)
 	chara->Rotate();
 }
 
-void GoalRotateComponent::Draw()
-{
-}
-
 void GoalRotateComponent::SetGoalRotate(double rotRad)
 {
 	auto chara = GetChara();

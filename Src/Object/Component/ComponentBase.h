@@ -34,7 +34,8 @@ public:
 	// ŒãXVˆ—
 	virtual void PostUpdate(void) {}
 	// •`‰æˆ—
-	virtual void Draw(void) {}
+	virtual void DrawBefore(void) {}
+	virtual void DrawAfter(void) {}
 
 	// Šˆ“®ó‘Ô‚Ìİ’è
 	void SetActive(bool isActive) { isActive_ = isActive; }

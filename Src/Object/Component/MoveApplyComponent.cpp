@@ -57,8 +57,3 @@ void MoveApplyComponent::PostUpdate(void)
 #endif // DEBUG
 	}
 }
-
-void MoveApplyComponent::Draw()
-{
-}
-
