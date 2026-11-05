@@ -29,6 +29,7 @@ void UIManager::Update()
 	//UI‚ÌXV
 	for (auto& ui : m_uis)
 	{
+		if (ui == nullptr)continue;
 		ui->Update();
 	}
 

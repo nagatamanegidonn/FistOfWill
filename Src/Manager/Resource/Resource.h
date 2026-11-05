@@ -18,44 +18,53 @@ public:
 		EFFEKSEER
 	};
 
-	// コンストラクタ
-	Resource(void);
-	// コンストラクタ
-	Resource(TYPE type, const std::wstring& path);
-	// コンストラクタ(IMGS用)
-	Resource(TYPE type, const std::wstring& path, int numX, int numY, int sizeX, int sizeY);
+    // コンストラクタ
+    Resource(void);
+    Resource(TYPE type, const std::wstring& path);
+    Resource(TYPE type, const std::wstring& path,
+        int numX, int numY, int sizeX, int sizeY);
 
-	// デストラクタ
-	~Resource(void);
+    // デストラクタ
+    ~Resource(void);
 
-	// 読み込み
-	void Load(void);
+    // コピー禁止（ハンドルの二重所有を防ぐ）
+    Resource(const Resource&) = delete;
+    Resource& operator=(const Resource&) = delete;
 
-	// 解放
-	void Release(void);
+    // 読み込み
+    void Load(void);
 
-	// 複数画像ハンドルを別配列にコピー
-	void CopyHandle(int* imgs);
+    // 解放
+    void Release(void);
 
-	std::map<std::wstring, int> g_modelCache;
+    // ロード済みか確認
+    bool IsLoaded(void) const { return isLoaded_; }
 
-	// リソースタイプ
-	TYPE type_;
+    // 複数画像ハンドルを別配列にコピー
+    void CopyHandle(int* imgs);
 
-	// リソースの読み込み先
-	std::wstring path_;
+    // リソースタイプ
+    TYPE type_;
 
-	// 画像とモデルのハンドルID
-	int handleId_;
+    // リソースの読み込み先
+    std::wstring path_;
 
-	// IMGS::LoadDivGraph用
-	int* handleIds_;
-	int numX_;
-	int numY_;
-	int sizeX_;
-	int sizeY_;
+    // 画像とモデルのハンドルID
+    int handleId_;
 
-	// モデル複製用
-	std::vector<int> duplicateModelIds_;
+    // IMGS::LoadDivGraph用
+    int* handleIds_;
+    int numX_;
+    int numY_;
+    int sizeX_;
+    int sizeY_;
 
+    // モデル複製用
+    // LoadModelDuplicate()で生成したハンドルのみを保存
+    std::vector<int> duplicateModelIds_;
+
+private:
+
+    // ロード済みフラグ
+    bool isLoaded_;
 };

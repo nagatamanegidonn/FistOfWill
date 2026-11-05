@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\UI\LoadingUI.cpp" />
     <ClCompile Include="Src\Object\Component\DrawRimLightComponent.cpp" />
     <ClCompile Include="Src\Object\Component\DrawOutlineComponent.cpp" />
     <ClCompile Include="Src\FpsControl\FpsControl.cpp" />
@@ -156,6 +157,7 @@
     <ClCompile Include="Src\Object\Stage\Destination.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\UI\LoadingUI.h" />
     <ClInclude Include="Src\Object\Component\DrawRimLightComponent.h" />
     <ClInclude Include="Src\Object\Component\DrawOutlineComponent.h" />
     <ClInclude Include="Src\FpsControl\FpsControl.h" />

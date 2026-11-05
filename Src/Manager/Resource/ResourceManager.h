@@ -36,16 +36,19 @@ private:
 
 	static ResourceManager* instance_;
 
-	// enum SRC から std::wstring に変更
-	std::unordered_map<std::wstring, std::unique_ptr<Resource>> resourcesMap_;
-	std::unordered_map<std::wstring, Resource> loadedMap_;
+	// リソースの唯一の所有者
+    std::unordered_map<std::wstring, std::unique_ptr<Resource>> resourcesMap_;
 
-	Resource dummy_;
+    // 未登録キー用
+    Resource dummy_;
 
-	ResourceManager(void);
-	ResourceManager(const ResourceManager& manager) = default;
-	~ResourceManager(void) = default;
+    ResourceManager(void);
 
-	// 内部ロード
-	Resource& _Load(const std::wstring& key);
+    ResourceManager(const ResourceManager&) = delete;
+    ResourceManager& operator=(const ResourceManager&) = delete;
+
+    ~ResourceManager(void) = default;
+
+    // リソース取得・ロード
+    Resource& _Load(const std::wstring& key);
 };

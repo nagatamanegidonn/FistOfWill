@@ -1,156 +1,207 @@
+
 #include <DxLib.h>
 #include <EffekseerForDXLib.h>
+
 #include "Resource.h"
 
+// コンストラクタ
 Resource::Resource(void)
+    :
+    type_(TYPE::NONE),
+    path_(L""),
+    handleId_(-1),
+    handleIds_(nullptr),
+    numX_(-1),
+    numY_(-1),
+    sizeX_(-1),
+    sizeY_(-1),
+    isLoaded_(false)
 {
-	type_ = TYPE::NONE;
-	path_ = L"";
-
-	numX_ = -1;
-	numY_ = -1;
-	sizeX_ = -1;
-	sizeY_ = -1;
-
-	handleId_ = -1;
-	handleIds_ = nullptr;
 }
 
+// コンストラクタ
 Resource::Resource(TYPE type, const std::wstring& path)
+    :
+    type_(type),
+    path_(path),
+    handleId_(-1),
+    handleIds_(nullptr),
+    numX_(-1),
+    numY_(-1),
+    sizeX_(-1),
+    sizeY_(-1),
+    isLoaded_(false)
 {
-	type_ = type;
-	path_ = path;
-
-	numX_ = -1;
-	numY_ = -1;
-	sizeX_ = -1;
-	sizeY_ = -1;
-
-	handleId_ = -1;
-	handleIds_ = nullptr;
 }
 
-Resource::Resource(TYPE type, const std::wstring& path, int numX, int numY, int sizeX, int sizeY)
+// コンストラクタ（分割画像用）
+Resource::Resource(
+    TYPE type,
+    const std::wstring& path,
+    int numX,
+    int numY,
+    int sizeX,
+    int sizeY)
+    :
+    type_(type),
+    path_(path),
+    handleId_(-1),
+    handleIds_(nullptr),
+    numX_(numX),
+    numY_(numY),
+    sizeX_(sizeX),
+    sizeY_(sizeY),
+    isLoaded_(false)
 {
-	type_ = type;
-	path_ = path;
-	numX_ = numX;
-	numY_ = numY;
-	sizeX_ = sizeX;
-	sizeY_ = sizeY;
-
-	handleId_ = -1;
-	handleIds_ = nullptr;
 }
 
+// デストラクタ
 Resource::~Resource(void)
 {
+    Release();
 }
 
+// 読み込み
 void Resource::Load(void)
 {
+    // すでに読み込み済みなら何もしない
+    if (isLoaded_)
+    {
+        return;
+    }
 
-	switch (type_)
-	{
-	case Resource::TYPE::IMG:
-		// 画像
-		handleId_ = LoadGraph(path_.c_str());
-		break;
-
-	case Resource::TYPE::IMGS:
-		// 複数画像
-		handleIds_ = new int[numX_ * numY_];
-		LoadDivGraph(
-			path_.c_str(),
-			numX_ * numY_,
-			numX_, numY_,
-			sizeX_, sizeY_,
-			&handleIds_[0]);
-		break;
-
-	case Resource::TYPE::MODEL:
-	{
-		auto it = g_modelCache.find(path_);
-		if (it != g_modelCache.end()) {
-			// すでに読み込まれていれば複製して使う
-			handleId_ = MV1DuplicateModel(it->second);
-		}
-		else {
-			// 初回読み込みならキャッシュしておく
-			int baseHandle = MV1LoadModel(path_.c_str());
-			g_modelCache[path_] = baseHandle;
-			handleId_ = MV1DuplicateModel(baseHandle);
-		}
-
-		// 削除時に複製分を消すため保存（元のは g_modelCache が保持）
-		duplicateModelIds_.push_back(handleId_);
-	}
-		// モデル
-		//handleId_ = MV1LoadModel(path_.c_str());
-		break;
-
-	case Resource::TYPE::EFFEKSEER:
-
-		handleId_ = LoadEffekseerEffect(path_.c_str());
-		break;
-
-	}
-
+    switch (type_)
+    {
+    case TYPE::IMG:
+    {
+        handleId_ = LoadGraph(path_.c_str());
+        isLoaded_ = (handleId_ != -1);
+        break;
+    }
+    case TYPE::IMGS:
+    {
+        if (numX_ <= 0 || numY_ <= 0)
+        {
+            break;
+        }
+        const int count = numX_ * numY_;
+        handleIds_ = new int[count];
+        // すべて無効なハンドルで初期化
+        for (int i = 0; i < count; i++)
+        {
+            handleIds_[i] = -1;
+        }
+        int result = LoadDivGraph(
+            path_.c_str(),
+            count,
+            numX_,
+            numY_,
+            sizeX_,
+            sizeY_,
+            handleIds_);
+        isLoaded_ = (result != -1);
+        break;
+    }
+    case TYPE::MODEL:
+    {
+        // 元モデルを読み込む
+        // 複製モデルはResourceManager::LoadModelDuplicate()で作成する
+        handleId_ = MV1LoadModel(path_.c_str());
+        isLoaded_ = (handleId_ != -1);
+        break;
+    }
+    case TYPE::EFFEKSEER:
+    {
+        handleId_ = LoadEffekseerEffect(path_.c_str());
+        isLoaded_ = (handleId_ != -1);
+        break;
+    }
+    default:
+        break;
+    }
 }
 
+// 解放
 void Resource::Release(void)
 {
+    // 追加複製モデルを解放
+    for (int id : duplicateModelIds_)
+    {
+        if (id != -1)
+        {
+            MV1DeleteModel(id);
+        }
+    }
 
-	switch (type_)
-	{
-	case Resource::TYPE::IMG:
-		DeleteGraph(handleId_);
-		break;
+    duplicateModelIds_.clear();
 
-	case Resource::TYPE::IMGS:
-	{
-		int num = numX_ * numY_;
-		for (int i = 0; i < num; i++)
-		{
-			DeleteGraph(handleIds_[i]);
-		}
-		delete[] handleIds_;
-	}
-		break;
+    switch (type_)
+    {
+    case TYPE::IMG:
+    {
+        if (handleId_ != -1)
+        {
+            DeleteGraph(handleId_);
+        }
 
-	case Resource::TYPE::MODEL:
-	{
-		MV1DeleteModel(handleId_);
-		for (auto id : duplicateModelIds_) {
-			if (id != -1) {
-				MV1DeleteModel(id); // 削除
-			}
-		}
-		duplicateModelIds_.clear();
-	}
-		break;
+        break;
+    }
+    case TYPE::IMGS:
+    {
+        if (handleIds_ != nullptr)
+        {
+            const int count = numX_ * numY_;
 
-	case Resource::TYPE::EFFEKSEER:
+            for (int i = 0; i < count; i++)
+            {
+                if (handleIds_[i] != -1)
+                {
+                    DeleteGraph(handleIds_[i]);
+                }
+            }
 
-		DeleteEffekseerEffect(handleId_);
-		break;
+            delete[] handleIds_;
+            handleIds_ = nullptr;
+        }
+        break;
+    }
+    case TYPE::MODEL:
+    {
+        // 元モデルを解放
+        if (handleId_ != -1)
+        {
+            MV1DeleteModel(handleId_);
+        }
+        break;
+    }
+    case TYPE::EFFEKSEER:
+    {
+        if (handleId_ != -1)
+        {
+            DeleteEffekseerEffect(handleId_);
+        }
+        break;
+    }
+    default:
+        break;
+    }
 
-	}
-
+    handleId_ = -1;
+    isLoaded_ = false;
 }
 
+// 分割画像ハンドルをコピー
 void Resource::CopyHandle(int* imgs)
 {
+    if (handleIds_ == nullptr || imgs == nullptr)
+    {
+        return;
+    }
 
-	if (handleIds_ == nullptr)
-	{
-		return;
-	}
+    const int count = numX_ * numY_;
 
-	int num = numX_ * numY_;
-	for (int i = 0; i < num; i++)
-	{
-		imgs[i] = handleIds_[i];
-	}
-
+    for (int i = 0; i < count; i++)
+    {
+        imgs[i] = handleIds_[i];
+    }
 }

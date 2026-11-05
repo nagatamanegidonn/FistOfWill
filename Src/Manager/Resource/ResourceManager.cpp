@@ -94,15 +94,21 @@ void ResourceManager::Init(void)
 
 void ResourceManager::Release(void)
 {
-	for (auto& p : loadedMap_)
+	for (auto& p : resourcesMap_)
 	{
-		p.second.Release();
+		if (p.second != nullptr)
+		{
+			p.second->Release();
+		}
 	}
-	loadedMap_.clear();
 }
 
 void ResourceManager::Destroy(void)
 {
+	if (instance_ == nullptr)
+	{
+		return;
+	}
 	Release();
 	resourcesMap_.clear();
 	delete instance_;
@@ -122,14 +128,17 @@ const Resource& ResourceManager::Load(const std::wstring& key)
 int ResourceManager::LoadModelDuplicate(const std::wstring& key)
 {
 	Resource& res = _Load(key);
-	if (res.type_ == Resource::TYPE::NONE)
+	if (res.type_ != Resource::TYPE::MODEL || !res.IsLoaded())
 	{
 		return -1;
 	}
-
 	int duId = MV1DuplicateModel(res.handleId_);
+	if (duId == -1)
+	{
+		return -1;
+	}
+	// 複製モデルの所有権をResourceに持たせる
 	res.duplicateModelIds_.push_back(duId);
-
 	return duId;
 }
 
@@ -139,24 +148,24 @@ ResourceManager::ResourceManager(void)
 
 Resource& ResourceManager::_Load(const std::wstring& key)
 {
-	// ロード済みチェック
-	auto lIt = loadedMap_.find(key);
-	if (lIt != loadedMap_.end())
+	// 登録済みリソースを検索
+	auto it = resourcesMap_.find(key);
+
+	if (it == resourcesMap_.end())
 	{
-		return lIt->second;
+		return dummy_;
 	}
 
-	// 事前登録チェック
-	auto rIt = resourcesMap_.find(key);
-	if (rIt != resourcesMap_.end())
+	Resource& res = *it->second;
+
+	// ロード済みならそのまま返す
+	if (res.IsLoaded())
 	{
-		rIt->second->Load();
-		// コピーをロード済みマップへ格納
-		loadedMap_.emplace(key, *rIt->second);
-		return *rIt->second;
+		return res;
 	}
 
-	// 未登録の場合（AssetManagerのようにファイルパスとして直接読み出す場合の拡張）
+	// 未ロードならロード
+	res.Load();
 
-	return dummy_;
+	return res;
 }

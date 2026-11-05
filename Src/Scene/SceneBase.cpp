@@ -1,3 +1,4 @@
+#include <DxLib.h>
 #include "../UI/Scene/SceneUI.h"
 #include "SceneBase.h"
 
@@ -21,6 +22,11 @@ void SceneBase::Init(void)
 {
 }
 
+void SceneBase::AsyncPreLoad(void)
+{
+	// ‰½‚à‚µ‚È‚¢
+}
+
 void SceneBase::Update(void)
 {
 }
@@ -39,6 +45,12 @@ void SceneBase::AddOtherUI(std::shared_ptr<UIBase> ui)
 	{
 		SceneUI_->AddOtherUI(ui);
 	}
+}
+
+bool SceneBase::IsLoad(void) const
+{
+	// ”ñ“¯Šú“Ç‚İ‚İ‚ªŠ®—¹‚µ‚Ä‚¢‚é‚©Šm”F
+	return GetASyncLoadNum() == 0;
 }
 
 void SceneBase::OnPopScene(void)

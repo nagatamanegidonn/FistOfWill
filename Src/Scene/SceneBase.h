@@ -17,6 +17,9 @@ public:
 	// 初期化処理
 	virtual void Init(void);
 
+	// 非同期読み込み開始
+	virtual void AsyncPreLoad(void);
+
 	// 更新ステップ
 	virtual void Update(void);
 
@@ -31,6 +34,9 @@ public:
 
 	// UIの設定
 	void AddOtherUI(std::shared_ptr<UIBase> ui);
+
+	// 読み込み完了判定
+	virtual bool IsLoad(void) const;
 
 protected:
 
