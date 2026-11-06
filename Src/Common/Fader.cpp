@@ -10,6 +10,11 @@
 #include "../Application.h"
 
 Fader::Fader(void)
+	:
+	state_(NET_STATE::NONE),
+	alpha_(0.0f),
+	isPreEnd_(true),
+	isEnd_(true)
 {
 }
 
@@ -32,25 +37,11 @@ void Fader::SetFade(NET_STATE state)
 {
 	state_ = state;
 
-	switch (state_)
+	if (state_ != NET_STATE::NONE)
 	{
-	case NET_STATE::FADE_OUT:
-		alpha_ = 0.0f;
-		break;
-
-	case NET_STATE::FADE_IN:
-		alpha_ = MAX_ALPHA;
-		break;
-
-	case NET_STATE::NONE:
-		isEnd_ = true;
-		return;
-
-	default:
-		return;
+		isPreEnd_ = false;
+		isEnd_ = false;
 	}
-
-	isEnd_ = false;
 }
 
 void Fader::Init(void)
@@ -68,7 +59,6 @@ void Fader::Init(void)
 	material_->AddTextureBuf(fadeImage_);
 
 	// バッファーの設定
-	//material_->AddConstBuf(FLOAT4{ parameter_->color_.x, parameter_->color_.y,parameter_->color_.z, parameter_->alpha_ });
 	material_->AddConstBuf(FLOAT4{ 0.0f, 0.0f,0.0f, 0.0f });
 
 	// レンダラーの生成
@@ -90,7 +80,6 @@ void Fader::Update(void)
 	{
 	case NET_STATE::NONE:
 		return;
-
 	case NET_STATE::FADE_OUT:
 
 		alpha_ += SPEED_ALPHA;
@@ -100,11 +89,8 @@ void Fader::Update(void)
 			alpha_ = MAX_ALPHA;
 			isEnd_ = true;
 		}
-
 		break;
-
 	case NET_STATE::FADE_IN:
-
 		alpha_ -= SPEED_ALPHA;
 
 		if (alpha_ <= 0.0f)
@@ -112,9 +98,7 @@ void Fader::Update(void)
 			alpha_ = 0.0f;
 			isEnd_ = true;
 		}
-
 		break;
-
 	case NET_STATE::FADE_STOP:
 		break;
 	}
@@ -129,10 +113,7 @@ void Fader::Draw(void)
 
 	float rate = alpha_ / MAX_ALPHA;
 
-	material_->SetConstBuf(
-		0,
-		FLOAT4{ 0.0f, 0.0f, 0.0f, rate }
-	);
+	material_->SetConstBuf(0, FLOAT4{ 0.0f, 0.0f, 0.0f, rate });
 
 	// 描画処理
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);
