@@ -27,7 +27,7 @@ PlayerCamera::PlayerCamera(std::shared_ptr<PlayerBase> player)
 	rayGeo_ = nullptr;
 }
 
-void PlayerCamera::Init()
+void PlayerCamera::Init(void)
 {
 	// すでにデータがある場合は初期化しない
 	if (!IsNeedInit())
@@ -81,7 +81,7 @@ void PlayerCamera::Init()
 	this->MakeCollider(Collider::TAG::RAY, std::move(geo), { });
 }
 
-void PlayerCamera::Update()
+void PlayerCamera::Update(void)
 {
 	// プレイヤーが存在しなければNormalカメラに切り替える
 	if (player_.expired() || rayGeo_ == nullptr)
@@ -173,15 +173,15 @@ void PlayerCamera::Update()
 
 	Effekseer_Sync3DSetting();
 }
-void PlayerCamera::Draw()
+void PlayerCamera::Draw(void)
 {
 }
 
-void PlayerCamera::Exit()
+void PlayerCamera::Exit(void)
 {
 }
 
-void PlayerCamera::UpdateFollow()
+void PlayerCamera::UpdateFollow(void)
 {
 	if (player_.expired()) return;
 

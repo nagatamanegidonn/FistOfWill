@@ -11,8 +11,6 @@
 class InputController;
 
 class InputTextArea;
-class PixelMaterial;
-class PixelRenderer;
 
 class SceneUI;
 class ButtonUI;
@@ -43,21 +41,6 @@ public:
 	void Release(void) override;
 
 private:
-
-	//UI
-	std::shared_ptr<ButtonUI> ChangeUI_;
-
-	//設定
-	std::unique_ptr<InputController> inputController_;
-
-	// 背景、カーソル画像
-	int titleImg_;
-	int backImg_;
-	int cursorImg_;
-
-
-	std::unique_ptr<PixelMaterial> Material_;
-	std::unique_ptr<PixelRenderer> Renderer_;
 
 	void GameStart(void);
 	void GameEnd(void);

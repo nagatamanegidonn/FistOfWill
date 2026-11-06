@@ -25,7 +25,7 @@ ParryCamera::ParryCamera(std::shared_ptr<ActorBase> player, std::shared_ptr<Acto
 {
 }
 
-void ParryCamera::Init()
+void ParryCamera::Init(void)
 {
     // 状態維持のため nullptr をセット
     ChangeCamera(nullptr);
@@ -58,7 +58,7 @@ void ParryCamera::Init()
     SceneManager::GetInstance().SetGameSpeedRate(0.0f); // ゲームスピードを0にする
 }
 
-void ParryCamera::Update()
+void ParryCamera::Update(void)
 {
     // どちらかの生存が怪しくなったら安全に復帰
     if (player_.expired() || enemy_.expired())

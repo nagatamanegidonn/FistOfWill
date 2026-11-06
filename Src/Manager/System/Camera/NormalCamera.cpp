@@ -10,7 +10,7 @@ NormalCamera::NormalCamera(void)
 {
 }
 
-void NormalCamera::Init()
+void NormalCamera::Init(void)
 {
 	// 次の状態を自分の状態を入れる
 	//ChangeCamera(shared_from_this());
@@ -34,7 +34,7 @@ void NormalCamera::Init()
 	rot_ = Quaternion();
 }
 
-void NormalCamera::Update()
+void NormalCamera::Update(void)
 {
 	//レンダーターゲットが毎フレーム更新されるので
 	//ニアクリップとファークリップを毎フレーム設定し直す
@@ -56,10 +56,10 @@ void NormalCamera::Update()
 	Effekseer_Sync3DSetting();
 }
 
-void NormalCamera::Draw()
+void NormalCamera::Draw(void)
 {
 }
 
-void NormalCamera::Exit()
+void NormalCamera::Exit(void)
 {
 }

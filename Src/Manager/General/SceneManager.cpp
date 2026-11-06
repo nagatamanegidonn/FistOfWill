@@ -323,7 +323,7 @@ void SceneManager::AddOtherUI(std::shared_ptr<UIBase> ui)
 void SceneManager::DoChangeScene(SCENE_ID sceneId)
 {
 	// リソースの解放
-	ResourceManager::GetInstance().Release();
+	//ResourceManager::GetInstance().Release();
 	CollisionManager::GetInstance().Clear();
 	EffectManager::GetInstance().Reset();
 
@@ -381,21 +381,22 @@ void SceneManager::DoChangeScene(SCENE_ID sceneId)
 
 void SceneManager::Fade(void)
 {
-	Fader::NET_STATE fState = fader_->GetState();
-	switch (fState)
+	switch (fader_->GetState())
 	{
 	case Fader::NET_STATE::FADE_OUT:
 		if (fader_->IsEnd())
 		{
-			// 暗転後、シーン変更
+			// 暗転完了後にシーン変更
 			DoChangeScene(waitSceneId_);
+			// 明転開始
 			fader_->SetFade(Fader::NET_STATE::FADE_IN);
 		}
 		break;
 	case Fader::NET_STATE::FADE_IN:
+
 		if (fader_->IsEnd())
 		{
-			// 明転後、シーン遷移終了
+			// 明転完了
 			fader_->SetFade(Fader::NET_STATE::NONE);
 			isSceneChanging_ = false;
 		}

@@ -1,7 +1,22 @@
+#include "Fader.h"
+
 #include <DxLib.h>
+
+#include "../Renderer/PixelMaterial.h"
+#include "../Renderer/PixelRenderer.h"
+
+#include "../Manager/Resource/ResourceManager.h"
 #include "../Manager/General/SceneManager.h"
 #include "../Application.h"
-#include "Fader.h"
+
+Fader::Fader(void)
+{
+}
+
+// デストラクタ
+Fader::~Fader(void)
+{
+}
 
 Fader::NET_STATE Fader::GetState(void) const
 {
@@ -16,12 +31,26 @@ bool Fader::IsEnd(void) const
 void Fader::SetFade(NET_STATE state)
 {
 	state_ = state;
-	if (state_ != NET_STATE::NONE)
+
+	switch (state_)
 	{
-		isPreEnd_ = false;
-		isEnd_ = false;
-		
+	case NET_STATE::FADE_OUT:
+		alpha_ = 0.0f;
+		break;
+
+	case NET_STATE::FADE_IN:
+		alpha_ = MAX_ALPHA;
+		break;
+
+	case NET_STATE::NONE:
+		isEnd_ = true;
+		return;
+
+	default:
+		return;
 	}
+
+	isEnd_ = false;
 }
 
 void Fader::Init(void)
@@ -31,11 +60,27 @@ void Fader::Init(void)
 	isPreEnd_ = true;
 	isEnd_ = true;
 
+	// マテリアルの生成
+	material_ = std::make_unique<PixelMaterial>(L"Fade.cso", 1);
+
+	// テクスチャの設定
+	fadeImage_ = ResourceManager::GetInstance().Load(L"FadeImage").handleId_;
+	material_->AddTextureBuf(fadeImage_);
+
+	// バッファーの設定
+	//material_->AddConstBuf(FLOAT4{ parameter_->color_.x, parameter_->color_.y,parameter_->color_.z, parameter_->alpha_ });
+	material_->AddConstBuf(FLOAT4{ 0.0f, 0.0f,0.0f, 0.0f });
+
+	// レンダラーの生成
+	renderer_ = std::make_unique<PixelRenderer>(*material_);
+
+	// メッシュ生成
+	renderer_->MakeSquereVertex(Vector2(Application::SCREEN_SIZE_X / 2, Application::SCREEN_SIZE_Y / 2)
+		, Vector2(Application::SCREEN_SIZE_X, Application::SCREEN_SIZE_Y));
 }
 
 void Fader::Update(void)
 {
-
 	if (isEnd_)
 	{
 		return;
@@ -47,64 +92,50 @@ void Fader::Update(void)
 		return;
 
 	case NET_STATE::FADE_OUT:
+
 		alpha_ += SPEED_ALPHA;
-		if (alpha_ > 255)
+
+		if (alpha_ >= MAX_ALPHA)
 		{
-			// フェード終了
-			alpha_ = 255;
-			if (!isPreEnd_)
-			{
-				// 1フレーム後(Draw後)に終了とする
-				isEnd_ = true;
-			}
-			isPreEnd_ = true;
+			alpha_ = MAX_ALPHA;
+			isEnd_ = true;
 		}
 
 		break;
+
 	case NET_STATE::FADE_IN:
+
 		alpha_ -= SPEED_ALPHA;
-		if (alpha_ < 0)
+
+		if (alpha_ <= 0.0f)
 		{
-			// フェード終了
-			alpha_ = 0;
-			if (isPreEnd_)
-			{
-				// 1フレーム後(Draw後)に終了とする
-				isEnd_ = true;
-			}
-			isPreEnd_ = true;
+			alpha_ = 0.0f;
+			isEnd_ = true;
 		}
+
 		break;
 
 	case NET_STATE::FADE_STOP:
-		
 		break;
-
-	default:
-		return;
 	}
-
 }
 
 void Fader::Draw(void)
 {
-
-	switch (state_)
+	if (state_ == NET_STATE::NONE)
 	{
-	case NET_STATE::NONE:
 		return;
-	case NET_STATE::FADE_OUT:
-	case NET_STATE::FADE_IN:
-	case NET_STATE::FADE_STOP:
-
-		SetDrawBlendMode(DX_BLENDMODE_ALPHA, (int)alpha_);
-		DrawBox(
-			0, 0,
-			Application::SCREEN_SIZE_X,
-			Application::SCREEN_SIZE_Y,
-			0x000000, true);
-		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
-		break;
 	}
 
+	float rate = alpha_ / MAX_ALPHA;
+
+	material_->SetConstBuf(
+		0,
+		FLOAT4{ 0.0f, 0.0f, 0.0f, rate }
+	);
+
+	// 描画処理
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);
+	renderer_->Draw();
+	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }

@@ -155,6 +155,7 @@
     <ClCompile Include="Src\Object\Enemy\TutorialState\TutorialStateDamage.cpp" />
     <ClCompile Include="Src\Scene\Sub\TutorialTextScene.cpp" />
     <ClCompile Include="Src\Object\Stage\Destination.cpp" />
+    <ClCompile Include="Src\UI\Image\SyaderImageUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\UI\LoadingUI.h" />
@@ -339,6 +340,7 @@
     <ClInclude Include="Src\Object\Enemy\TutorialState\TutorialStateDamage.h" />
     <ClInclude Include="Src\Scene\Sub\TutorialTextScene.h" />
     <ClInclude Include="Src\Object\Stage\Destination.h" />
+    <ClInclude Include="Src\UI\Image\SyaderImageUI.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Src\Shader\Model\AfterimagePS.hlsl">
@@ -391,6 +393,14 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)/Data/Shader/%(Filename).cso</ObjectFileOutput>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)/Data/Shader/%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="Src\Shader\Pixel\Fade.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)/Data/Shader/%(Filename).cso</ObjectFileOutput>
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)/Data/Shader/%(Filename).cso</ObjectFileOutput>
     </FxCompile>
     <FxCompile Include="Src\Shader\Texture\Map.hlsl">

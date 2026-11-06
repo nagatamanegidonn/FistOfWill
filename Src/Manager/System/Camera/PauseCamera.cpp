@@ -15,7 +15,7 @@ PauseCamera::PauseCamera(std::shared_ptr<CameraBase> returnCamera)
 {
 }
 
-void PauseCamera::Init()
+void PauseCamera::Init(void)
 {
     // 次の状態をクリア
     ChangeCamera(nullptr);
@@ -55,7 +55,7 @@ void PauseCamera::Init()
     GetMousePoint(&prevMouseX_, &prevMouseY_);
 }
 
-void PauseCamera::Update()
+void PauseCamera::Update(void)
 {
     SetCameraNearFar(cameraNear_, cameraFar_);
 
@@ -103,11 +103,11 @@ void PauseCamera::Update()
     Effekseer_Sync3DSetting();
 }
 
-void PauseCamera::Draw()
+void PauseCamera::Draw(void)
 {
 }
 
-void PauseCamera::Exit()
+void PauseCamera::Exit(void)
 {
     // ポーズカメラ終了時にマウスカーソルを非表示に戻す
     SetMouseDispFlag(FALSE);

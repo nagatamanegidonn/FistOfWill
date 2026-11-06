@@ -19,7 +19,7 @@ CameraBase::CameraBase(void)
 {
 }
 
-void CameraBase::SetBeforeDraw()
+void CameraBase::SetBeforeDraw(void)
 {
 	// SetDrawScreen の直後にこれを呼ぶことで、リセットされた Near/Far を再設定する
 	SetCameraNearFar(cameraNear_, cameraFar_);

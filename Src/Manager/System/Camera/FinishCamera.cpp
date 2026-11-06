@@ -11,7 +11,7 @@ FinishCamera::FinishCamera(std::shared_ptr<ActorBase> target, std::shared_ptr<Ca
 {
 }
 
-void FinishCamera::Init()
+void FinishCamera::Init(void)
 {
     // 自分自身を現在のカメラ状態として維持
     ChangeCamera(nullptr);
@@ -23,7 +23,7 @@ void FinishCamera::Init()
     targetPos_ = Utility::VECTOR_ZERO;
 }
 
-void FinishCamera::Update()
+void FinishCamera::Update(void)
 {
     // ターゲットが途中で消滅したら安全のために演出を終わらせる
     if (target_.expired())

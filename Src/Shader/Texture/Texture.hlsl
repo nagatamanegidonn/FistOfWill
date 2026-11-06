@@ -1,11 +1,5 @@
 #include "../Common/Pixel/PixelShader2DHeader.hlsli"
 
-// 定数バッファ：スロット4番目(b4と書く)
-cbuffer cbParam : register(b4)
-{
-	float g_none;
-}
-
 float4 main(PS_INPUT PSInput) : SV_TARGET
 {
 	float2 uv = PSInput.uv;

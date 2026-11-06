@@ -2,7 +2,7 @@
 #include <DxLib.h>
 #include "../Manager/Resource/ResourceManager.h" // プロジェクトのResourceManager
 
-ImageUI::ImageUI()
+ImageUI::ImageUI(void)
     : UIBase()
     , pos_(Vector2(0.0f, 0.0f))
     , posLocal_(Vector2(0.0f, 0.0f))
@@ -34,11 +34,11 @@ ImageUI::ImageUI(Vector2 pos, const std::wstring& resourceKey)
 {
 }
 
-ImageUI::~ImageUI()
+ImageUI::~ImageUI(void)
 {
 }
 
-void ImageUI::Init()
+void ImageUI::Init(void)
 {
     // UIManagerへ登録
     UIBase::Init();
@@ -53,7 +53,7 @@ void ImageUI::SetResourceKey(const std::wstring& resourceKey)
     CheckResource();
 }
 
-void ImageUI::CheckResource()
+void ImageUI::CheckResource(void)
 {
     if (resourceKey_.empty())
     {
@@ -86,12 +86,12 @@ void ImageUI::CheckResource()
     }
 }
 
-void ImageUI::Update()
+void ImageUI::Update(void)
 {
     // アニメーション処理やUI独自の動的更新が必要な場合はここに記述
 }
 
-void ImageUI::Draw() const
+void ImageUI::Draw(void) const
 {
     if (!m_isDraw) return;
 

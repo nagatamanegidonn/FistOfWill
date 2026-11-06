@@ -9,44 +9,44 @@ class ImageUI :
 public:
 
     // コンストラクタ
-    ImageUI();
+    ImageUI(void);
     ImageUI(Vector2 pos, const std::wstring& resourceKey = L"");
     // デストラクタ
-    virtual ~ImageUI();
+    virtual ~ImageUI(void);
 
     // UIBaseのオーバーライド
-    void Init() override;
-    void Update() override;
-    void Draw() const override;
+    virtual void Init(void) override;
+    virtual void Update(void) override;
+    virtual void Draw(void) const override;
 
     // キーの設定（変更時にハンドルを自動再取得）
     void SetResourceKey(const std::wstring& resourceKey);
-    const std::wstring& GetResourceKey() const { return resourceKey_; }
+    const std::wstring& GetResourceKey(void) const { return resourceKey_; }
 
     // 直接ハンドルを指定したい場合（MakeScreenなどで作成した動的画像用）
     void SetHandle(int handle) { handle_ = handle; handleIds_ = nullptr; }
 
     // --- 分割画像（IMGS）用設定 ---
     void SetFrameIndex(int index) { frameIndex_ = index; }
-    int GetFrameIndex() const { return frameIndex_; }
+    int GetFrameIndex(void) const { return frameIndex_; }
 
     // --- トランスフォーム & パラメータ ---
-    const Vector2& GetPos() const { return pos_; }
+    const Vector2& GetPos(void) const { return pos_; }
     void SetPos(const Vector2& pos) { pos_ = pos; }
 
-    const Vector2& GetPosLocal() const { return posLocal_; }
+    const Vector2& GetPosLocal(void) const { return posLocal_; }
     void SetPosLocal(const Vector2& posLocal) { posLocal_ = posLocal; }
 
-    float GetScale() const { return scale_; }
+    float GetScale(void) const { return scale_; }
     void SetScale(float scale) { scale_ = scale; }
 
-    float GetAngle() const { return angle_; }
+    float GetAngle(void) const { return angle_; }
     void SetAngle(float angle) { angle_ = angle; }
 
-    bool GetTransFlag() const { return transFlag_; }
+    bool GetTransFlag(void) const { return transFlag_; }
     void SetTransFlag(bool transFlag) { transFlag_ = transFlag; }
 
-    bool GetTurnFlag() const { return turnFlag_; }
+    bool GetTurnFlag(void) const { return turnFlag_; }
     void SetTurnFlag(bool turnFlag) { turnFlag_ = turnFlag; }
 
     // UIBase::m_isFrontDraw のセッター
@@ -55,7 +55,7 @@ public:
 protected:
 
     // リソースの再読み込み・キャッシュ更新
-    void CheckResource();
+    void CheckResource(void);
 
     Vector2 pos_;             // ワールド座標
     Vector2 posLocal_;        // ローカルオフセット座標

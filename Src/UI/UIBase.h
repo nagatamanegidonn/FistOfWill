@@ -8,30 +8,30 @@ class UIBase abstract :
 public:
 
 	// コンストラクタ
-	UIBase();
+	UIBase(void);
 	// デストラクタ
-	~UIBase();
+	~UIBase(void);
 
 	//初期化
-	virtual void Init();
+	virtual void Init(void);
 	//終了
-	virtual void End();
+	virtual void End(void);
 	//更新
-	virtual void Update() abstract;
+	virtual void Update(void) abstract;
 	//描画
-	virtual void Draw()const abstract;
+	virtual void Draw(void) const abstract;
 	//描画順
-	bool IsFrontDraw()const { return m_isFrontDraw; };
+	bool IsFrontDraw(void) const { return m_isFrontDraw; };
 	void SetFrontDraw(bool value) { m_isFrontDraw = value; }
 	//削除
-	bool IsDelete()const { return m_isDelete; };
-	void Delete() { m_isDelete = true; };
+	bool IsDelete(void) const { return m_isDelete; };
+	void Delete(void) { m_isDelete = true; };
 	//描画しているか
-	bool IsDraw()const { return m_isDraw; };
+	bool IsDraw(void) const { return m_isDraw; };
 	// 描画を有効にする
-	virtual void EnableDraw() { m_isDraw = true; };
+	virtual void EnableDraw(void) { m_isDraw = true; };
 	// 描画を無効にする
-	virtual void DisableDraw() { m_isDraw = false; };
+	virtual void DisableDraw(void) { m_isDraw = false; };
 
 protected:
 

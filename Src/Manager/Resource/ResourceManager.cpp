@@ -19,14 +19,43 @@ ResourceManager& ResourceManager::GetInstance(void)
 	return *instance_;
 }
 
-void ResourceManager::RegisterResource(const std::wstring& key, Resource::TYPE type, const std::wstring& path)
+void ResourceManager::RegisterResource(
+	const std::wstring& key,
+	Resource::TYPE type,
+	const std::wstring& path)
 {
-	resourcesMap_[key] = std::make_unique<Resource>(type, path);
+	if ( resourcesMap_.find(key) != resourcesMap_.end())
+	{
+		return;
+	}
+
+	resourcesMap_.emplace(
+		key,
+		std::make_unique<Resource>(type, path));
 }
 
-void ResourceManager::RegisterDivImage(const std::wstring& key, const std::wstring& path, int numX, int numY, int sizeX, int sizeY)
+void ResourceManager::RegisterDivImage(
+	const std::wstring& key,
+	const std::wstring& path,
+	int numX,
+	int numY,
+	int sizeX,
+	int sizeY)
 {
-	resourcesMap_[key] = std::make_unique<Resource>(Resource::TYPE::IMGS, path, numX, numY, sizeX, sizeY);
+	if ( resourcesMap_.find(key) != resourcesMap_.end())
+	{
+		return;
+	}
+
+	resourcesMap_.emplace(
+		key,
+		std::make_unique<Resource>(
+			Resource::TYPE::IMGS,
+			path,
+			numX,
+			numY,
+			sizeX,
+			sizeY));
 }
 
 void ResourceManager::Init(void)
@@ -89,6 +118,10 @@ void ResourceManager::Init(void)
 	RegisterResource(L"Skill", Resource::TYPE::IMG, PATH_IMG + L"Guide/Skill.png");
 	RegisterResource(L"Step", Resource::TYPE::IMG, PATH_IMG + L"Guide/Step.png");
 	RegisterResource(L"Fream", Resource::TYPE::IMG, PATH_IMG + L"Guide/Fream.png");
+
+	// ‰æ‘œ
+	RegisterResource(L"FadeImage", Resource::TYPE::IMG, PATH_IMG + L"Fade/136.png");
+	RegisterResource(L"TitleImage", Resource::TYPE::IMG, PATH_IMG + L"Title.png");
 
 }
 
