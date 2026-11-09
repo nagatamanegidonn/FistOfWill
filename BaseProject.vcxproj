@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Manager\General\LoadingManager.cpp" />
     <ClCompile Include="Src\UI\LoadingUI.cpp" />
     <ClCompile Include="Src\Object\Component\DrawRimLightComponent.cpp" />
     <ClCompile Include="Src\Object\Component\DrawOutlineComponent.cpp" />
@@ -158,6 +159,7 @@
     <ClCompile Include="Src\UI\Image\SyaderImageUI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Manager\General\LoadingManager.h" />
     <ClInclude Include="Src\UI\LoadingUI.h" />
     <ClInclude Include="Src\Object\Component\DrawRimLightComponent.h" />
     <ClInclude Include="Src\Object\Component\DrawOutlineComponent.h" />

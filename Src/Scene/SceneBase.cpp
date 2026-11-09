@@ -24,11 +24,34 @@ void SceneBase::Init(void)
 
 void SceneBase::AsyncPreLoad(void)
 {
-	// 何もしない
+	// 非同期読み込み開始
+	loading_.StartLoading();
+
+	// シーン内のリソースを読み込む
+	resMng_.SceneChangeResource(static_cast<int>(scnMng_.GetSceneID()));
 }
 
 void SceneBase::Update(void)
 {
+	// ローディング中の場合
+	if (loading_.IsLoading())
+	{
+		// ローディング中の更新処理
+		loading_.Update();
+		return;
+	}
+
+	// サウンドのリソースの切り替え
+	//sndMng_.SceneChangeResources();
+
+	// 初期化
+	Init();
+
+	// 処理の変更
+	ChangeNormal();
+
+	//フェードイン開始
+	scnMng_.StartFadeIn();
 }
 
 void SceneBase::Draw(void)

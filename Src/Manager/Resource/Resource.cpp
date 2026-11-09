@@ -69,6 +69,11 @@ void Resource::Load(void)
     {
         return;
     }
+    // ロードに失敗した場合は確保済みリソースを解放
+    /*if (!isLoaded_)
+    {
+        Release();
+    }*/
 
     switch (type_)
     {

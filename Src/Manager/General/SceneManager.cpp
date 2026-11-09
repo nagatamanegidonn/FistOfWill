@@ -28,6 +28,7 @@
 #include "../Utility/ShadowMap.h"
 
 #include "SceneManager.h"
+#include "../../UI/LoadingUI.h"
 
 SceneManager* SceneManager::instance_ = nullptr;
 
@@ -72,7 +73,6 @@ SceneManager& SceneManager::GetInstance(void)
 
 void SceneManager::Init(void)
 {
-
 	sceneId_ = SCENE_ID::TITLE;
 	waitSceneId_ = SCENE_ID::NONE;
 
@@ -100,6 +100,11 @@ void SceneManager::Init(void)
 	// 初期シーンの設定
 	DoChangeScene(SCENE_ID::TITLE);
 
+	// LoadingUIの表示テスト
+	std::shared_ptr<LoadingUI> testLoadingUI_;
+	testLoadingUI_ = std::make_shared<LoadingUI>();
+	testLoadingUI_->Init();
+
 }
 void SceneManager::Init3D(void)
 {
@@ -120,7 +125,6 @@ void SceneManager::Init3D(void)
 
 	// ライトの設定
 	ChangeLightTypeDir({ 0.3f, -0.7f, 0.8f });
-	//ChangeLightTypePoint({ 0.0f, -100.0f, 0.0f },20000.0f, 0.0f, 0.0006f, 0.0f);
 
 	// フォグ設定
 	SetFogEnable(true);
@@ -368,7 +372,10 @@ void SceneManager::DoChangeScene(SCENE_ID sceneId)
 	// 挿入したシーンだけ Init
 	if (!scene_.empty())
 	{
-		scene_.back()->Init();   // ← これでOK
+		scene_.back()->Init(); 
+
+		//Initの変わりにAsyncPreLoad
+		scene_.back()->AsyncPreLoad();
 	}
 
 	//ResetDeltaTime();
