@@ -1,4 +1,5 @@
 #include <DxLib.h>
+#include "../Manager/General/LoadingManager.h"
 #include "../UI/Scene/SceneUI.h"
 #include "SceneBase.h"
 

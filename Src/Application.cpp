@@ -9,6 +9,7 @@
 #include "Manager/System/InputManager.h"
 #include "Manager/System/InputTextManager.h"
 #include "Manager/General/SceneManager.h"
+#include "Manager/General/LoadingManager.h"
 #include "Manager/Resource/ResourceManager.h"
 #include "Manager/Resource/SoundManager.h"
 #include "../UI/UIManager.h"
@@ -115,6 +116,9 @@ void Application::Init(void)
 	// シーン管理初期化
 	SceneManager::CreateInstance();
 
+	// ローディング管理初期化
+	LoadingManager::CreateInstance();
+
 	// ImGui初期化
 	ImGuiWrapper::CreateInstance();
 
@@ -171,6 +175,7 @@ void Application::Destroy(void)
 
 	ImGuiWrapper::GetInstance().Destroy();
 	InputManager::GetInstance().Destroy();
+	LoadingManager::GetInstance().Destroy();
 	SceneManager::GetInstance().Destroy();
 	SoundManager::GetInstance().Destroy();
 	ResourceManager::GetInstance().Destroy();
