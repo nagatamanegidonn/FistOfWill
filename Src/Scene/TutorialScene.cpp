@@ -113,7 +113,12 @@ void TutorialScene::Init(void)
 
 }
 
-void TutorialScene::Update(void)
+void TutorialScene::Release(void)
+{
+	actorManager_->End();
+}
+
+void TutorialScene::NormalUpdate(void)
 {
 	// ƒQ[ƒ€ŠÔis
 	SceneManager::GetInstance().ForwardGameTime();//i‚ß‚éƒQ[ƒ€ŠÔ(GameTotalTime@+=@ƒfƒ‹ƒ^ƒ^ƒCƒ€)
@@ -170,18 +175,13 @@ void TutorialScene::Update(void)
 	}
 }
 
-void TutorialScene::Draw(void)
+void TutorialScene::NormalDraw(void)
 {
 	// ”wŒiAƒXƒe[ƒW‚Ì•`‰æ
 	skyDome_->Draw();
 
 	// •`‰æ
 	actorManager_->Draw();
-}
-
-void TutorialScene::Release(void)
-{
-	actorManager_->End();
 }
 
 

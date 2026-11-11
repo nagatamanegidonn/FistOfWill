@@ -82,7 +82,11 @@ void TitleScene::Init(void)
 
 }
 
-void TitleScene::Update(void)
+void TitleScene::Release(void)
+{
+}
+
+void TitleScene::NormalUpdate(void)
 {
 	if (InputManager::GetInstance().IsTrgDown(KEY_INPUT_Q))
 	{
@@ -96,14 +100,9 @@ void TitleScene::Update(void)
 
 	auto& ins = InputManager::GetInstance();
 	Vector2 moPos = ins.GetMousePos();
-
 }
 
-void TitleScene::Draw(void)
-{
-}
-
-void TitleScene::Release(void)
+void TitleScene::NormalDraw(void)
 {
 }
 

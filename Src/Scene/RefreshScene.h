@@ -14,11 +14,13 @@ public:
 	~RefreshScene(void);
 
 	void Init(void) override;
-	void Update(void) override;
-	void Draw(void) override;
 	void Release(void) override;
 
 private:
+
+	// çXêVä÷êî
+	void NormalUpdate(void) override;
+	void NormalDraw(void) override;
 
 	void GameStart(void);
 	void GameEnd(void);

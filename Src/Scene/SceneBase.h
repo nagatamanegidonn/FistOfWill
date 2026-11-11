@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include <functional>
 
 class SceneUI;
 class UIBase;
@@ -39,6 +40,19 @@ public:
 	virtual bool IsLoad(void) const;
 
 protected:
+
+	//更新処理管理
+	std::function<void(void)> updataFunc_;
+	std::function<void(void)> drawFunc_;
+
+	//更新関数
+	virtual void LoadingUpdate(void);
+	virtual void NormalUpdate(void);
+
+	//描画関数
+	virtual void LoadingDraw(void);
+	virtual void NormalDraw(void);
+
 
 	//UI
 	std::shared_ptr<SceneUI> SceneUI_;

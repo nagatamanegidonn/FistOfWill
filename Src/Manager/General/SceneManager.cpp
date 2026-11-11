@@ -28,7 +28,7 @@
 #include "../Utility/ShadowMap.h"
 
 #include "SceneManager.h"
-#include "../../UI/LoadingUI.h"
+#include "LoadingManager.h"
 
 SceneManager* SceneManager::instance_ = nullptr;
 
@@ -100,11 +100,6 @@ void SceneManager::Init(void)
 	// 初期シーンの設定
 	DoChangeScene(SCENE_ID::TITLE);
 
-	// LoadingUIの表示テスト
-	std::shared_ptr<LoadingUI> testLoadingUI_;
-	testLoadingUI_ = std::make_shared<LoadingUI>();
-	testLoadingUI_->Init();
-
 }
 void SceneManager::Init3D(void)
 {
@@ -147,15 +142,16 @@ void SceneManager::Update(void)
 
 	// フェード更新
 	fader_->Update();
+
+	// シーンチェンジ中の処理
 	if (isSceneChanging_)
 	{
+		// フェード処理
 		Fade();
 	}
-	else
-	{
-		// 更新
-		scene_.back()->Update();
-	}
+
+	// 更新
+	scene_.back()->Update();
 
 	// 描画先グラフィック領域の指定
 	// (３Ｄ描画で使用するカメラの設定などがリセットされる)
@@ -201,7 +197,8 @@ void SceneManager::Draw(void)
 	UIManager::GetInstance().FrontDraw();
 
 	// 描画
-	for (auto& scene : scene_) {
+	for (auto& scene : scene_)
+	{
 		scene->Draw();
 	}
 
@@ -307,9 +304,10 @@ void SceneManager::PushScene(std::shared_ptr<SceneBase> _scene)
 	scene_.push_back(_scene);
 }
 
-void SceneManager::PopScene()
+void SceneManager::PopScene(void)
 {
-	if (scene_.size() > 1) {
+	if (scene_.size() > 1)
+	{
 		scene_.back()->Release();
 		scene_.pop_back();
 		// UIの描画再開
@@ -319,9 +317,16 @@ void SceneManager::PopScene()
 
 void SceneManager::AddOtherUI(std::shared_ptr<UIBase> ui)
 {
-	if (scene_.size() > 0) {
+	if (scene_.size() > 0)
+	{
 		scene_.back()->AddOtherUI(ui);
 	}
+}
+
+void SceneManager::StartFade(void)
+{
+	// 明転開始
+	fader_->SetFade(Fader::NET_STATE::FADE_IN);
 }
 
 void SceneManager::DoChangeScene(SCENE_ID sceneId)
@@ -372,7 +377,7 @@ void SceneManager::DoChangeScene(SCENE_ID sceneId)
 	// 挿入したシーンだけ Init
 	if (!scene_.empty())
 	{
-		scene_.back()->Init(); 
+		//scene_.back()->Init(); 
 
 		//Initの変わりにAsyncPreLoad
 		scene_.back()->AsyncPreLoad();
@@ -396,7 +401,7 @@ void SceneManager::Fade(void)
 			// 暗転完了後にシーン変更
 			DoChangeScene(waitSceneId_);
 			// 明転開始
-			fader_->SetFade(Fader::NET_STATE::FADE_IN);
+			fader_->SetFade(Fader::NET_STATE::NONE);
 		}
 		break;
 	case Fader::NET_STATE::FADE_IN:

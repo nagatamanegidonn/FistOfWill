@@ -113,11 +113,11 @@ void Application::Init(void)
 	//音の初期化
 	SoundManager::CreateInstance();
 
-	// シーン管理初期化
-	SceneManager::CreateInstance();
-
 	// ローディング管理初期化
 	LoadingManager::CreateInstance();
+
+	// シーン管理初期化
+	SceneManager::CreateInstance();
 
 	// ImGui初期化
 	ImGuiWrapper::CreateInstance();

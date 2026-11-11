@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>C:\Users\2316013\Desktop\FistOfWill\x64\Release\BaseProject.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>C:\Users\2316013\Desktop\FistOfWill\Data\Shader\AfterimagePS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\2316013\Desktop\FistOfWill\Data\Shader\AfterimageVS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\2316013\Desktop\FistOfWill\Data\Shader\OutLinePS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\2316013\Desktop\FistOfWill\Data\Shader\OutLineVS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\2316013\Desktop\FistOfWill\Data\Shader\RimLightPS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\2316013\Desktop\FistOfWill\Data\Shader\RimLightVS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\2316013\Desktop\FistOfWill\Data\Shader\StdModelPS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\2316013\Desktop\FistOfWill\Data\Shader\StdModelVS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\2316013\Desktop\FistOfWill\Data\Shader\Fade.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\2316013\Desktop\FistOfWill\Data\Shader\Map.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\2316013\Desktop\FistOfWill\Data\Shader\PlayerHp.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\2316013\Desktop\FistOfWill\Data\Shader\PlayerStatus.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\2316013\Desktop\FistOfWill\Data\Shader\Texture.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\2316013\Desktop\FistOfWill\Data\Shader\Timer.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\2316013\Desktop\FistOfWill\Data\Shader\SwordTrailPS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\2316013\Desktop\FistOfWill\Data\Shader\SwordTrailVS.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

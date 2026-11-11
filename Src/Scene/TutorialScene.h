@@ -23,11 +23,13 @@ public:
 	~TutorialScene(void);
 
 	void Init(void) override;
-	void Update(void) override;
-	void Draw(void) override;
 	void Release(void) override;
 
 private:
+
+	// 更新関数
+	void NormalUpdate(void) override;
+	void NormalDraw(void) override;
 
 	// アクター管理
 	std::shared_ptr<ActorManager> actorManager_;

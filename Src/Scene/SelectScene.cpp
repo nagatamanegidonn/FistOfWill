@@ -172,18 +172,6 @@ void SelectScene::Init(void)
 	SoundManager::GetInstance().ChengeVolume(L"SELECT_BGM", SOUND_RATE);
 }
 
-void SelectScene::Update(void)
-{
-	// XV
-	actorManager_->Update();
-}
-
-void SelectScene::Draw(void)
-{
-	// •`‰æ
-	actorManager_->Draw();
-}
-
 void SelectScene::Release(void)
 {
 	if (ExitUI_ != nullptr)
@@ -192,6 +180,18 @@ void SelectScene::Release(void)
 	}
 
 	actorManager_->End();
+}
+
+void SelectScene::NormalUpdate(void)
+{
+	// XV
+	actorManager_->Update();
+}
+
+void SelectScene::NormalDraw(void)
+{
+	// •`‰æ
+	actorManager_->Draw();
 }
 
 void SelectScene::GameStart(void)

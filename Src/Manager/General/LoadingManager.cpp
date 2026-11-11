@@ -2,6 +2,7 @@
 #include <DxLib.h>
 #include "SceneManager.h"
 #include "../Resource/SoundManager.h"
+#include "../../UI/LoadingUI.h"
 
 LoadingManager* LoadingManager::instance_ = nullptr;
 
@@ -53,6 +54,11 @@ void LoadingManager::Destroy(void)
 
 void LoadingManager::StartLoading(void)
 {
+	// LoadingUIの表示テスト
+	testLoadingUI_ = std::make_shared<LoadingUI>();
+	testLoadingUI_->Init();
+	testLoadingUI_->EnableDraw();
+
 	// ローディング中フラグを立てる
 	isLoading_ = true;
 
@@ -73,4 +79,6 @@ void LoadingManager::EndLoading()
 
 	// 非同期読み込みの終了判定
 	isLoading_ = false;
+
+	testLoadingUI_->DisableDraw();
 }

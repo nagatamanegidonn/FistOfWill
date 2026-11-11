@@ -3,6 +3,8 @@
 #include <string>
 #include "../../Application.h"
 
+class LoadingUI;
+
 /// <summary>
 /// シングルトン
 /// </summary>
@@ -78,5 +80,7 @@ private:
 
 	//ローディング文字列
 	//CharacterString loadingString_;
+
+	std::shared_ptr<LoadingUI> testLoadingUI_;
 };
 

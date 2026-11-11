@@ -8,7 +8,8 @@
 
 LoadingUI::LoadingUI()
     :
-    m_angle_(0.0f)
+    m_angle_(0.0f),
+    UIBase()
 {
 }
 
@@ -20,11 +21,15 @@ void LoadingUI::Init()
     m_angle_ = 0.0f;
 
     // 最前面に描画
-    SetFrontDraw(true);
+    //SetFrontDraw(true);
 }
 
 void LoadingUI::Update()
 {
+    if (!m_isDraw)
+    {
+        return;
+    }
     // アニメーション更新
     // 60FPSを基準にする
     m_angle_ += ROTATION_SPEED / 60.0f;
@@ -40,6 +45,11 @@ void LoadingUI::Update()
 
 void LoadingUI::Draw() const
 {
+    if(!m_isDraw)
+    {
+        return;
+	}
+
     constexpr float PI = 3.14159265f;
     constexpr float TWO_PI = PI * 2.0f;
 

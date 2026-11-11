@@ -19,8 +19,6 @@ public:
 	~SelectScene(void);
 
 	void Init(void) override;
-	void Update(void) override;
-	void Draw(void) override;
 	void Release(void) override;
 
 private:
@@ -30,21 +28,14 @@ private:
 	std::shared_ptr<StageManager> stageManager_;
 
 	//UI
-	/*std::weak_ptr<SelectTitleUI> m_selectTitleUI;
-	std::weak_ptr<DialogUI> m_dialogUI;*/
 	std::shared_ptr<ButtonUI> ExitUI_;
+
+	// çXêVä÷êî
+	void NormalUpdate(void) override;
+	void NormalDraw(void) override;
 
 	void GameStart(void);
 	void TutorialStart(void);
 	void GameExit(void);
 
 };
-
-//#pragma once
-//#include <map>
-//#include <functional>
-//#include <memory>
-//#include <string>
-//
-//#include "../Application.h"
-//#include "../Common/Vector2.h"

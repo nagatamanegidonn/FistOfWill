@@ -105,17 +105,17 @@ void RefreshScene::Init(void)
 	SceneUI_->AddButtonUI(StartUI);
 }
 
-void RefreshScene::Update(void)
+void RefreshScene::Release(void)
 {
 	// ゲーム時間進行
 	SceneManager::GetInstance().ForwardGameTime();//進めるゲーム時間(GameTotalTime　+=　デルタタイム)
 }
 
-void RefreshScene::Draw(void)
+void RefreshScene::NormalUpdate(void)
 {
 }
 
-void RefreshScene::Release(void)
+void RefreshScene::NormalDraw(void)
 {
 }
 

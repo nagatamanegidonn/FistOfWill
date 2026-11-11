@@ -120,6 +120,4 @@ void Fader::Draw(void)
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);
 	renderer_->Draw();
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
-
-	DrawFormatString(0, 0, 0xffffff, L"alpha: %f", alpha_);
 }

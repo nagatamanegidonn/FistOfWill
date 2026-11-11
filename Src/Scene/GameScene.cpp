@@ -108,9 +108,6 @@ void GameScene::Init(void)
 	// ゲーム開始待機時間
 	stepCountDown_ = 1.5f;
 
-	// ダウンした回数
-	downCnt_ = 0;
-
 	// 音の設定
 	SoundManager::GetInstance().Play(L"BATTLE_BGM", Sound::TIMES::LOOP);
 	SoundManager::GetInstance().ChengeVolume(L"BATTLE_BGM", SOUND_RATE);
@@ -126,7 +123,14 @@ void GameScene::Init(void)
 	GameManager::GetInstance().GameInit();
 }
 
-void GameScene::Update(void)
+void GameScene::Release(void)
+{
+	actorManager_->End();
+	// 当たり判定管理のリセット
+	//CollisionManager::GetInstance().DeleteAllCollider();
+}
+
+void GameScene::NormalUpdate(void)
 {
 	// ゲーム時間進行
 	SceneManager::GetInstance().ForwardGameTime();//進めるゲーム時間(GameTotalTime　+=　デルタタイム)
@@ -148,7 +152,7 @@ void GameScene::Update(void)
 		SceneManager::GetInstance().PushScene(scene);
 		return;
 	}
-	
+
 	// 更新
 	actorManager_->Update();
 
@@ -181,7 +185,7 @@ void GameScene::Update(void)
 	}
 }
 
-void GameScene::Draw(void)
+void GameScene::NormalDraw(void)
 {
 	// 背景、ステージの描画
 	skyDome_->Draw();
@@ -192,18 +196,6 @@ void GameScene::Draw(void)
 
 	// 描画
 	actorManager_->Draw();
-}
-
-void GameScene::Release(void)
-{
-	actorManager_->End();
-	// 当たり判定管理のリセット
-	//CollisionManager::GetInstance().DeleteAllCollider();
-}
-
-void GameScene::DownCountPuls(void)
-{
-	downCnt_ += 1;
 }
 
 

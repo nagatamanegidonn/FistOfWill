@@ -32,12 +32,7 @@ public:
 	~GameScene(void);
 
 	void Init(void) override;
-	void Update(void) override;
-	void Draw(void) override;
 	void Release(void) override;
-
-	void DownCountPuls(void);
-	const int GetDownCount(void)const { return downCnt_; }
 
 private:
 
@@ -57,9 +52,10 @@ private:
 
 	// ゲーム開始待機時間
 	float stepCountDown_;
-	
-	// ゲームシーン用変数
-	int downCnt_;		// ダウンした回数
+
+	// 更新関数
+	void NormalUpdate(void) override;
+	void NormalDraw(void) override;
 
 };
 

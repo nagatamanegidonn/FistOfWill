@@ -102,6 +102,9 @@ public:
 	// UIの設定
 	void AddOtherUI(std::shared_ptr<UIBase> ui);
 
+	// フェードの処理
+	void StartFade(void);
+
 private:
 
 	// 静的インスタンス
