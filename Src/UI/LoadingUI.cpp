@@ -6,14 +6,14 @@
 
 #include "../Application.h"
 
-LoadingUI::LoadingUI()
+LoadingUI::LoadingUI(void)
     :
     m_angle_(0.0f),
     UIBase()
 {
 }
 
-void LoadingUI::Init()
+void LoadingUI::Init(void)
 {
     // UIBaseÇÃèâä˙âª
     UIBase::Init();
@@ -24,7 +24,7 @@ void LoadingUI::Init()
     //SetFrontDraw(true);
 }
 
-void LoadingUI::Update()
+void LoadingUI::Update(void)
 {
     if (!m_isDraw)
     {
@@ -43,7 +43,7 @@ void LoadingUI::Update()
     }
 }
 
-void LoadingUI::Draw() const
+void LoadingUI::Draw(void) const
 {
     if(!m_isDraw)
     {

@@ -44,7 +44,6 @@ void LoadingManager::Update(void)
 
 void LoadingManager::Draw(void)
 {
-	DrawFormatString(0, 0, GetColor(255, 255, 255), L"Now Loading");
 }
 
 void LoadingManager::Destroy(void)
@@ -80,5 +79,6 @@ void LoadingManager::EndLoading()
 	// ”ñ“¯Šú“Ç‚Ýž‚Ý‚ÌI—¹”»’è
 	isLoading_ = false;
 
+	// •`‰æ‚ð–³Œø‰»
 	testLoadingUI_->DisableDraw();
 }

@@ -31,7 +31,7 @@ public:
     void SetFunc(const std::function<void()> func) { function_ = std::bind(func); }
 
 	// クリック時の処理
-	void OnClick() { if (function_) function_(); }
+	void OnClick(void) { if (function_) function_(); }
 
 	// ゲッター＆セッター
 	const Vector2& GetPos(void)const { return pos_; }

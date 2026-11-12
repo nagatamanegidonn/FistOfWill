@@ -8,19 +8,19 @@ class LoadingUI :
 public:
 
     // コンストラクタ
-    LoadingUI();
+    LoadingUI(void);
 
     // デストラクタ
-    virtual ~LoadingUI() = default;
+    virtual ~LoadingUI(void) = default;
 
     // 初期化
-    virtual void Init() override;
+    virtual void Init(void) override;
 
     // 更新
-    virtual void Update() override;
+    virtual void Update(void) override;
 
     // 描画
-    virtual void Draw() const override;
+    virtual void Draw(void) const override;
 
 private:
 

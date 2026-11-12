@@ -10,7 +10,7 @@ SkillImageUI::SkillImageUI(std::shared_ptr<CharaStatus> status, Vector2 pos, con
 {
 }
 
-void SkillImageUI::Update()
+void SkillImageUI::Update(void)
 {
 	ImageUI::Update();
 
