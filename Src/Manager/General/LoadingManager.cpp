@@ -71,7 +71,7 @@ void LoadingManager::StartLoading(void)
 	//SoundManager::GetInstance().AllStop();
 }
 
-void LoadingManager::EndLoading()
+void LoadingManager::EndLoading(void)
 {
 	// ”ñ“¯Šúˆ—‚ğ–³Œø‚É‚·‚é
 	SetUseASyncLoadFlag(false);

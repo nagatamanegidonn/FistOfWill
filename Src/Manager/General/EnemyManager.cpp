@@ -16,7 +16,7 @@ EnemyManager::EnemyManager(std::shared_ptr<ActorManager> actorM)
 {
 }
 
-EnemyManager::~EnemyManager()
+EnemyManager::~EnemyManager(void)
 {
 }
 
@@ -41,12 +41,12 @@ void EnemyManager::Exit(std::shared_ptr<EnemyBase> _enemy)
 	
 }
 
-void EnemyManager::Init()
+void EnemyManager::Init(void)
 {
 
 }
 
-void EnemyManager::Update()
+void EnemyManager::Update(void)
 {
 	// ゲーム終了処理（仮）
 	if (m_enemys.size() <= 0)
@@ -106,7 +106,7 @@ void EnemyManager::Update()
 	}
 }
 
-void EnemyManager::End()
+void EnemyManager::End(void)
 {
 	// weak_ptr の場合は、ここで無理に Exit を呼ばなくても
 	// ActorManager 側が解放されれば自動的に expired になりますが、
@@ -118,11 +118,11 @@ void EnemyManager::InAreaBattle(std::list<std::shared_ptr<EnemyBase>> activeEnem
 {
 }
 
-void EnemyManager::FinishInAreaBattle()
+void EnemyManager::FinishInAreaBattle(void)
 {
 }
 
-bool EnemyManager::IsAllDeadEnemys() const
+bool EnemyManager::IsAllDeadEnemys(void) const
 {
 	// 寿命が残っている要素が一つもない = 全滅
 	return std::all_of(m_enemys.begin(), m_enemys.end(),
@@ -131,7 +131,7 @@ bool EnemyManager::IsAllDeadEnemys() const
 		});
 }
 
-void EnemyManager::DebugDraw() const
+void EnemyManager::DebugDraw(void) const
 {
 }
 

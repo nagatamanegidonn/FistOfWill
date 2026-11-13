@@ -65,7 +65,7 @@ void PauseCamera::Update(void)
     int diffX = mouseX - prevMouseX_;
     int diffY = mouseY - prevMouseY_;
 
-    // --- 1. マウスドラッグによる視点回転 ---
+    // --- マウスドラッグによる視点回転 ---
     // 右クリック（または左クリック）を押している間、自由回転
     if ((GetMouseInput() & MOUSE_INPUT_RIGHT) || (GetMouseInput() & MOUSE_INPUT_LEFT))
     {
@@ -80,7 +80,7 @@ void PauseCamera::Update(void)
         angles_.x = std::clamp(angles_.x, LIMIT_DOWN, LIMIT_UP);
     }
 
-    // --- 2. ホイール操作によるズームイン / ズームアウト ---
+    // --- ホイール操作によるズームイン / ズームアウト ---
     int wheel = GetMouseWheelRotVol();
     if (wheel != 0)
     {
@@ -92,13 +92,13 @@ void PauseCamera::Update(void)
     prevMouseX_ = mouseX;
     prevMouseY_ = mouseY;
 
-    // --- 3. 角度と距離からカメラ座標（pos_）を計算 ---
+    // --- 角度と距離からカメラ座標（pos_）を計算 ---
     // 球面座標系の計算
     pos_.x = targetPos_.x + radius_ * cosf(angles_.x) * sinf(angles_.y);
     pos_.y = targetPos_.y + radius_ * sinf(angles_.x);
     pos_.z = targetPos_.z - radius_ * cosf(angles_.x) * cosf(angles_.y);
 
-    // --- 4. DXライブラリへ反映 ---
+    // --- DXライブラリへ反映 ---
     DxLib::SetCameraPositionAndTarget_UpVecY(pos_, targetPos_);
     Effekseer_Sync3DSetting();
 }
@@ -118,7 +118,7 @@ void PauseCamera::Exit(void)
     SetMousePoint(centerX, centerY);
 }
 
-void PauseCamera::Resume()
+void PauseCamera::Resume(void)
 {
     // ポーズ解除時の後処理
     SetMouseDispFlag(FALSE);

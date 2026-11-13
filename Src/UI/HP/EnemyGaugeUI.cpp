@@ -15,11 +15,11 @@ EnemyGaugeUI::EnemyGaugeUI(std::shared_ptr<CharaStatus> status, const VECTOR& ta
 {
 }
 
-EnemyGaugeUI::~EnemyGaugeUI()
+EnemyGaugeUI::~EnemyGaugeUI(void)
 {
 }
 
-void EnemyGaugeUI::Update()
+void EnemyGaugeUI::Update(void)
 {
     // ステータスが破棄されていたら自身を削除対象にする
     if (m_charaStatus.expired())
@@ -33,7 +33,7 @@ void EnemyGaugeUI::Update()
     m_maxValue = status->GetMaxHP();
 }
 
-void EnemyGaugeUI::Draw() const
+void EnemyGaugeUI::Draw(void) const
 {
     if (!m_isDraw) return;
     if (m_value <= 0.0f) return;

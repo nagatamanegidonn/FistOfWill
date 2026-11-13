@@ -18,7 +18,7 @@ DrawAfterimageComponent::DrawAfterimageComponent(std::weak_ptr<ActorBase> _actor
 	actor_ = _actor;
 }
 
-DrawAfterimageComponent::~DrawAfterimageComponent()
+DrawAfterimageComponent::~DrawAfterimageComponent(void)
 {
 	// •¡»‚µ‚½c‘œê—pƒ‚ƒfƒ‹‚ğ‚·‚×‚Ä‰ğ•ú
 	for (int modelId : afterimageModels_)
@@ -33,7 +33,7 @@ DrawAfterimageComponent::~DrawAfterimageComponent()
 	ghostHistory_.clear();
 }
 
-void DrawAfterimageComponent::Init()
+void DrawAfterimageComponent::Init(void)
 {
 	auto chara = GetChara();
 	if (!chara) return;
@@ -59,7 +59,7 @@ void DrawAfterimageComponent::Init()
 	}
 }
 
-void DrawAfterimageComponent::Update()
+void DrawAfterimageComponent::Update(void)
 {
 	if (!IsActive()) return;
 
@@ -100,7 +100,7 @@ void DrawAfterimageComponent::PostUpdate(void)
 	}
 }
 
-void DrawAfterimageComponent::DrawAfter()
+void DrawAfterimageComponent::DrawAfter(void)
 {
 	if (!IsActive()) return;
 

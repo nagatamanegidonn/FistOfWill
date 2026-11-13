@@ -20,11 +20,11 @@ DrawRimLightComponent::DrawRimLightComponent(std::weak_ptr<ActorBase> _actor)
 	actor_ = _actor;
 }
 
-DrawRimLightComponent::~DrawRimLightComponent()
+DrawRimLightComponent::~DrawRimLightComponent(void)
 {
 }
 
-void DrawRimLightComponent::Init()
+void DrawRimLightComponent::Init(void)
 {
 	auto actor = actor_.lock();
 	if (!actor) return;
@@ -43,7 +43,7 @@ void DrawRimLightComponent::Init()
 	renderer_ = std::make_unique<ModelRenderer>(actor->GetTransform().modelId, *material_);
 }
 
-void DrawRimLightComponent::Update()
+void DrawRimLightComponent::Update(void)
 {
 	if (!IsActive()) return;
 }
@@ -58,7 +58,7 @@ void DrawRimLightComponent::PostUpdate(void)
 	material_->SetConstBufPS(1, { cmeraPos.x,cmeraPos.y,cmeraPos.z,RIM_POW });
 }
 
-void DrawRimLightComponent::DrawAfter()
+void DrawRimLightComponent::DrawAfter(void)
 {
 	if (!IsActive()) return;
 

@@ -17,11 +17,11 @@ FpsControl::FpsControl(const int fixedFps) :
 	SetWaitVSyncFlag(false);
 }
 
-FpsControl::~FpsControl()
+FpsControl::~FpsControl(void)
 {
 }
 
-void FpsControl::Wait()
+void FpsControl::Wait(void)
 {
     // 現在時間
     auto nowTime = std::chrono::high_resolution_clock::now();
@@ -78,7 +78,7 @@ void FpsControl::Wait()
     fps_ = static_cast<float>(timeList_.size() / total);
 }
 
-void FpsControl::Draw()
+void FpsControl::Draw(void)
 {
     // 描画する文字列の幅を取得(デフォルトフォントの場合)
     int textWidth = GetDrawFormatStringWidth(TEXT_FORMAT.c_str(), fps_);

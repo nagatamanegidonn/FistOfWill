@@ -9,7 +9,6 @@ using json = nlohmann::json;
 
 class GameManager
 {
-
 public:
 
 	// ƒQ[ƒ€Œ‹‰Ê

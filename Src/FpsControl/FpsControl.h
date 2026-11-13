@@ -19,23 +19,23 @@ public:
 	/// <summary>
 	/// デストラクタ
 	/// </summary>
-	~FpsControl();
+	~FpsControl(void);
 
 	/// <summary>
 	/// フレーム制御
 	/// </summary>
-	void Wait();
+	void Wait(void);
 
 	/// <summary>
 	/// デバッグ用FPS表示
 	/// </summary>
-	void Draw();
+	void Draw(void);
 
 	/// <summary>
 	/// FPSを返す
 	/// </summary>
 	/// <returns></returns>
-	const float GetFPS() const { return fps_; }
+	const float GetFPS(void) const { return fps_; }
 
 private:
 

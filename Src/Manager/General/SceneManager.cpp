@@ -378,7 +378,6 @@ void SceneManager::DoChangeScene(SCENE_ID sceneId)
 	if (!scene_.empty())
 	{
 		//scene_.back()->Init(); 
-
 		//Init‚Ì•Ï‚í‚è‚ÉAsyncPreLoad
 		scene_.back()->AsyncPreLoad();
 	}

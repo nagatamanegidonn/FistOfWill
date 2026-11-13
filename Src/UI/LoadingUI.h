@@ -7,6 +7,10 @@ class LoadingUI :
 {
 public:
 
+    //ローディング
+    static constexpr int COMMA_MAX_NUM = 7;											//「now loading......」のコンマの数
+    static constexpr float COMMA_TIME = 0.5f;										//「now loading......」のコンマ数を増やす時間
+
     // コンストラクタ
     LoadingUI(void);
 
@@ -26,6 +30,8 @@ private:
 
     // アニメーション角度
     float m_angle_;
+
+    float m_loadTime_;
 
     // 回転速度
     static constexpr float ROTATION_SPEED = 2.5f;

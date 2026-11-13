@@ -59,7 +59,6 @@ TutorialScene::TutorialScene(void)
 	skyDome_ = nullptr;
 
 	CollisionManager::CreateInstance();
-
 }
 
 TutorialScene::~TutorialScene(void)
@@ -110,7 +109,6 @@ void TutorialScene::Init(void)
 	// UI
 	// weak_ptr ‚ğì¬‚·‚é
 	std::weak_ptr<SceneUI> weakSelectUI = SceneUI_; // ‚à‚µ‚­‚ÍŠÇ—ƒNƒ‰ƒX‚Ì weak_ptr
-
 }
 
 void TutorialScene::Release(void)

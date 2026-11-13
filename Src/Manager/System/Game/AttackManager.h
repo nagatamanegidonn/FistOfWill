@@ -45,7 +45,7 @@ public:
 
 private:
 
-    void CreateAttackCollider()
+    void CreateAttackCollider(void)
     {
         auto actor = owner_.lock();
         if (!actor) return;
@@ -56,7 +56,7 @@ private:
         // MakeCollider(...);
     }
 
-    void DestroyAttackCollider()
+    void DestroyAttackCollider(void)
     {
         if (auto actor = owner_.lock()) {
             // DeleteColliderAtTag(Collider::TAG::ATTACK); Ç»Ç«ÇåƒÇÒÇ≈è¡Ç∑

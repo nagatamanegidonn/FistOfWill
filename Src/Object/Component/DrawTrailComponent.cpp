@@ -31,11 +31,11 @@ DrawTrailComponent::DrawTrailComponent(std::weak_ptr<ActorBase> _actor)
 	swordTrail_ = std::make_unique<SwordTrailData>(20); // 20ƒtƒŒ[ƒ€•ª‚Ì—š—ð
 }
 
-DrawTrailComponent::~DrawTrailComponent()
+DrawTrailComponent::~DrawTrailComponent(void)
 {
 }
 
-void DrawTrailComponent::Init()
+void DrawTrailComponent::Init(void)
 {
 	auto chara = GetChara();
 	if (!chara) return;
@@ -53,7 +53,7 @@ void DrawTrailComponent::Init()
 	swordTrail_->Reset(head, tail);
 }
 
-void DrawTrailComponent::Update()
+void DrawTrailComponent::Update(void)
 {
 	if (!IsActive()) return;
 
@@ -87,7 +87,7 @@ void DrawTrailComponent::PostUpdate(void)
 {
 }
 
-void DrawTrailComponent::DrawAfter()
+void DrawTrailComponent::DrawAfter(void)
 {
 	if (!IsActive()) return;
 

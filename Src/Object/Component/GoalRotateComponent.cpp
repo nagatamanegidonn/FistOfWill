@@ -13,15 +13,15 @@ GoalRotateComponent::GoalRotateComponent(std::weak_ptr<ActorBase> _actor)
 	rotateDir_ = Utility::VECTOR_ZERO;
 }
 
-GoalRotateComponent::~GoalRotateComponent()
+GoalRotateComponent::~GoalRotateComponent(void)
 {
 }
 
-void GoalRotateComponent::Init()
+void GoalRotateComponent::Init(void)
 {
 }
 
-void GoalRotateComponent::Update()
+void GoalRotateComponent::Update(void)
 {
 }
 

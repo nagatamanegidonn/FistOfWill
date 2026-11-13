@@ -97,7 +97,7 @@ public:
 	/// <summary>
 	/// ÅŒã‚É’Ç‰Á‚µ‚½ƒV[ƒ“‚ğíœ‚·‚é
 	/// </summary>
-	void PopScene();
+	void PopScene(void);
 
 	// UI‚Ìİ’è
 	void AddOtherUI(std::shared_ptr<UIBase> ui);

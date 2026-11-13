@@ -22,7 +22,7 @@ void UIManager::Exit(std::shared_ptr<UIBase> ui)
 	m_uis.erase(it);
 }
 
-void UIManager::Update()
+void UIManager::Update(void)
 {
 	if (!m_isDraw)return;
 
@@ -37,7 +37,7 @@ void UIManager::Update()
 	CheckDelete();
 }
 
-void UIManager::FrontDraw() const
+void UIManager::FrontDraw(void) const
 {
 	if (!m_isDraw)return;
 
@@ -49,7 +49,7 @@ void UIManager::FrontDraw() const
 	}
 }
 
-void UIManager::BackDraw() const
+void UIManager::BackDraw(void) const
 {
 	if (!m_isDraw)return;
 
@@ -61,14 +61,14 @@ void UIManager::BackDraw() const
 	}
 }
 
-void UIManager::AllDeleteUI()
+void UIManager::AllDeleteUI(void)
 {
 	//一気に登録解除
 	m_uis.clear();
 }
 
 //消滅フラグをチェックして削除
-void UIManager::CheckDelete()
+void UIManager::CheckDelete(void)
 {
 	// 削除対象のUIを一時的に抽出する
 	std::vector<std::shared_ptr<UIBase>> toDelete;

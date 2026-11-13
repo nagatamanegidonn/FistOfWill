@@ -13,15 +13,15 @@ GravityComponent::GravityComponent(std::weak_ptr<ActorBase> _actor)
 	actor_ = _actor;
 }
 
-GravityComponent::~GravityComponent()
+GravityComponent::~GravityComponent(void)
 {
 }
 
-void GravityComponent::Init()
+void GravityComponent::Init(void)
 {
 }
 
-void GravityComponent::Update()
+void GravityComponent::Update(void)
 {
 	auto chara = GetChara();
 	if (!chara) return;

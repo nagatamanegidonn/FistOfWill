@@ -59,7 +59,7 @@ void ActorManager::Exit(std::shared_ptr<ActorBase> _actor)
 	actors_.erase(it);
 }
 
-void ActorManager::Init()
+void ActorManager::Init(void)
 {
 	// 初期化されたら「自分が今使われるマネージャーである」と登録する
 	s_activeInstance = this;
@@ -72,7 +72,7 @@ void ActorManager::Init()
 	enemyManager_->Init();
 }
 
-void ActorManager::Start()
+void ActorManager::Start(void)
 {
 	// ループ中に追加されたアクターを、メイン配列に結合する
 	if (!addActors_.empty())
@@ -83,7 +83,7 @@ void ActorManager::Start()
 	}
 }
 
-void ActorManager::Update()
+void ActorManager::Update(void)
 {
 	// 敵マネージャーの更新 (動くかどうかなどの管理を行う）
 	enemyManager_->Update();
@@ -105,10 +105,9 @@ void ActorManager::Update()
 		actor->Update();
 	}
 	CheckAlive();
-
 }
 
-void ActorManager::Draw()
+void ActorManager::Draw(void)
 {
 	// 影描画
 	SceneManager::GetInstance().GetShadowMap()->DrawStartSetUp();
@@ -121,7 +120,6 @@ void ActorManager::Draw()
 
 	// 中間
 	SceneManager::GetInstance().GetShadowMap()->DrawSetUp();
-
 
 	// アクターの描画
 	for (auto& actor : actors_)
@@ -137,7 +135,7 @@ void ActorManager::Draw()
 #endif
 }
 
-void ActorManager::End()
+void ActorManager::End(void)
 {
 	// ★ 追加：終了したらポインタをクリアする
 	if (s_activeInstance == this)
@@ -160,7 +158,7 @@ void ActorManager::End()
 	enemyManager_.reset();
 }
 
-void ActorManager::Restart()
+void ActorManager::Restart(void)
 {
 	//アクターの初期化
 	for (auto& actor : actors_)
@@ -176,7 +174,7 @@ void ActorManager::Restart()
 	m_isBossBattle = false;*/
 }
 
-void ActorManager::CheckAlive()
+void ActorManager::CheckAlive(void)
 {
 	// 配列（actors_）から、条件（IsDeleteがtrue）に一致する要素を削除する
 	std::erase_if(actors_, [this](const std::shared_ptr<ActorBase>& actor)
@@ -207,7 +205,6 @@ void ActorManager::CheckAlive()
 
 			return false; // 生存：削除しない
 		});
-
 }
 
 std::vector<std::shared_ptr<PlayerBase>> ActorManager::GetPlayers(void)
@@ -228,10 +225,9 @@ std::vector<std::shared_ptr<PlayerBase>> ActorManager::GetPlayers(void)
 	return playerList;
 }
 
-bool ActorManager::IsAllDeadEnemys()
+bool ActorManager::IsAllDeadEnemys(void)
 {
 	if (!enemyManager_)return true;
-
 
 	auto val = enemyManager_->IsAllDeadEnemys();
 
@@ -326,7 +322,6 @@ void ActorManager::PlayerEnemyTarget(void)
 				closestEnemy = enemy.lock();
 			}
 		}
-
 		// プレイヤーに「お前に一番近いのはこの敵だよ」と教えてあげる
 		player->SetClosestTarget(closestEnemy);
 	}

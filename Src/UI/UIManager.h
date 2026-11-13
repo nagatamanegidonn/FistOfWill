@@ -8,8 +8,8 @@ class UIManager final
 private:
 
 	//シングルトンの準備
-	UIManager() = default;
-	~UIManager() = default;
+	UIManager(void) = default;
+	~UIManager(void) = default;
 	//コピー禁止
 	UIManager(const UIManager&) = delete;
 	UIManager& operator = (const UIManager&) = delete;
@@ -33,13 +33,13 @@ public:
 	void Exit(std::shared_ptr<UIBase> ui);
 
 	//更新
-	void Update();
+	void Update(void);
 	//前描画
-	void FrontDraw()const;
+	void FrontDraw(void) const;
 	//後描画
-	void BackDraw()const;
+	void BackDraw(void) const;
 	//削除
-	void AllDeleteUI();
+	void AllDeleteUI(void);
 
 	//描画するか
 	void SetIsDraw(bool isDraw) { m_isDraw = isDraw; };
@@ -51,7 +51,7 @@ private:
 private:
 
 	//削除チェック
-	void CheckDelete();
+	void CheckDelete(void);
 
 	//描画するか
 	bool m_isDraw = true;

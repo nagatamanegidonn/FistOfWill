@@ -10,15 +10,15 @@ MoveApplyComponent::MoveApplyComponent(std::weak_ptr<ActorBase> _actor)
 	actor_ = _actor;
 }
 
-MoveApplyComponent::~MoveApplyComponent()
+MoveApplyComponent::~MoveApplyComponent(void)
 {
 }
 
-void MoveApplyComponent::Init()
+void MoveApplyComponent::Init(void)
 {
 }
 
-void MoveApplyComponent::Update()
+void MoveApplyComponent::Update(void)
 {
 }
 

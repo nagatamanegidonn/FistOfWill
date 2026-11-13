@@ -14,15 +14,15 @@ ControlMoveComponent::ControlMoveComponent(std::weak_ptr<ActorBase> _actor, std:
 	input_ = _input;
 }
 
-ControlMoveComponent::~ControlMoveComponent()
+ControlMoveComponent::~ControlMoveComponent(void)
 {
 }
 
-void ControlMoveComponent::Init()
+void ControlMoveComponent::Init(void)
 {
 }
 
-void ControlMoveComponent::Update()
+void ControlMoveComponent::Update(void)
 {
 	auto chara = GetChara();
 	if (!chara) return;
@@ -79,14 +79,14 @@ void ControlMoveComponent::PostUpdate(void)
 {
 }
 
-void ControlMoveComponent::Move()
+void ControlMoveComponent::Move(void)
 {
 }
 	
-void ControlMoveComponent::Lerp()
+void ControlMoveComponent::Lerp(void)
 {
 }
 
-void ControlMoveComponent::HitMove()
+void ControlMoveComponent::HitMove(void)
 {
 }

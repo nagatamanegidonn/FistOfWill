@@ -173,6 +173,7 @@ void PlayerCamera::Update(void)
 
 	Effekseer_Sync3DSetting();
 }
+
 void PlayerCamera::Draw(void)
 {
 }

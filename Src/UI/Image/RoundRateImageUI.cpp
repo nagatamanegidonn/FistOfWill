@@ -25,7 +25,7 @@ void RoundRateImageUI::Update(void)
 }
 
 // •`‰æˆ—
-void RoundRateImageUI::Draw() const
+void RoundRateImageUI::Draw(void) const
 {
     if (!m_isDraw) return;
     if (handle_ < 0) return;

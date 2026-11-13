@@ -26,11 +26,11 @@ HpGaugeUI::HpGaugeUI(std::shared_ptr<CharaStatus> status,Vector2 pos, Vector2 si
 {
 }
 
-HpGaugeUI::~HpGaugeUI()
+HpGaugeUI::~HpGaugeUI(void)
 {
 }
 
-void HpGaugeUI::Update()
+void HpGaugeUI::Update(void)
 {
 	if (m_charaStatus.expired()) return;
 	// アニメーション（徐々にゲージが減る効果など）を追加したい場合はここに記述します
@@ -41,7 +41,7 @@ void HpGaugeUI::Update()
 
 }
 
-void HpGaugeUI::Draw() const
+void HpGaugeUI::Draw(void) const
 {
 	if (!m_isDraw) return;
 

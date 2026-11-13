@@ -15,7 +15,7 @@ AttackManager::AttackManager(std::shared_ptr<ActorBase> owner)
     // MakeCollider(...);
 }
 
-AttackManager::~AttackManager()
+AttackManager::~AttackManager(void)
 {
     if (auto actor = owner_.lock()) {
         // DeleteColliderAtTag(Collider::TAG::ATTACK); ‚È‚Ç‚ğŒÄ‚ñ‚ÅÁ‚·

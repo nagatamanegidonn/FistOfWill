@@ -9,6 +9,7 @@
 LoadingUI::LoadingUI(void)
     :
     m_angle_(0.0f),
+    m_loadTime_(0.0f),
     UIBase()
 {
 }
@@ -19,7 +20,7 @@ void LoadingUI::Init(void)
     UIBase::Init();
 
     m_angle_ = 0.0f;
-
+    m_loadTime_ = 0.0f;
     // 最前面に描画
     //SetFrontDraw(true);
 }
@@ -33,6 +34,8 @@ void LoadingUI::Update(void)
     // アニメーション更新
     // 60FPSを基準にする
     m_angle_ += ROTATION_SPEED / 60.0f;
+
+	m_loadTime_ += 0.016f; // 仮のデルタタイム（1フレームあたり約16ms）
 
     constexpr float PI = 3.14159265f;
     constexpr float TWO_PI = PI * 2.0f;
@@ -86,21 +89,28 @@ void LoadingUI::Draw(void) const
     }
 
     // ローディング文字
-#if defined(UNICODE) || defined(_UNICODE)
-    const TCHAR* text = _T("LOADING...");
-#else
-    const char* text = "LOADING...";
-#endif
+    // ロード中
+    int count = static_cast<int>(m_loadTime_ / COMMA_TIME);
+    count %= COMMA_MAX_NUM;
+
+    std::wstring string = L"Now Loading";
+    std::wstring dotStr = L".";
+
+    //テキストの設定
+    for (int i = 0; i < count; i++)
+    {
+        string += dotStr;
+    }
 
     int textWidth = GetDrawStringWidth(
-        text,
-        static_cast<int>(_tcslen(text))
+        string.c_str(),
+        static_cast<int>(_tcslen(string.c_str()))
     );
 
     DrawString(
         static_cast<int>(centerX - textWidth * 0.5f),
         static_cast<int>(centerY + 55.0f),
-        text,
+        string.c_str(),
         GetColor(255, 255, 255)
     );
 }
