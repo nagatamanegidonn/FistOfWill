@@ -479,7 +479,7 @@ void SceneManager::Save(bool isUse) const
 	}
 
 	// 書き込み
-	std::ofstream ofs(Application::PATH_JSON + L"ControllerListDate.json");
+	std::ofstream ofs(Application::PATH_JSON + L"ControllerListData.json");
 	if (!ofs.is_open()) {
 		printfDx(L"Save失敗: 書き込み用ファイルを開けませんでした\n");
 		return;

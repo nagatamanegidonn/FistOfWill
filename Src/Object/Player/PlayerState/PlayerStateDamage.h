@@ -11,11 +11,11 @@ public:
     // コンストラクタ
     PlayerStateDamage(std::weak_ptr<ActorBase> _actor);
     // デストラクタ
-    ~PlayerStateDamage() override = default;
+    ~PlayerStateDamage(void) override = default;
 
-    void Init() override;
-    void Update() override;
-    void Exit() override;
+    void Init(void) override;
+    void Update(void) override;
+    void Exit(void) override;
 
 private:
 

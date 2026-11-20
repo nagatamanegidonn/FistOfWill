@@ -233,7 +233,7 @@ void CharaBase::LoadCsvAttackData(std::wstring path)
 		data->frameName = csvData->GetData(6);					// ƒ{[ƒ“–¼ (std::wstring)
 		data->colliderRadius = std::stof(csvData->GetData(7));	// ”¼Œa (float)
 		data->forwardSpeed = std::stof(csvData->GetData(8));	// ‘Oi‘¬“x (float)
-		data->nextAttackId = std::stof(csvData->GetData(9));	// UŒ‚ID (int)
+		data->nextAttackId = std::stoi(csvData->GetData(9));	// UŒ‚ID (int)
 		std::wstring typeStr = csvData->GetData(10);
 		if (typeStr == L"Melee")
 		{

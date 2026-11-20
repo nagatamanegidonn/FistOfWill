@@ -16,7 +16,7 @@ GameManager::GameManager(void)
 	capturedScreenGraph_(-1),
 	ControllerId_(0),
 	charId_(0),
-	weponId_(0),
+	weaponId_(0),
 	IsHost_(true),
 	mainScreen_(-1)
 {

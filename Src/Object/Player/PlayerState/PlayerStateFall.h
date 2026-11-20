@@ -11,15 +11,15 @@ public:
     // コンストラクタ
     PlayerStateFall(std::weak_ptr<ActorBase> _actor);
     // デストラクタ
-    ~PlayerStateFall() override = default;
+    ~PlayerStateFall(void) override = default;
 
-    void Init() override;
-    void Update() override;
-    void Exit() override;
+    void Init(void) override;
+    void Update(void) override;
+    void Exit(void) override;
 
 private:
 
-    float stepJump_; // ジャンプ入力受付時間
+    float stepJump_;    // ジャンプ入力受付時間
     VECTOR gravityPow_; // ジャンプ力
 };
 

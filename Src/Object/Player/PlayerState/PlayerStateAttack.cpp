@@ -61,7 +61,7 @@ PlayerStateAttack::PlayerStateAttack(std::weak_ptr<ActorBase> _actor, int attack
 	currentData_ = chara->GetAttackData(attackIndex_);
 }
 
-void PlayerStateAttack::Init()
+void PlayerStateAttack::Init(void)
 {
 	// 次の状態を自分の状態を入れる
 	ChangeState(nullptr);
@@ -91,7 +91,7 @@ void PlayerStateAttack::Init()
 	}
 }
 
-void PlayerStateAttack::Update()
+void PlayerStateAttack::Update(void)
 {
 	// PlayerBase → CharaBase でもOK（継承関係があるので）
 	std::shared_ptr<CharaBase> chara = std::dynamic_pointer_cast<CharaBase>(owner_.lock());
@@ -237,7 +237,7 @@ void PlayerStateAttack::Update()
 	}
 }
 
-void PlayerStateAttack::Exit()
+void PlayerStateAttack::Exit(void)
 {
 	// 自身のオーナー（ActorBase）を取得
 	if (auto actor = owner_.lock())

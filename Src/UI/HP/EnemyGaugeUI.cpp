@@ -29,8 +29,8 @@ void EnemyGaugeUI::Update(void)
     }
 
     auto status = m_charaStatus.lock();
-    m_value = status->GetNowHP();
-    m_maxValue = status->GetMaxHP();
+    m_value = static_cast<float>(status->GetNowHP());
+    m_maxValue = static_cast<float>(status->GetMaxHP());
 }
 
 void EnemyGaugeUI::Draw(void) const

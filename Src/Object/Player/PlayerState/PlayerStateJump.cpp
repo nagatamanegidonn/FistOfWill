@@ -27,7 +27,7 @@ PlayerStateJump::PlayerStateJump(std::weak_ptr<ActorBase> _actor)
 	m_State = STATE::JUMP;
 }
 
-void PlayerStateJump::Init()
+void PlayerStateJump::Init(void)
 {
 	// éüÇÃèÛë‘Çé©ï™ÇÃèÛë‘Çì¸ÇÍÇÈ
 	ChangeState(nullptr);
@@ -36,7 +36,7 @@ void PlayerStateJump::Init()
 	chara.lock()->GetAnimController().lock()->Play(ANIM_JUMP, false);
 }
 
-void PlayerStateJump::Update()
+void PlayerStateJump::Update(void)
 {
 	// PlayerBase Å® CharaBase Ç≈Ç‡OKÅiåpè≥ä÷åWÇ™Ç†ÇÈÇÃÇ≈Åj
 	std::weak_ptr<CharaBase> chara = std::dynamic_pointer_cast<CharaBase>(owner_.lock());
@@ -77,6 +77,6 @@ void PlayerStateJump::Update()
 
 }
 
-void PlayerStateJump::Exit()
+void PlayerStateJump::Exit(void)
 {
 }

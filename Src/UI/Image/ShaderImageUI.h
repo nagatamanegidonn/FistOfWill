@@ -4,15 +4,15 @@
 class PixelMaterial;
 class PixelRenderer;
 
-class SyaderImageUI :
+class ShaderImageUI :
     public ImageUI
 {
 public:
 
     // コンストラクタ
-    SyaderImageUI(Vector2 pos,Vector2 size, const std::wstring& resourceKey = L"");
+    ShaderImageUI(Vector2 pos,Vector2 size, const std::wstring& resourceKey = L"");
     // デストラクタ
-    virtual ~SyaderImageUI(void) = default;
+    virtual ~ShaderImageUI(void) = default;
 
     // UIBaseのオーバーライド
     virtual void Init(void) override;

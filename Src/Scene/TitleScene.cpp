@@ -12,7 +12,7 @@
 
 #include "../UI/Scene/SceneUI.h"
 #include "../UI/ButtonUI.h"
-#include "../UI/Image/SyaderImageUI.h"
+#include "../UI/Image/ShaderImageUI.h"
 
 #include "Sub/PauseScene.h"
 #include "TitleScene.h"
@@ -54,7 +54,7 @@ void TitleScene::Init(void)
 	SetMousePoint(Application::SCREEN_SIZE_X / 2, Application::SCREEN_SIZE_Y / 2);
 	
 	// UI
-	auto Title = std::make_shared<SyaderImageUI>(CENTER_POS
+	auto Title = std::make_shared<ShaderImageUI>(CENTER_POS
 		, Vector2(Application::SCREEN_SIZE_X, Application::SCREEN_SIZE_Y), L"TitleImage");
 	Title->Init();
 	Title->SetFrontDraw(true);

@@ -38,8 +38,10 @@ public:
 	void SetGameResult(GAME_RESULT result);
 
 	const int GetControllId(void) const { return ControllerId_; }
-	const int GetWeponId(void) const { return weponId_; }
-	const void SetWeponId(int weponId) { weponId_ = weponId; }
+
+	// 武器IDの取得と設定
+	const int GetWeaponId(void) const { return weaponId_; }
+	const void SetWeaponId(int weponId) { weaponId_ = weponId; }
 
 	// シーンを画像保存
 	const void CaptureMainScreen(void);
@@ -89,7 +91,7 @@ private:
 
 	// プレイヤー設定
 	int charId_;
-	int weponId_;
+	int weaponId_;
 
 	// 接続モード
 	bool IsHost_;

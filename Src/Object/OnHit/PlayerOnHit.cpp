@@ -232,7 +232,6 @@ void PlayerOnHit::OnHitAttack(const std::weak_ptr<Collider>& hitColWeak)
         int hp = owner_.GetCharaStatus()->GetNowHP();
         if (hp <= 0)
         {
-            //chara.cha
 			//owner_.Delete(); // HP‚ª0ˆÈ‰º‚È‚çíœ‚·‚é
             return;
         }

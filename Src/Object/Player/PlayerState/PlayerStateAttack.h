@@ -14,11 +14,11 @@ public:
     // コンストラクタ
     PlayerStateAttack(std::weak_ptr<ActorBase> _actor, int attackIndex = 0);
     // デストラクタ
-    ~PlayerStateAttack() override = default;
+    ~PlayerStateAttack(void) override = default;
 
-    void Init() override;
-    void Update() override;
-    void Exit() override;
+    void Init(void) override;
+    void Update(void) override;
+    void Exit(void) override;
 
     // プレイヤーを少し前に動かす
 	void AttackMove(void);

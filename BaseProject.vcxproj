@@ -155,7 +155,7 @@
     <ClCompile Include="Src\Object\Enemy\TutorialState\TutorialStateDamage.cpp" />
     <ClCompile Include="Src\Scene\Sub\TutorialTextScene.cpp" />
     <ClCompile Include="Src\Object\Stage\Destination.cpp" />
-    <ClCompile Include="Src\UI\Image\SyaderImageUI.cpp" />
+    <ClCompile Include="Src\UI\Image\ShaderImageUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Manager\General\LoadingManager.h" />
@@ -340,7 +340,7 @@
     <ClInclude Include="Src\Object\Enemy\TutorialState\TutorialStateDamage.h" />
     <ClInclude Include="Src\Scene\Sub\TutorialTextScene.h" />
     <ClInclude Include="Src\Object\Stage\Destination.h" />
-    <ClInclude Include="Src\UI\Image\SyaderImageUI.h" />
+    <ClInclude Include="Src\UI\Image\ShaderImageUI.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Src\Shader\Model\AfterimagePS.hlsl">

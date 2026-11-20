@@ -25,11 +25,11 @@ public:
 	// コンストラクタ
 	StateBase(std::weak_ptr<ActorBase> _actor);
 	// デストラクタ
-	virtual ~StateBase() = default;
+	virtual ~StateBase(void) = default;
 
-	virtual void Init() = 0;
-	virtual void Update() = 0;
-	virtual void Exit() = 0;
+	virtual void Init(void) = 0;
+	virtual void Update(void) = 0;
+	virtual void Exit(void) = 0;
 
 	//次の状態を取得
 	std::weak_ptr<StateBase> GetNextState() { return m_nextState; };

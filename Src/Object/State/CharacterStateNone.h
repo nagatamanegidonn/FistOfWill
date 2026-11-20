@@ -9,9 +9,9 @@ public:
     // コンストラクタ
     CharacterStateNone(std::weak_ptr<ActorBase> _actor);
     // デストラクタ
-    ~CharacterStateNone() override = default;
+    ~CharacterStateNone(void) override = default;
 
-    void Init() override;
-    void Update() override;
-    void Exit() override;
+    void Init(void) override;
+    void Update(void) override;
+    void Exit(void) override;
 };

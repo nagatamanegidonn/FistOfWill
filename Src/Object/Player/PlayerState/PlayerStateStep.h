@@ -12,11 +12,11 @@ public:
     // コンストラクタ
     PlayerStateStep(std::weak_ptr<ActorBase> _actor);
     // デストラクタ
-    ~PlayerStateStep() override = default;
+    ~PlayerStateStep(void) override = default;
 
-    void Init() override;
-    void Update() override;
-    void Exit() override;
+    void Init(void) override;
+    void Update(void) override;
+    void Exit(void) override;
 
 private:
 

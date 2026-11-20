@@ -12,7 +12,7 @@ class OnHitBase;
 
 class ComponentBase;
 
-static struct InitParameter
+struct InitParameter
 {
 	VECTOR scl = Utility::VECTOR_ONE;
 	VECTOR pos = Utility::VECTOR_ZERO;

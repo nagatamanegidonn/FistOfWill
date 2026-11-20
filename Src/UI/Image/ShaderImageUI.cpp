@@ -1,16 +1,16 @@
-#include "SyaderImageUI.h"
+#include "ShaderImageUI.h"
 
 #include "../Renderer/PixelMaterial.h"
 #include "../Renderer/PixelRenderer.h"
 
-SyaderImageUI::SyaderImageUI(Vector2 pos, Vector2 size, const std::wstring& resourceKey)
+ShaderImageUI::ShaderImageUI(Vector2 pos, Vector2 size, const std::wstring& resourceKey)
 	:
 	size_(size),
 	ImageUI(pos, resourceKey)
 {
 }
 
-void SyaderImageUI::Init(void)
+void ShaderImageUI::Init(void)
 {
 	ImageUI::Init();
 
@@ -23,7 +23,7 @@ void SyaderImageUI::Init(void)
 	);
 }
 
-void SyaderImageUI::Draw(void) const
+void ShaderImageUI::Draw(void) const
 {
 	renderer_->Draw();
 }

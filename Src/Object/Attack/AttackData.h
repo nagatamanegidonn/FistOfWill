@@ -21,7 +21,7 @@ public:
 
     std::wstring animationId;   // 再生するアニメーションID
     int attackPower;            // 攻撃力 (AT)
-	int startTime;              // 攻撃の発生フレーム
+	float startTime;              // 攻撃の発生フレーム
     float cancelableTime;       // 次のコンボ入力を受け付け開始するアニメーション時間
     std::wstring frameName;     // 当たり判定を付与するボーン(フレーム)名
     float colliderRadius;       // 判定の半径

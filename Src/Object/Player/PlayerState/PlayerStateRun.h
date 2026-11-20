@@ -10,10 +10,10 @@ public:
     // コンストラクタ
     PlayerStateRun(std::weak_ptr<ActorBase> _actor);
     // デストラクタ
-    ~PlayerStateRun() override = default;
+    ~PlayerStateRun(void) override = default;
 
-    void Init() override;
-    void Update() override;
-    void Exit() override;
+    void Init(void) override;
+    void Update(void) override;
+    void Exit(void) override;
 };
 

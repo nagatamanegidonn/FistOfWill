@@ -28,7 +28,7 @@ PlayerStateFall::PlayerStateFall(std::weak_ptr<ActorBase> _actor)
 	m_State = STATE::FAll;
 }
 
-void PlayerStateFall::Init()
+void PlayerStateFall::Init(void)
 {
 	// 次の状態を自分の状態を入れる
 	ChangeState(nullptr);
@@ -37,7 +37,7 @@ void PlayerStateFall::Init()
 	chara.lock()->GetAnimController().lock()->Play(ANIM_FALL);
 }
 
-void PlayerStateFall::Update()
+void PlayerStateFall::Update(void)
 {
 	// PlayerBase → CharaBase でもOK（継承関係があるので）
 	std::weak_ptr<CharaBase> chara = std::dynamic_pointer_cast<CharaBase>(owner_.lock());
@@ -69,6 +69,6 @@ void PlayerStateFall::Update()
 	player.lock()->AddJumpPow(gravityPow_);
 }
 
-void PlayerStateFall::Exit()
+void PlayerStateFall::Exit(void)
 {
 }

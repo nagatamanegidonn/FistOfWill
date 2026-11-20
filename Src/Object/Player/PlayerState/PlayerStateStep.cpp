@@ -34,7 +34,7 @@ PlayerStateStep::PlayerStateStep(std::weak_ptr<ActorBase> _actor)
 	m_State = STATE::STEP;
 }
 
-void PlayerStateStep::Init()
+void PlayerStateStep::Init(void)
 {
 	// Ÿ‚Ìó‘Ô‚ğ©•ª‚Ìó‘Ô‚ğ“ü‚ê‚é
 	ChangeState(nullptr);
@@ -62,7 +62,7 @@ void PlayerStateStep::Init()
 	}
 }
 
-void PlayerStateStep::Update()
+void PlayerStateStep::Update(void)
 {
 	// PlayerBase ¨ CharaBase ‚Å‚àOKiŒp³ŠÖŒW‚ª‚ ‚é‚Ì‚Åj
 	std::shared_ptr<CharaBase> chara = std::dynamic_pointer_cast<CharaBase>(owner_.lock());
@@ -118,7 +118,7 @@ void PlayerStateStep::Update()
 	}
 }
 
-void PlayerStateStep::Exit()
+void PlayerStateStep::Exit(void)
 {
 }
 

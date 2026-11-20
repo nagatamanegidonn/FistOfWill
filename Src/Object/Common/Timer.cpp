@@ -10,13 +10,13 @@
 Timer::Timer(float limitSeconds)
     : limitSeconds_(limitSeconds), isRunning_(false)
 {
-    freamHandle_ = LoadGraph((Application::PATH_IMAGE + L"Timer.png").c_str());
+    frameHandle_ = LoadGraph((Application::PATH_IMAGE + L"Timer.png").c_str());
     needleHandle_ = LoadGraph((Application::PATH_IMAGE + L"LongNeedle.png").c_str());
     endHandle_ = LoadGraph((Application::PATH_IMAGE + L"ShootNeedle.png").c_str());
 
     Material_ = std::make_unique<PixelMaterial>(L"Timer.cso", 1);
     Material_->AddConstBuf({ 0.5f, 0.5f, 1.0f, 0.3f });
-    Material_->AddTextureBuf(freamHandle_);
+    Material_->AddTextureBuf(frameHandle_);
     Material_->AddTextureBuf(needleHandle_);
     Material_->AddTextureBuf(endHandle_);
     Renderer_ = std::make_unique<PixelRenderer>(*Material_);
@@ -31,23 +31,23 @@ Timer::~Timer(void)
     if (needleHandle_ != -1) {
         DeleteGraph(needleHandle_);
     }
-    if (freamHandle_ != -1) {
-        DeleteGraph(freamHandle_);
+    if (frameHandle_ != -1) {
+        DeleteGraph(frameHandle_);
     }
 }
 
-void Timer::Start()
+void Timer::Start(void)
 {
     startTime_ = std::chrono::steady_clock::now();
     isRunning_ = true;
 }
 
-void Timer::Reset()
+void Timer::Reset(void)
 {
     isRunning_ = false;
 }
 
-float Timer::GetRemainingTime() const
+float Timer::GetRemainingTime(void) const
 {
     if (!isRunning_) return limitSeconds_;
 
@@ -57,7 +57,7 @@ float Timer::GetRemainingTime() const
     return (remaining > 0.0f) ? remaining : 0.0f;
 }
 
-bool Timer::IsTimeUp() const
+bool Timer::IsTimeUp(void) const
 {
     return GetRemainingTime() <= 0.0f;
 }
@@ -66,6 +66,7 @@ void Timer::SetNeedleImage(int handle)
 {
     needleHandle_ = handle;
 }
+
 void Timer::DrawNeedle(int centerX, int centerY, float startDeg, float endDeg) const
 {
     if (needleHandle_ == -1 || !isRunning_) return;

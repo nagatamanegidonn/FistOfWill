@@ -15,13 +15,13 @@ CharacterStateNone::CharacterStateNone(std::weak_ptr<ActorBase> _actor)
 	m_State = STATE::IDLE;
 }
 
-void CharacterStateNone::Init()
+void CharacterStateNone::Init(void)
 {
 	// Ÿ‚Ìó‘Ô‚ğ©•ª‚Ìó‘Ô‚ğ“ü‚ê‚é
 	ChangeState(nullptr);
 }
 
-void CharacterStateNone::Update()
+void CharacterStateNone::Update(void)
 {
 	// PlayerBase ¨ CharaBase ‚Å‚àOKiŒp³ŠÖŒW‚ª‚ ‚é‚Ì‚Åj
 	std::weak_ptr<CharaBase> chara = std::dynamic_pointer_cast<CharaBase>(owner_.lock());
@@ -33,6 +33,6 @@ void CharacterStateNone::Update()
 	}
 }
 
-void CharacterStateNone::Exit()
+void CharacterStateNone::Exit(void)
 {
 }

@@ -7,6 +7,7 @@ class PixelRenderer;
 class Timer
 {
 public:
+
     static constexpr int SIZE_X = 100;
     static constexpr int SIZE_Y = 100;
 
@@ -15,17 +16,16 @@ public:
     // デストラクタ
     ~Timer(void);
 
-    void Start();              // タイマー開始
-    void Reset();              // タイマーを止める（再スタートで再使用可）
+    void Start(void);              // タイマー開始
+    void Reset(void);              // タイマーを止める（再スタートで再使用可）
 
-    float GetRemainingTime() const; // 残り時間（0以下にならない）
-    bool IsTimeUp() const;          // 制限時間を過ぎたかどうか
+    float GetRemainingTime(void) const; // 残り時間（0以下にならない）
+    bool IsTimeUp(void) const;          // 制限時間を過ぎたかどうか
 
      // 針を描画する（中心座標と画像を指定）
     void SetNeedleImage(int handle);
     void DrawNeedle(int centerX, int centerY, float startDeg = 0.0f, float endDeg = 270.0f) const;
 
-    
 private:
 
     std::unique_ptr<PixelMaterial> Material_;
@@ -35,7 +35,7 @@ private:
     bool isRunning_;
     std::chrono::steady_clock::time_point startTime_;
 
-    int freamHandle_ = -1;
+    int frameHandle_ = -1;
     int needleHandle_ = -1;
     int endHandle_ = -1;
 

@@ -22,8 +22,8 @@ SwordTrailMaterial::SwordTrailMaterial(
 SwordTrailMaterial::~SwordTrailMaterial(void) {
     DeleteShader(shaderVS_);
     DeleteShader(shaderPS_);
-    DeleteShader(constBufVS_);
-    DeleteShader(constBufPS_);
+    DeleteShaderConstantBuffer(constBufVS_);
+    DeleteShaderConstantBuffer(constBufPS_);
 }
 
 // 定数バッファのセット関数(頂点シェーダー用)
