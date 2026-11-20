@@ -439,7 +439,7 @@ void SceneManager::Load(void)
 void SceneManager::Save(bool isUse) const
 {
 	// JSON読み込み（既存ファイル）
-	std::ifstream ifs(Application::PATH_JSON + L"ControllerListDate.json");
+	std::ifstream ifs(Application::PATH_JSON + L"ControllerListData.json");
 	if (!ifs.is_open()) {
 		printfDx(L"Save失敗: ファイルが開けませんでした\n");
 		return;
