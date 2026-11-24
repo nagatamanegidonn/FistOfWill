@@ -40,15 +40,9 @@ namespace
 	const Vector2 START_C_POS = Vector2(WIDTH / 2 + 10, HEIGHT / 2 + 10);
 
 	// タイマーの描画位置
-	constexpr int TIME_POS_X = Timer::SIZE_X / 2 + 10;
-	constexpr int TIME_POS_Y = Timer::SIZE_Y / 2 + 10;
 	constexpr float LIMIT_TIME = 60.0f * 5.0f;
 	// 音量倍率
 	constexpr float SOUND_RATE = 0.6f;
-
-	constexpr int MAP_SIZE = 200;
-	constexpr int MAP_POS_X = MAP_SIZE / 2 + 10;
-	constexpr int MAP_POS_Y = Application::SCREEN_SIZE_Y - MAP_SIZE / 2 - 10;
 }
 
 

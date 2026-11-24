@@ -28,15 +28,6 @@ StageManager::~StageManager()
 
 void StageManager::Init()
 {
-	/*CreatePlane();
-	CreateWall({ 500.0f,0.0f,500.0f });
-	CreateWall({ 500.0f,0.0f,-500.0f }, 90.0f);
-	CreateWall({ -500.0f,0.0f,-500.0f }, 180.0f);
-	CreateWall({ -500.0f,0.0f,500.0f }, 270.0f);
-	CreateWallStraight({ 0.0f,0.0f,2000.0f });
-	CreateWallStraight({ 0.0f,0.0f,-2000.0f });
-	CreateWallStraight({ -2000.0f,0.0f,0.0f });
-	CreateSlope({ -0.0f,0.0f,1000.0f });*/
 }
 
 void StageManager::Update()

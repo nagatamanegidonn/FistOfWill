@@ -150,7 +150,7 @@ protected:
 #pragma endregion
 
 	// State等でのリアクション管理
-	bool isReaction_;		//攻撃を受けたときのリアクションが発生するかの判定
+	bool isReaction_;			//攻撃を受けたときのリアクションが発生するかの判定
 	bool isAbsoluteReaction_;	// 攻撃を受けたときのリアクションが絶対に発生するかの判定
 
 	// ジャスト判定
@@ -177,6 +177,6 @@ protected:
 
 	// ターゲット（安全な弱参照で保持）
 	std::weak_ptr<ActorBase> closestTarget_;	// マネージャーから教えてもらった一番近いターゲット
-	std::weak_ptr<ActorBase> target_;		// 実際にロックオンしているターゲット
+	std::weak_ptr<ActorBase> target_;			// 実際にロックオンしているターゲット
 
 };

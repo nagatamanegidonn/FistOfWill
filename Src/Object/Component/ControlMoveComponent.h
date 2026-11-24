@@ -27,9 +27,5 @@ protected:
     //コンポーネントで操作するアクターベース
     std::weak_ptr<InputController> input_;
 
-    void Move(void);
-    void Lerp(void);
-    void HitMove(void);
-
 };
 

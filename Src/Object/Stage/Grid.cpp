@@ -26,6 +26,8 @@ namespace MyNamespace
 }
 
 Grid::Grid(void)
+	:
+	ActorBase()
 {
 }
 

@@ -23,14 +23,14 @@ InputController::InputController(int padType)
         },
         {KEY::OK_SECOND,
             {
-                {PeripheralType::KEYBOARD,KEY_INPUT_RETURN},
-                {PeripheralType::KEYBOARD,KEY_INPUT_SPACE},
+                {PeripheralType::KEYBOARD,KEY_INPUT_RETURN},// Enterキー
+                {PeripheralType::KEYBOARD,KEY_INPUT_SPACE}, // SPACEキー
                 {PeripheralType::GAME_PAD,PAD_INPUT_B},     // Bボタン
             }
         },
         {KEY::START,
             {
-                {PeripheralType::KEYBOARD,KEY_INPUT_P},
+				{PeripheralType::KEYBOARD,KEY_INPUT_P},     // Pキー
                 {PeripheralType::GAME_PAD,PAD_INPUT_R},     // STARTボタン
             }
         },

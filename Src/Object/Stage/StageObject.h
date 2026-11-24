@@ -23,6 +23,7 @@ public:
 	void Update(void) override;
 	void Draw(void) override;
 
+	// Õ“Ë‚Ìˆ—
 	virtual void OnHit(const std::weak_ptr<Collider> _hitCol) override {};
 
 private:

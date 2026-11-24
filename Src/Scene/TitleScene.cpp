@@ -31,12 +31,8 @@ namespace
 
 	// ボタン位置
 	const int B1_Y = Application::SCREEN_SIZE_Y - 100;
-	const Vector2 B1_C_POS = Vector2(845, 80);
-
-	// startボタンPos
-	const int B2_Y = B1_Y;
-	const Vector2 B2_C_POS = Vector2(HX, B2_Y);
-	const Vector2 END_C_POS = Vector2(HX, B2_Y + 40);
+	const Vector2 START_C_POS = Vector2(HX, B1_Y);
+	const Vector2 END_C_POS = Vector2(HX, B1_Y + 40);
 }
 
 TitleScene::TitleScene(void)
@@ -69,7 +65,7 @@ void TitleScene::Init(void)
 	SceneUI_->AddButtonUI(endUI);
 
 	// スタートボタンUI
-	auto StartUI = std::make_shared<ButtonUI>(B2_C_POS, Vector2(WIDTH, HEIGHT));
+	auto StartUI = std::make_shared<ButtonUI>(START_C_POS, Vector2(WIDTH, HEIGHT));
 	StartUI->Init();
 	StartUI->SetText(L"開始");
 	StartUI->EnableDraw();

@@ -25,13 +25,16 @@ Timer::Timer(float limitSeconds)
 
 Timer::~Timer(void)
 {
-    if (endHandle_ != -1) {
+    if (endHandle_ != -1)
+    {
         DeleteGraph(endHandle_);
     }
-    if (needleHandle_ != -1) {
+    if (needleHandle_ != -1)
+    {
         DeleteGraph(needleHandle_);
     }
-    if (frameHandle_ != -1) {
+    if (frameHandle_ != -1)
+    {
         DeleteGraph(frameHandle_);
     }
 }
@@ -85,5 +88,4 @@ void Timer::DrawNeedle(int centerX, int centerY, float startDeg, float endDeg) c
     Material_->SetConstBuf(0,{ 0.5f, 0.5f, rad,  Utility::Deg2RadF(endDeg) });
 
     Renderer_->Draw(centerX, centerY);
-    //DrawRotaGraph2(centerX, centerY, 0, h / 2, 1.0f, rad, needleHandle_, TRUE);
 }

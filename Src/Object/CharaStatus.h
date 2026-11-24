@@ -66,7 +66,6 @@ public:
 	float GetSkillTime(void) const { return m_skillTime_; };
 	void SetSkillTime(const float time) { m_skillTime_ = time; };
 
-
 private:
 
 	// ステータス

@@ -23,7 +23,7 @@ namespace
 	int HY = Application::SCREEN_SIZE_Y / 2;
 
 	const Vector2 B1_C_POS = Vector2(HX, HY - 50);
-	const Vector2 B2_C_POS = Vector2(HX, HY);
+	const Vector2 START_C_POS = Vector2(HX, HY);
 }
 
 TutorialTextScene::TutorialTextScene(const std::wstring text)

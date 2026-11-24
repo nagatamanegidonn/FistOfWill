@@ -204,7 +204,6 @@ void CharaBase::CountTime(float& time)
 void CharaBase::UpdateRotate(void)
 {
 	// 重力方向に沿って回転させる
-	//transform_.quaRot = grvMng_.GetTransform().quaRot;
 	transform_.quaRot = Quaternion();//grvMng_がないので代わりに
 	transform_.quaRot = transform_.quaRot.Mult(playerRotY_);
 }
@@ -213,7 +212,6 @@ void CharaBase::UpdateRotate(void)
 void CharaBase::LoadCsvAttackData(std::wstring path)
 {
 	// 既存の CSVDataLoader から文字列データのリストを取得
-	//auto csvDatas = CSVDataLoader::GetInstance().LoadCSV(L"Data/CSV/PlayerAttackData.csv");
 	auto csvDatas = CSVDataLoader::GetInstance().LoadCSV(path.c_str());
 
 	// 今回目的としている shared_ptr<AttackData> の配列を用意

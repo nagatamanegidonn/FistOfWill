@@ -79,14 +79,3 @@ void ControlMoveComponent::PostUpdate(void)
 {
 }
 
-void ControlMoveComponent::Move(void)
-{
-}
-	
-void ControlMoveComponent::Lerp(void)
-{
-}
-
-void ControlMoveComponent::HitMove(void)
-{
-}

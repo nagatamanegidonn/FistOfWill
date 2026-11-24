@@ -20,7 +20,7 @@ namespace
 	int HY = Application::SCREEN_SIZE_Y / 2;
 
 	const Vector2 B1_C_POS = Vector2(HX, HY - 50);
-	const Vector2 B2_C_POS = Vector2(HX, HY);
+	const Vector2 START_C_POS = Vector2(HX, HY);
 }
 
 PauseScene::PauseScene(void)
@@ -39,7 +39,7 @@ PauseScene::PauseScene(void)
 	SceneUI_->AddButtonUI(BackUI);
 
 	// スタートボタンUI
-	auto StartUI = std::make_shared<ButtonUI>(B2_C_POS, Vector2(WIDTH, HEIGHT));
+	auto StartUI = std::make_shared<ButtonUI>(START_C_POS, Vector2(WIDTH, HEIGHT));
 	StartUI->Init();
 	StartUI->SetText(L"ゲーム終了");
 	StartUI->EnableDraw();

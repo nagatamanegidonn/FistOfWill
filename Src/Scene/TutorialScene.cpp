@@ -32,19 +32,6 @@ namespace
 {
 	// 音量倍率
 	constexpr float SOUND_RATE = 0.6f;
-	// UIサイズ
-	const int WIDTH = 400;
-	const int HEIGHT = 30;
-
-	int HX = Application::SCREEN_SIZE_X / 2;
-	int HY = Application::SCREEN_SIZE_Y / 2;
-
-	// UI位置
-	const Vector2 START_C_POS = Vector2(WIDTH / 2 + 10, HEIGHT / 2 + 10);
-
-	constexpr int MAP_SIZE = 200;
-	constexpr int MAP_POS_X = MAP_SIZE / 2 + 10;
-	constexpr int MAP_POS_Y = Application::SCREEN_SIZE_Y - MAP_SIZE / 2 - 10;
 }
 
 

@@ -63,7 +63,4 @@ public:
 	void OnHit(const std::weak_ptr<Collider> _hitCol)override;
 
 private:
-
-	SpaceDome* spaceDome_;
-
 };

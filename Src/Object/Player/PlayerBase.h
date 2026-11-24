@@ -20,7 +20,6 @@ public:
 	virtual void Update(void) override;
 	virtual void Draw(void) override;
 
-
 	// ƒvƒŒƒCƒ„[‚Ì“ü—Í‚ğæ“¾‚·‚éŠÖ”
 	std::weak_ptr<InputController> GetInputController(void) { return inputController_; }
 
